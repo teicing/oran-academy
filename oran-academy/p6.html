@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P6 — HW & Stack Reference — O-RAN Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/academy.css">
+<style>.content-area{padding:24px;}.block-row{text-decoration:none;color:inherit;}</style>
+</head>
+<body>
+<div class="page-shell">
+<nav class="sidebar">
+  <div class="sidebar-logo"><div class="logo-badge">O-RAN Academy</div><div class="logo-title">Platform</div><div class="logo-sub">v1.0 · Italiano</div></div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Piattaforma</div><a class="nav-item" href="index.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+    <div class="nav-section">Temi</div>
+    <a class="nav-item" href="security.html" style="--active-color:#D85A30"><span class="nav-dot" style="background:#D85A30"></span> Security</a>
+    <a class="nav-item" href="automation.html" style="--active-color:#1D9E75"><span class="nav-dot" style="background:#1D9E75"></span> Automation</a>
+    <div class="nav-section">Moduli</div>
+    <a class="nav-item" href="p1.html" style="--active-color:#888780"><span class="nav-dot" style="background:#888780"></span> P1 Foundations<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p2.html" style="--active-color:#534AB7"><span class="nav-dot" style="background:#534AB7"></span> P2 Near-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p3.html" style="--active-color:#7F77DD"><span class="nav-dot" style="background:#7F77DD"></span> P3 Non-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p4.html" style="--active-color:#0F6E56"><span class="nav-dot" style="background:#0F6E56"></span> P4 Fronthaul<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p5.html" style="--active-color:#0C447C"><span class="nav-dot" style="background:#0C447C"></span> P5 Cloud &amp; OAM<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p6.html" style="--active-color:#185FA5"><span class="nav-dot" style="background:#185FA5"></span> P6 HW &amp; Stack<span class="nav-check">✓</span></a>
+  </div>
+  <div class="sidebar-footer"><a href="index.html" style="font-size:11px;color:var(--text-secondary);">← Dashboard</a></div>
+</nav>
+<main class="main-content">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-title" style="color:#0C447C;">P6 — HW & Stack Reference</div>
+      <div class="topbar-sub">WG5 + WG7 + WG8 · 5 blocchi · COTS · AAL · GPU/FPGA · K8s</div>
+    </div>
+    <div class="topbar-actions">
+      <a class="btn btn-sm" href="p5.html">← P5</a>
+      <a class="btn btn-sm" href="index.html" style="background:#E6F1FB;color:#0C447C;border-color:#185FA5;">Dashboard →</a>
+    </div>
+  </div>
+  <div class="content-area">
+    
+      <p>Il modulo P6 copre l'architettura HW COTS, l'Acceleration Abstraction Layer (AAL), le soluzioni GPU/FPGA (FlexRAN/Aerial), il White Box O-RU, e lo stack software K8s/SR-IOV.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+        <div class="card"><div style="font-size:13px;font-weight:500;margin-bottom:6px;">AAL — Acceleration Abstraction Layer</div><div style="font-size:12px;color:var(--text-secondary);">Strato software che disaccoppia il vDU dall'acceleratore fisico. AAL-FEC (Intel ACC100), AAL-LPU (L1 full), AAL-BFW (beamforming). Risparmio: -40/60% CPU load vDU.</div></div>
+        <div class="card"><div style="font-size:13px;font-weight:500;margin-bottom:6px;">Scelta acceleratore per sito</div><div style="font-size:12px;color:var(--text-secondary);">Rurale: CPU only · Urbano: CPU + FPGA ACC100 (FlexRAN) · Dense urban: CPU + GPU H100 (Aerial). AAL garantisce stesso vDU software su tutti e tre.</div></div>
+        <div class="card"><div style="font-size:13px;font-weight:500;margin-bottom:6px;">White Box O-RU</div><div style="font-size:12px;color:var(--text-secondary);">AMD Xilinx RFSoC (FPGA + ADC/DAC integrati). Vendor: Benetel, Foxconn, Compal, Sercomm. IQ compression obbligatoria per 64T64R (&gt;25 Gbps raw).</div></div>
+        <div class="card"><div style="font-size:13px;font-weight:500;margin-bottom:6px;">Stack K8s + SR-IOV</div><div style="font-size:12px;color:var(--text-secondary);">CaaS Bare Metal · Multus CNI per multi-NIC · Flannel + SR-IOV · RT Kernel + CPU pinning · image signing Cosign per supply chain security.</div></div>
+      </div>
+      <div style="background:var(--p6l);border-left:3px solid var(--p6);border-radius:0 6px 6px 0;padding:10px 14px;font-size:13px;color:var(--p6b);line-height:1.6;"><strong>Non esiste un solo acceleratore giusto per tutta la rete.</strong> Un operatore maturo usa CPU, FPGA e GPU in funzione del tipo di sito. L'AAL garantisce che lo stesso vDU software giri su tutti e tre senza modifiche al codice applicativo.</div>
+      
+  </div>
+</main>
+</div>
+</body>
+</html>

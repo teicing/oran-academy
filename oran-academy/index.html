@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O-RAN Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/academy.css">
+<style>
+/* Dashboard-specific styles */
+.content-area{padding:24px;flex:1;}
+.section-title{font-size:11px;font-weight:500;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+
+/* Spider diagram card */
+.spider-wrap{display:flex;gap:16px;align-items:flex-start;}
+.spider-card{background:var(--bg-secondary);border-radius:var(--radius-lg);padding:14px;width:210px;flex-shrink:0;}
+.spider-title{font-size:13px;font-weight:500;margin-bottom:8px;}
+.leg-row{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-secondary);margin-top:6px;}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+
+/* Role avatar */
+.role-av{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;}
+.role-info .role-name{font-size:12px;font-weight:500;color:var(--text-primary);}
+.role-info .role-sub{font-size:10px;color:var(--text-tertiary);}
+
+/* Tema blocks inside card */
+.tema-block-row{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;background:var(--bg-secondary);margin-bottom:4px;}
+.tema-block-text{font-size:11px;color:var(--text-secondary);flex:1;}
+.tema-block-btn{font-size:10px;padding:2px 7px;border-radius:5px;border:0.5px solid var(--border-secondary);background:transparent;cursor:pointer;color:var(--text-tertiary);transition:all .1s;}
+.tema-block-btn:hover{background:var(--bg);color:var(--text-secondary);}
+.tema-cta{width:100%;padding:6px;border-radius:var(--radius-md);border:none;font-size:11px;font-weight:500;cursor:pointer;transition:all .12s;margin-top:4px;}
+.tema-cta:hover{filter:brightness(0.95);}
+
+/* Onboarding modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.hidden{display:none;}
+.modal-box{background:var(--bg);border-radius:var(--radius-lg);padding:24px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:var(--shadow-md);}
+.modal-title{font-size:17px;font-weight:500;margin-bottom:4px;}
+.modal-sub{font-size:13px;color:var(--text-secondary);margin-bottom:20px;}
+.profili-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px;}
+.profilo-btn{border-radius:var(--radius-lg);border:0.5px solid var(--border);padding:12px;cursor:pointer;background:var(--bg);text-align:left;transition:all .15s;}
+.profilo-btn:hover,.profilo-btn.sel{border-color:var(--p2);background:var(--p2l);}
+.profilo-ico{font-size:18px;color:var(--p2);margin-bottom:5px;}
+.profilo-name{font-size:12px;font-weight:500;color:var(--text-primary);}
+.profilo-sub-text{font-size:10px;color:var(--text-secondary);}
+</style>
+</head>
+<body>
+
+<!-- ONBOARDING MODAL -->
+<div class="modal-overlay hidden" id="modal-onboarding">
+  <div class="modal-box">
+    <div class="modal-title">Seleziona il tuo profilo</div>
+    <div class="modal-sub">Il percorso si adatta al tuo ruolo e alle tue competenze.</div>
+    <div class="profili-grid">
+      <button class="profilo-btn sel" onclick="selProfilo(this,'MD/CTO','percorso strategico','MD','#534AB7')">
+        <div class="profilo-ico"><i class="ti ti-chart-line"></i></div>
+        <div class="profilo-name">MD / CTO</div>
+        <div class="profilo-sub-text">strategia · vendor economics</div>
+      </button>
+      <button class="profilo-btn" onclick="selProfilo(this,'System Integrator','deployment tecnico','SI','#0F6E56')">
+        <div class="profilo-ico"><i class="ti ti-plug"></i></div>
+        <div class="profilo-name">System Integrator</div>
+        <div class="profilo-sub-text">IOT Profile · FH deployment</div>
+      </button>
+      <button class="profilo-btn" onclick="selProfilo(this,'RAN Engineer','lab e troubleshooting','RE','#D85A30')">
+        <div class="profilo-ico"><i class="ti ti-cpu"></i></div>
+        <div class="profilo-name">RAN Engineer</div>
+        <div class="profilo-sub-text">vDU/vCU · cloud · debug</div>
+      </button>
+      <button class="profilo-btn" onclick="selProfilo(this,'Vendor','sviluppo prodotto','VN','#185FA5')">
+        <div class="profilo-ico"><i class="ti ti-building-factory"></i></div>
+        <div class="profilo-name">Vendor</div>
+        <div class="profilo-sub-text">vDU · O-RU · xApp dev</div>
+      </button>
+      <button class="profilo-btn" onclick="selProfilo(this,'Operator','operazioni rete','OP','#0C447C')">
+        <div class="profilo-ico"><i class="ti ti-antenna"></i></div>
+        <div class="profilo-name">Operator</div>
+        <div class="profilo-sub-text">OAM · FCAPS · ZTP</div>
+      </button>
+      <button class="profilo-btn" onclick="selProfilo(this,'xApp Developer','sviluppo AI/ML','XD','#7F77DD')">
+        <div class="profilo-ico"><i class="ti ti-code"></i></div>
+        <div class="profilo-name">xApp Developer</div>
+        <div class="profilo-sub-text">E2 · SDL · ML workflow</div>
+      </button>
+    </div>
+    <button class="btn btn-primary" style="width:100%;" onclick="closeModal()">Conferma profilo →</button>
+  </div>
+</div>
+
+<div class="page-shell">
+
+<!-- SIDEBAR -->
+<nav class="sidebar" aria-label="Navigazione principale">
+  <div class="sidebar-logo">
+    <div class="logo-badge">O-RAN Academy</div>
+    <div class="logo-title">Platform</div>
+    <div class="logo-sub">v1.0 · Italiano</div>
+  </div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Piattaforma</div>
+    <a class="nav-item active" href="index.html" style="--active-color:#7F77DD">
+      <i class="ti ti-layout-dashboard"></i> Dashboard
+    </a>
+    <button class="nav-item" onclick="openModal()" style="--active-color:#888780">
+      <i class="ti ti-user-circle"></i> Profilo
+    </button>
+
+    <div class="nav-section">Temi trasversali</div>
+    <a class="nav-item" href="security.html" style="--active-color:#D85A30">
+      <span class="nav-dot" style="background:#D85A30"></span> Security
+    </a>
+    <a class="nav-item" href="automation.html" style="--active-color:#1D9E75">
+      <span class="nav-dot" style="background:#1D9E75"></span> Automation
+    </a>
+
+    <div class="nav-section">Moduli</div>
+    <a class="nav-item" href="p1.html" style="--active-color:#888780">
+      <span class="nav-dot" style="background:#888780"></span> P1 Foundations
+      <span class="nav-check">✓</span>
+    </a>
+    <a class="nav-item" href="p2.html" style="--active-color:#534AB7">
+      <span class="nav-dot" style="background:#534AB7"></span> P2 Near-RT RIC
+      <span class="nav-check">✓</span>
+    </a>
+    <a class="nav-item" href="p3.html" style="--active-color:#7F77DD">
+      <span class="nav-dot" style="background:#7F77DD"></span> P3 Non-RT RIC
+      <span class="nav-check">✓</span>
+    </a>
+    <a class="nav-item" href="p4.html" style="--active-color:#0F6E56">
+      <span class="nav-dot" style="background:#0F6E56"></span> P4 Fronthaul
+      <span class="nav-check">✓</span>
+    </a>
+    <a class="nav-item" href="p5.html" style="--active-color:#0C447C">
+      <span class="nav-dot" style="background:#0C447C"></span> P5 Cloud &amp; OAM
+      <span class="nav-check">✓</span>
+    </a>
+    <a class="nav-item" href="p6.html" style="--active-color:#185FA5">
+      <span class="nav-dot" style="background:#185FA5"></span> P6 HW &amp; Stack
+      <span class="nav-check">✓</span>
+    </a>
+  </div>
+  <div class="sidebar-footer">
+    <div class="flex items-center gap-8">
+      <div class="role-av" id="role-av" style="background:#EEEDFE;color:#3C3489;">MD</div>
+      <div class="role-info">
+        <div class="role-name" id="role-name">MD / CTO</div>
+        <div class="role-sub" id="role-sub">percorso strategico</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-title">Dashboard</div>
+      <div class="topbar-sub">6 moduli · Security · Automation · Fase 0 validazione</div>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn btn-sm" onclick="openModal()">Cambia profilo</button>
+      <a class="btn btn-primary btn-sm" href="percorso.html">Percorso →</a>
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- Profile banner -->
+    <div class="profile-banner" style="background:var(--p2l);border:0.5px solid var(--p2b);" id="profile-banner">
+      <div class="banner-icon" style="background:var(--p2b);color:#fff;"><i class="ti ti-user"></i></div>
+      <div style="flex:1;">
+        <div style="font-size:13px;font-weight:500;color:var(--p2b);" id="banner-title">Profilo attivo: MD / CTO — percorso strategico</div>
+        <div style="font-size:12px;color:var(--p2);" id="banner-desc">Vendor economics · Tool Rationalization · ZTP · Zero Trust · Automation</div>
+      </div>
+      <button class="banner-btn" style="background:var(--p2b);color:#fff;" onclick="openModal()">Modifica →</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid mb-16">
+      <div class="stat-card"><div class="stat-label">Moduli</div><div class="stat-value">6/6</div><div class="stat-sub">P1 → P6 ✓</div></div>
+      <div class="stat-card"><div class="stat-label">Temi trasversali</div><div class="stat-value">2</div><div class="stat-sub">Security · Automation</div></div>
+      <div class="stat-card"><div class="stat-label">Blocchi totali</div><div class="stat-value">31</div><div class="stat-sub">widget interattivi</div></div>
+      <div class="stat-card"><div class="stat-label">Percorsi adattivi</div><div class="stat-value">64+</div><div class="stat-sub">combinazioni profilo</div></div>
+    </div>
+
+    <!-- Temi trasversali -->
+    <div class="section-title">Temi trasversali</div>
+    <div class="tema-grid mb-24">
+
+      <a class="tema-card" href="security.html" style="border-color:var(--sec);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div style="width:30px;height:30px;border-radius:var(--radius-md);background:var(--secl);color:var(--sec);display:flex;align-items:center;justify-content:center;font-size:16px;">
+            <i class="ti ti-shield-lock"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text-primary);">Security</div>
+            <div style="font-size:11px;color:var(--text-secondary);">WG11 · zero trust · supply chain</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:10px;">STRIDE · 8 vettori attacco O-Cloud · asset WG11 · OAuth2.0 · mTLS · image signing</div>
+        <div class="tema-block-row"><span class="badge badge-p5" style="font-size:10px;">P5 B5</span><span class="tema-block-text">WG11 STRIDE · attack surface · controls</span></div>
+        <div class="tema-block-row"><span class="badge badge-p3" style="font-size:10px;">P3 B2</span><span class="tema-block-text">FORBID clause A1 · preventive</span></div>
+        <div class="tema-block-row"><span class="badge badge-p6" style="font-size:10px;">P6 B4</span><span class="tema-block-text">Image signing · Cosign · supply chain</span></div>
+        <button class="tema-cta" style="background:var(--secl);color:var(--secb);">Esplora Security →</button>
+      </a>
+
+      <a class="tema-card" href="automation.html" style="border-color:var(--aut);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <div style="width:30px;height:30px;border-radius:var(--radius-md);background:var(--autl);color:var(--aut);display:flex;align-items:center;justify-content:center;font-size:16px;">
+            <i class="ti ti-robot"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--text-primary);">Automation</div>
+            <div style="font-size:11px;color:var(--text-secondary);">ZTP · xApp · rApp · GitOps</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-secondary);line-height:1.5;margin-bottom:10px;">Closed loop 10ms · rApp &gt;1s · ZTP infra · NFO lifecycle · GitOps ArgoCD</div>
+        <div class="tema-block-row"><span class="badge badge-p2" style="font-size:10px;">P2 B4</span><span class="tema-block-text">xApp closed loop · 4 flowchart</span></div>
+        <div class="tema-block-row"><span class="badge badge-p3" style="font-size:10px;">P3 B4</span><span class="tema-block-text">rApp Energy Saving · Capacity</span></div>
+        <div class="tema-block-row"><span class="badge badge-p5" style="font-size:10px;">P5 B4</span><span class="tema-block-text">ZTP · Day0/1/2 · GitOps</span></div>
+        <button class="tema-cta" style="background:var(--autl);color:var(--autb);">Esplora Automation →</button>
+      </a>
+    </div>
+
+    <!-- Spider + Modules -->
+    <div class="spider-wrap">
+
+      <!-- Spider diagram -->
+      <div class="spider-card">
+        <div class="spider-title">Profilo competenze</div>
+        <svg width="182" height="170" viewBox="0 0 182 170" role="img" aria-label="Spider diagram profilo competenze O-RAN">
+          <polygon points="91,22 149,56 149,114 91,148 33,114 33,56" fill="none" stroke="var(--border)" stroke-width="0.5"/>
+          <polygon points="91,44 127,64 127,106 91,128 55,106 55,64" fill="none" stroke="var(--border)" stroke-width="0.5"/>
+          <polygon points="91,62 111,74 111,96 91,110 71,96 71,74" fill="none" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="91" y1="85" x2="91" y2="22" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="91" y1="85" x2="149" y2="56" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="91" y1="85" x2="149" y2="114" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="91" y1="85" x2="91" y2="148" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="91" y1="85" x2="33" y2="114" stroke="var(--border)" stroke-width="0.5"/>
+          <line x1="91" y1="85" x2="33" y2="56" stroke="var(--border)" stroke-width="0.5"/>
+          <polygon id="spider-poly" points="91,32 122,72 120,100 91,126 58,104 70,70" fill="rgba(83,74,183,0.12)" stroke="#534AB7" stroke-width="1.5"/>
+          <circle cx="91" cy="32" r="3" fill="#888780"/>
+          <circle cx="122" cy="72" r="3" fill="#534AB7"/>
+          <circle cx="120" cy="100" r="3" fill="#7F77DD"/>
+          <circle cx="91" cy="126" r="3" fill="#0F6E56"/>
+          <circle cx="58" cy="104" r="3" fill="#0C447C"/>
+          <circle cx="70" cy="70" r="3" fill="#185FA5"/>
+          <text x="91" y="14" font-size="9" text-anchor="middle" fill="var(--text-secondary)" font-family="IBM Plex Sans,sans-serif">P1</text>
+          <text x="158" y="58" font-size="9" fill="var(--text-secondary)" font-family="IBM Plex Sans,sans-serif">P2</text>
+          <text x="158" y="118" font-size="9" fill="var(--text-secondary)" font-family="IBM Plex Sans,sans-serif">P3</text>
+          <text x="91" y="162" font-size="9" text-anchor="middle" fill="var(--text-secondary)" font-family="IBM Plex Sans,sans-serif">P4</text>
+          <text x="22" y="118" font-size="9" text-anchor="end" fill="var(--text-secondary)" font-family="IBM Plex Sans,sans-serif">P5</text>
+          <text x="22" y="58" font-size="9" text-anchor="end" fill="var(--text-secondary)" font-family="IBM Plex Sans,sans-serif">P6</text>
+        </svg>
+        <div class="leg-row"><div class="leg-dot" id="spider-dot" style="background:#534AB7"></div><span id="spider-label">Profilo MD/CTO</span></div>
+      </div>
+
+      <!-- Modules grid -->
+      <div style="flex:1;min-width:0;">
+        <div class="section-title">Moduli</div>
+        <div class="modules-grid">
+
+          <a class="module-card" href="p1.html" style="--card-color:#888780">
+            <div class="module-card-header">
+              <span class="badge badge-p1">P1</span>
+              <span style="font-size:10px;color:#888780;">✓ 4 blocchi</span>
+            </div>
+            <div class="module-title">Foundations &amp; Architecture</div>
+            <div class="module-sub">WG Navigator · vendor economics · percorso adattivo</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#888780"></div></div>
+            <div class="module-meta"><span>WG1 + cross-WG</span><span>100%</span></div>
+          </a>
+
+          <a class="module-card" href="p2.html" style="--card-color:#534AB7">
+            <div class="module-card-header">
+              <span class="badge badge-p2">P2</span>
+              <span style="font-size:10px;color:#534AB7;">✓ 5 blocchi</span>
+            </div>
+            <div class="module-title">Near-RT RIC &amp; E2</div>
+            <div class="module-sub">xApp · E2SM · energy saving · closed loop</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#534AB7"></div></div>
+            <div class="module-meta"><span>WG3</span><span>100%</span></div>
+            <div class="module-tags">
+              <span class="module-tag" style="background:var(--autl);color:var(--autb);">automation</span>
+            </div>
+          </a>
+
+          <a class="module-card" href="p3.html" style="--card-color:#7F77DD">
+            <div class="module-card-header">
+              <span class="badge badge-p3">P3</span>
+              <span style="font-size:10px;color:#7F77DD;">✓ 5 blocchi</span>
+            </div>
+            <div class="module-title">Non-RT RIC &amp; A1</div>
+            <div class="module-sub">rApp · FORBID · AI/ML · outer/inner loop</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#7F77DD"></div></div>
+            <div class="module-meta"><span>WG2</span><span>100%</span></div>
+            <div class="module-tags">
+              <span class="module-tag" style="background:var(--autl);color:var(--autb);">automation</span>
+              <span class="module-tag" style="background:var(--secl);color:var(--secb);">security</span>
+            </div>
+          </a>
+
+          <a class="module-card" href="p4.html" style="--card-color:#0F6E56">
+            <div class="module-card-header">
+              <span class="badge badge-p4">P4</span>
+              <span style="font-size:10px;color:#0F6E56;">✓ 5 blocchi</span>
+            </div>
+            <div class="module-title">Open Fronthaul</div>
+            <div class="module-sub">split 7.2x · timer FH · IOT Profile</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#0F6E56"></div></div>
+            <div class="module-meta"><span>WG4 + WG9</span><span>100%</span></div>
+          </a>
+
+          <a class="module-card" href="p5.html" style="--card-color:#0C447C">
+            <div class="module-card-header">
+              <span class="badge badge-p5">P5</span>
+              <span style="font-size:10px;color:#0C447C;">✓ 6 blocchi</span>
+            </div>
+            <div class="module-title">Cloud, OAM &amp; Security</div>
+            <div class="module-sub">O2 · FCAPS · ZTP · WG11 STRIDE</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#0C447C"></div></div>
+            <div class="module-meta"><span>WG6 + WG11</span><span>100%</span></div>
+            <div class="module-tags">
+              <span class="module-tag" style="background:var(--autl);color:var(--autb);">automation</span>
+              <span class="module-tag" style="background:var(--secl);color:var(--secb);">security</span>
+            </div>
+          </a>
+
+          <a class="module-card" href="p6.html" style="--card-color:#185FA5">
+            <div class="module-card-header">
+              <span class="badge badge-p6">P6</span>
+              <span style="font-size:10px;color:#185FA5;">✓ 5 blocchi</span>
+            </div>
+            <div class="module-title">HW &amp; Stack Reference</div>
+            <div class="module-sub">COTS · AAL · GPU/FPGA · K8s · SR-IOV</div>
+            <div class="progress-bar"><div class="progress-fill" style="width:100%;background:#185FA5"></div></div>
+            <div class="module-meta"><span>WG5 + WG7 + WG8</span><span>100%</span></div>
+            <div class="module-tags">
+              <span class="module-tag" style="background:var(--secl);color:var(--secb);">security</span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content-area -->
+</main>
+</div><!-- /page-shell -->
+
+<script>
+// Profili configuration
+const profili={
+  'MD/CTO':{initials:'MD',color:'#534AB7',bg:'#EEEDFE',pts:'91,32 122,72 120,100 91,126 58,104 70,70',desc:'Vendor economics · Tool Rationalization · ZTP · Zero Trust · Automation'},
+  'System Integrator':{initials:'SI',color:'#0F6E56',bg:'#E1F5EE',pts:'91,60 114,68 128,100 91,132 48,106 62,66',desc:'IOT Profile · FH deployment · Physical design · Lab integration'},
+  'RAN Engineer':{initials:'RE',color:'#D85A30',bg:'#FAECE7',pts:'91,50 126,64 130,102 91,128 46,106 58,62',desc:'vDU/vCU · K8s · SR-IOV · debug FH · parametri critici'},
+  'Vendor':{initials:'VN',color:'#185FA5',bg:'#E6F1FB',pts:'91,40 124,62 122,98 91,130 52,100 64,64',desc:'vDU development · O-RU White Box · AAL · xApp SDK'},
+  'Operator':{initials:'OP',color:'#0C447C',bg:'#E6F1FB',pts:'91,52 116,70 120,100 91,126 52,102 62,68',desc:'OAM · FCAPS · ZTP · Energy saving · Tool Rationalization'},
+  'xApp Developer':{initials:'XD',color:'#7F77DD',bg:'#EEEDFE',pts:'91,54 130,66 116,94 91,130 58,98 58,62',desc:'E2SM · SDL · ML workflow · Near-RT RIC · closed loop'},
+};
+
+// Load saved profile
+let currentProfile = localStorage.getItem('oran-profile') || 'MD/CTO';
+applyProfile(currentProfile);
+
+function applyProfile(name){
+  currentProfile = name;
+  const p = profili[name];
+  if(!p) return;
+  // sidebar footer
+  document.getElementById('role-av').textContent = p.initials;
+  document.getElementById('role-av').style.background = p.bg;
+  document.getElementById('role-av').style.color = p.color;
+  document.getElementById('role-name').textContent = name;
+  document.getElementById('role-sub').textContent = p.desc.split('·')[0].trim().toLowerCase();
+  // banner
+  document.getElementById('banner-title').textContent = `Profilo attivo: ${name}`;
+  document.getElementById('banner-desc').textContent = p.desc;
+  // spider
+  document.getElementById('spider-poly').setAttribute('points', p.pts);
+  document.getElementById('spider-poly').setAttribute('stroke', p.color);
+  document.getElementById('spider-poly').setAttribute('fill', p.color+'1A');
+  document.getElementById('spider-dot').style.background = p.color;
+  document.getElementById('spider-label').textContent = 'Profilo ' + name;
+  // save
+  localStorage.setItem('oran-profile', name);
+}
+
+function openModal(){
+  document.getElementById('modal-onboarding').classList.remove('hidden');
+  // mark current selection
+  document.querySelectorAll('.profilo-btn').forEach(b=>{
+    const n = b.querySelector('.profilo-name').textContent;
+    b.classList.toggle('sel', n === currentProfile);
+  });
+}
+
+function closeModal(){
+  document.getElementById('modal-onboarding').classList.add('hidden');
+}
+
+function selProfilo(btn, name){
+  document.querySelectorAll('.profilo-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  applyProfile(name);
+}
+
+// Close modal on overlay click
+document.getElementById('modal-onboarding').addEventListener('click', function(e){
+  if(e.target === this) closeModal();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1 Foundations — O-RAN Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/academy.css">
+<style>
+.content-area{padding:24px;}
+.section-title{font-size:11px;font-weight:500;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+
+/* Scene navigator */
+.scene-nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+.scene-pill{padding:6px 14px;border-radius:20px;border:0.5px solid var(--border-secondary);background:transparent;font-size:12px;cursor:pointer;color:var(--text-secondary);transition:all .15s;}
+.scene-pill:hover{background:var(--p1l);color:var(--p1b);}
+.scene-pill.active{background:var(--p1b);color:#fff;border-color:var(--p1b);}
+
+.scene{display:none;}
+.scene.active{display:block;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.scene-label{font-size:11px;font-weight:500;color:var(--p1);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;}
+.scene-title{font-size:20px;font-weight:500;color:var(--text-primary);margin-bottom:10px;}
+.scene-lead{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:20px;}
+
+/* Vendor economics */
+.ve-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-bottom:16px;}
+.ve-card{border-radius:var(--radius-lg);border:0.5px solid var(--border);padding:16px 18px;}
+.ve-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.ve-formula{font-size:14px;font-weight:500;color:var(--text-primary);line-height:1.5;}
+.ve-sub{font-size:11px;color:var(--text-secondary);margin-top:5px;line-height:1.4;}
+.ve-sym{font-size:28px;color:var(--text-tertiary);text-align:center;}
+
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:flex;gap:14px;}
+.tl-left{display:flex;flex-direction:column;align-items:center;width:56px;flex-shrink:0;}
+.tl-year{font-size:11px;font-weight:500;color:var(--text-primary);background:var(--bg-secondary);padding:3px 6px;border-radius:6px;text-align:center;width:100%;}
+.tl-line{width:1.5px;flex:1;min-height:10px;margin:4px 0;background:var(--border);}
+.tl-body{flex:1;padding-bottom:16px;}
+.tl-title{font-size:13px;font-weight:500;color:var(--text-primary);margin-bottom:2px;}
+.tl-desc{font-size:12px;color:var(--text-secondary);line-height:1.5;}
+
+/* Market numbers */
+.mkt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.mkt-card{background:var(--bg-secondary);border-radius:var(--radius-md);padding:14px 16px;text-align:center;}
+.mkt-val{font-size:24px;font-weight:500;margin-bottom:3px;}
+.mkt-label{font-size:12px;color:var(--text-secondary);}
+.mkt-sub{font-size:10px;color:var(--text-tertiary);margin-top:2px;}
+
+/* 3 concetti */
+.concetto{display:flex;gap:14px;padding:14px 16px;border-radius:var(--radius-lg);border:0.5px solid var(--border);margin-bottom:10px;}
+.concetto-num{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;flex-shrink:0;}
+
+/* WG Navigator */
+.wg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.wg-card{padding:10px 12px;border-radius:var(--radius-md);border:0.5px solid var(--border);cursor:pointer;transition:all .12s;}
+.wg-card:hover{border-color:var(--wg-color);background:var(--wg-bg);}
+.wg-num{font-size:11px;font-weight:500;margin-bottom:3px;}
+.wg-title{font-size:12px;color:var(--text-primary);margin-bottom:2px;}
+.wg-sub{font-size:10px;color:var(--text-secondary);}
+
+/* Nav buttons */
+.scene-nav-btns{display:flex;gap:8px;margin-top:20px;padding-top:16px;border-top:0.5px solid var(--border);}
+</style>
+</head>
+<body>
+<div class="page-shell">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-badge">O-RAN Academy</div>
+    <div class="logo-title">Platform</div>
+    <div class="logo-sub">v1.0 · Italiano</div>
+  </div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Piattaforma</div>
+    <a class="nav-item" href="index.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+    <div class="nav-section">Temi trasversali</div>
+    <a class="nav-item" href="security.html" style="--active-color:#D85A30"><span class="nav-dot" style="background:#D85A30"></span> Security</a>
+    <a class="nav-item" href="automation.html" style="--active-color:#1D9E75"><span class="nav-dot" style="background:#1D9E75"></span> Automation</a>
+    <div class="nav-section">Moduli</div>
+    <a class="nav-item active" href="p1.html" style="--active-color:#888780"><span class="nav-dot" style="background:#888780"></span> P1 Foundations<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p2.html" style="--active-color:#534AB7"><span class="nav-dot" style="background:#534AB7"></span> P2 Near-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p3.html" style="--active-color:#7F77DD"><span class="nav-dot" style="background:#7F77DD"></span> P3 Non-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p4.html" style="--active-color:#0F6E56"><span class="nav-dot" style="background:#0F6E56"></span> P4 Fronthaul<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p5.html" style="--active-color:#0C447C"><span class="nav-dot" style="background:#0C447C"></span> P5 Cloud &amp; OAM<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p6.html" style="--active-color:#185FA5"><span class="nav-dot" style="background:#185FA5"></span> P6 HW &amp; Stack<span class="nav-check">✓</span></a>
+  </div>
+  <div class="sidebar-footer">
+    <div style="font-size:11px;color:var(--text-tertiary);">← <a href="index.html" style="color:var(--text-secondary);">Dashboard</a></div>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main-content">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-title" style="color:var(--p1b);">P1 — Foundations &amp; Architecture</div>
+      <div class="topbar-sub">WG1 + cross-WG · 4 blocchi + Extra MD/CTO</div>
+    </div>
+    <div class="topbar-actions">
+      <a class="btn btn-sm" href="index.html">← Dashboard</a>
+      <a class="btn btn-sm" href="p2.html" style="background:var(--p1l);color:var(--p1b);border-color:var(--p1);">P2 Near-RT RIC →</a>
+    </div>
+  </div>
+
+  <div class="content-area">
+
+    <!-- Block list -->
+    <div class="section-title mb-12">Blocchi del modulo</div>
+    <div class="blocks-list mb-24">
+      <a class="block-row" href="#blocco1" onclick="showScene(1);return false;" style="--block-color:#888780;--block-bg:#F1EFE8;">
+        <div class="block-num" style="background:#F1EFE8;color:#444441;">1</div>
+        <div class="block-info">
+          <div class="block-name">Perché O-RAN esiste</div>
+          <div class="block-sub">vendor lock-in · vendor economics · timeline 2013-2025 · numeri mercato</div>
+        </div>
+        <i class="ti ti-arrow-right block-arrow"></i>
+      </a>
+      <a class="block-row" href="#blocco2" onclick="showScene(2);return false;" style="--block-color:#888780;--block-bg:#F1EFE8;">
+        <div class="block-num" style="background:#F1EFE8;color:#444441;">2</div>
+        <div class="block-info">
+          <div class="block-name">Le due complessità nascoste</div>
+          <div class="block-sub">integrazione verticale 6 vendor · Open FH IOT Profile timeline 4-8 settimane</div>
+        </div>
+        <i class="ti ti-arrow-right block-arrow"></i>
+      </a>
+      <a class="block-row" href="#blocco3" onclick="showScene(3);return false;" style="--block-color:#888780;--block-bg:#F1EFE8;">
+        <div class="block-num" style="background:#F1EFE8;color:#444441;">3</div>
+        <div class="block-info">
+          <div class="block-name">WG Navigator — mappa WG1-WG11</div>
+          <div class="block-sub">quale WG copre cosa · interfacce · componenti · chi fa cosa</div>
+        </div>
+        <i class="ti ti-arrow-right block-arrow"></i>
+      </a>
+      <a class="block-row" href="#blocco4" onclick="showScene(4);return false;" style="--block-color:#888780;--block-bg:#F1EFE8;">
+        <div class="block-num" style="background:#F1EFE8;color:#444441;">E</div>
+        <div class="block-info">
+          <div class="block-name">Extra MD/CTO — KPI Framework &amp; Tool Rationalization</div>
+          <div class="block-sub">Cost Reduction · Market Address · Piano 90 giorni · RAG Assessment KSA · Energy</div>
+        </div>
+        <i class="ti ti-arrow-right block-arrow"></i>
+      </a>
+    </div>
+
+    <!-- CONTENT AREA -->
+    <div id="blocco-content">
+
+    <!-- SCENE NAV -->
+    <div class="scene-nav" id="scene-nav" style="display:none;">
+      <button class="scene-pill active" onclick="showScene(1)">Scena 1 — Vendor lock-in</button>
+      <button class="scene-pill" onclick="showScene(2)">Scena 2 — Vendor economics</button>
+      <button class="scene-pill" onclick="showScene(3)">Scena 3 — Timeline</button>
+      <button class="scene-pill" onclick="showScene(4)">Scena 4 — Numeri mercato</button>
+      <button class="scene-pill" onclick="showScene(5)">Scena 5 — 3 concetti</button>
+    </div>
+
+    <!-- SCENE 1: VENDOR LOCK-IN -->
+    <div class="scene active" id="scene-1">
+      <div class="scene-label">Scena 1 di 5 · Blocco 1</div>
+      <div class="scene-title">Il problema del vendor lock-in</div>
+      <div class="scene-lead">Per 30 anni le reti RAN sono state dominate da 3-4 vendor globali (Ericsson, Nokia, Huawei, Samsung). Ogni vendor costruisce uno stack proprietario chiuso: il BBU di vendor A non parla con la RRU di vendor B. L'operatore che sceglie un vendor è legato per 10-15 anni — non può sostituire un componente senza sostituire tutto lo stack.</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div class="card" style="border-color:var(--co100);">
+          <div style="font-size:12px;font-weight:500;color:var(--co800);margin-bottom:8px;">T-RAN — RAN Tradizionale</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">
+            ✗ BBU + RRU stesso vendor obbligatorio<br>
+            ✗ Software proprietario chiuso<br>
+            ✗ Interfacce non standard<br>
+            ✗ Prezzi vendor-controlled<br>
+            ✗ Innovation roadmap del vendor<br>
+            ✗ Lock-in 10-15 anni per contratto
+          </div>
+        </div>
+        <div class="card" style="border-color:var(--te100);">
+          <div style="font-size:12px;font-weight:500;color:var(--te800);margin-bottom:8px;">O-RAN — Open RAN</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">
+            ✓ O-RU e vDU vendor diversi<br>
+            ✓ Software su COTS standard<br>
+            ✓ Interfacce aperte (WG4, WG3…)<br>
+            ✓ Prezzi competitivi multi-vendor<br>
+            ✓ Innovation da ecosistema aperto<br>
+            ✓ Nessun lock-in architetturale
+          </div>
+        </div>
+      </div>
+
+      <div class="insight insight-p1">
+        <strong>Il lock-in non è solo tecnico — è economico.</strong> Quando un vendor sa che sostituirlo costa all'operatore anni di migrazione e centinaia di milioni, può praticare prezzi che includono questo "valore del lock-in" come margine aggiuntivo. O-RAN elimina questo vantaggio strutturale restituendo il potere negoziale all'operatore.
+      </div>
+
+      <div class="scene-nav-btns">
+        <button class="btn" onclick="showScene(2)">Scena successiva →</button>
+      </div>
+    </div>
+
+    <!-- SCENE 2: VENDOR ECONOMICS -->
+    <div class="scene" id="scene-2">
+      <div class="scene-label">Scena 2 di 5 · Blocco 1</div>
+      <div class="scene-title">La formula del vendor economics</div>
+      <div class="scene-lead">Il valore del lock-in è reale e misurabile. Un vendor legacy include nel prezzo offerto non solo il costo del prodotto, ma anche il valore atteso del rapporto commerciale pluriennale garantito. O-RAN azzera questa componente.</div>
+
+      <div class="ve-grid">
+        <div class="ve-card" style="border-color:var(--co100);">
+          <div class="ve-label" style="color:var(--co600);">Offerta vendor legacy</div>
+          <div class="ve-formula">Prezzo reale<br>+ <span style="color:var(--co400);">Valore Market Share 5 anni</span></div>
+          <div class="ve-sub">Il vendor include il valore del lock-in come margine implicito. Non appare nel contratto ma è reale: è il motivo per cui i prezzi legacy restano alti anche sotto pressione negoziale.</div>
+        </div>
+        <div class="ve-sym">≠</div>
+        <div class="ve-card" style="border-color:var(--te100);">
+          <div class="ve-label" style="color:var(--te600);">Offerta O-RAN</div>
+          <div class="ve-formula" style="color:var(--te800);">Solo prezzo reale</div>
+          <div class="ve-sub">Con O-RAN non c'è lock-in da monetizzare. Il vendor compete solo sul prezzo reale del prodotto. Il valore del market share rimane nelle mani dell'operatore.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-secondary);border-radius:var(--radius-lg);padding:14px 16px;margin-bottom:16px;">
+        <div style="font-size:12px;font-weight:500;color:var(--text-primary);margin-bottom:6px;">Implicazione pratica per il CTO</div>
+        <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">Un vendor legacy che offre prezzi "simili" a O-RAN non è comparabile — sta includendo nel prezzo il costo del lock-in pluriennale. La comparazione corretta è: <strong>prezzo O-RAN vs (prezzo legacy – valore market share 5 anni)</strong>. In un parco di 10.000 siti, questa differenza vale decine di milioni.</div>
+      </div>
+
+      <div class="insight insight-p1">
+        <strong>CO Monetization è possibile solo con O-RAN.</strong> Un operatore che usa T-RAN non può affittare la propria infrastruttura RAN ad altri operatori perché è proprietaria e non standardizzata. Con O-RAN su COTS, la CO (Central Office) diventa un asset monetizzabile per hosting, edge computing e RAN sharing.
+      </div>
+
+      <div class="scene-nav-btns">
+        <button class="btn" onclick="showScene(1)">← Precedente</button>
+        <button class="btn btn-primary" onclick="showScene(3)">Scena successiva →</button>
+      </div>
+    </div>
+
+    <!-- SCENE 3: TIMELINE -->
+    <div class="scene" id="scene-3">
+      <div class="scene-label">Scena 3 di 5 · Blocco 1</div>
+      <div class="scene-title">Timeline O-RAN 2013-2025</div>
+      <div class="scene-lead">O-RAN non è nato in un giorno. Il percorso dalla visione alla produzione ha richiesto oltre 10 anni di standardizzazione, testing e primi deployment commerciali.</div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-year" style="background:var(--gr50);">2013</div><div class="tl-line"></div></div>
+          <div class="tl-body"><div class="tl-title">C-RAN Vision — China Mobile</div><div class="tl-desc">Prima proposta formale di separare baseband e radio. L'idea di "Cloud RAN" come alternativa alle architetture proprietarie integrate.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-year" style="background:var(--gr50);">2018</div><div class="tl-line"></div></div>
+          <div class="tl-body"><div class="tl-title">O-RAN Alliance fondata</div><div class="tl-desc">AT&T, China Mobile, Deutsche Telekom, NTT DoCoMo, Orange fondano l'O-RAN Alliance. Inizio standardizzazione formale con Working Groups WG1-WG5.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-year" style="background:var(--am50);">2020</div><div class="tl-line"></div></div>
+          <div class="tl-body"><div class="tl-title">Prime specifiche WG3 e WG4 pubblicate</div><div class="tl-desc">E2 interface (Near-RT RIC), Open Fronthaul 7.2x spec. Primi POC lab con vDU su COTS e O-RU White Box.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-year" style="background:var(--am50);">2021</div><div class="tl-line"></div></div>
+          <div class="tl-body"><div class="tl-title">Rakuten Mobile — primo deployment O-RAN at scale</div><div class="tl-desc">Operatore giapponese deploya rete 4G/5G interamente O-RAN su COTS. Prima proof-of-concept a scala nazionale.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-year" style="background:var(--te50);">2022-23</div><div class="tl-line"></div></div>
+          <div class="tl-body"><div class="tl-title">Tier-1 operators iniziano deployment</div><div class="tl-desc">Operatori Tier-1 in Nord America, Europa e Asia avviano programmi O-RAN in produzione. WG11 Security e WG6 Cloud spec mature.</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left"><div class="tl-year" style="background:var(--te50);">2024-25</div><div class="tl-line"></div></div>
+          <div class="tl-body"><div class="tl-title">Maturità ecosistema — AI on RAN</div><div class="tl-desc">NVIDIA Aerial, Intel FlexRAN in produzione. Near-RT RIC con xApp energy saving operativo. Mercato $15B proiezione 2027.</div></div>
+        </div>
+      </div>
+
+      <div class="scene-nav-btns">
+        <button class="btn" onclick="showScene(2)">← Precedente</button>
+        <button class="btn btn-primary" onclick="showScene(4)">Scena successiva →</button>
+      </div>
+    </div>
+
+    <!-- SCENE 4: NUMERI MERCATO -->
+    <div class="scene" id="scene-4">
+      <div class="scene-label">Scena 4 di 5 · Blocco 1</div>
+      <div class="scene-title">I numeri del mercato O-RAN</div>
+      <div class="scene-lead">Il mercato O-RAN è in crescita accelerata. I numeri confermano che non si tratta di una tendenza di nicchia ma di una trasformazione strutturale del mercato RAN globale.</div>
+
+      <div class="mkt-grid">
+        <div class="mkt-card">
+          <div class="mkt-val" style="color:var(--te400);">$15B</div>
+          <div class="mkt-label">Mercato O-RAN 2027</div>
+          <div class="mkt-sub">proiezione Dell'Oro Group</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-val" style="color:var(--p2);">300+</div>
+          <div class="mkt-label">Operatori O-RAN Alliance</div>
+          <div class="mkt-sub">membri globali 2024</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-val" style="color:var(--am400);">11</div>
+          <div class="mkt-label">Working Groups attivi</div>
+          <div class="mkt-sub">WG1 → WG11</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-val" style="color:var(--co400);">85%</div>
+          <div class="mkt-label">Energia RAN nell'O-RU</div>
+          <div class="mkt-sub">saving reale con xApp</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-val" style="color:var(--te400);">30-50%</div>
+          <div class="mkt-label">Riduzione tool OSS/BSS</div>
+          <div class="mkt-sub">Tool Rationalization</div>
+        </div>
+        <div class="mkt-card">
+          <div class="mkt-val" style="color:var(--p2);">&lt;4h</div>
+          <div class="mkt-label">Time-to-site con ZTP</div>
+          <div class="mkt-sub">vs settimane T-RAN</div>
+        </div>
+      </div>
+
+      <div class="insight insight-am">
+        <strong>Vision 2030 e urgenza ZTP:</strong> mercati con programmi di espansione massiva (migliaia di nuovi siti 5G in breve tempo) rendono ZTP non opzionale. Senza automazione del deployment il rollout è incompatibile con i tempi richiesti. ZTP porta da 1 settimana/sito a meno di 4 ore — su 1.000 siti la differenza è operativamente critica.
+      </div>
+
+      <div class="scene-nav-btns">
+        <button class="btn" onclick="showScene(3)">← Precedente</button>
+        <button class="btn btn-primary" onclick="showScene(5)">Scena successiva →</button>
+      </div>
+    </div>
+
+    <!-- SCENE 5: 3 CONCETTI -->
+    <div class="scene" id="scene-5">
+      <div class="scene-label">Scena 5 di 5 · Blocco 1</div>
+      <div class="scene-title">I 3 concetti fondamentali O-RAN</div>
+      <div class="scene-lead">Tutto O-RAN si fonda su tre principi. Capirli è sufficiente per comprendere qualsiasi decisione architetturale O-RAN — dal vendor selection al business case.</div>
+
+      <div class="concetto" style="border-color:var(--te100);">
+        <div class="concetto-num" style="background:var(--te50);color:var(--te800);">1</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--text-primary);margin-bottom:5px;">Disaggregazione</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Separare funzioni che erano integrate in un unico stack proprietario: O-RU (radio) da vDU (processing L1) da vCU (L2/L3). Ogni componente può venire da vendor diversi e girare su HW COTS standard. La disaggregazione è la condizione necessaria per eliminare il lock-in.</div>
+        </div>
+      </div>
+
+      <div class="concetto" style="border-color:var(--am100);">
+        <div class="concetto-num" style="background:var(--am50);color:var(--am800);">2</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--text-primary);margin-bottom:5px;">Interfacce aperte</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">O-RAN Alliance standardizza le interfacce tra i componenti: Open Fronthaul (WG4) tra O-RU e vDU, E2 (WG3) tra vDU e Near-RT RIC, O1 tra NF e SMO, O2 tra SMO e O-Cloud. Interfacce aperte = interoperabilità garantita = mercato competitivo.</div>
+        </div>
+      </div>
+
+      <div class="concetto" style="border-color:var(--p2l);">
+        <div class="concetto-num" style="background:var(--p2l);color:var(--p2b);">3</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--text-primary);margin-bottom:5px;">Intelligenza programmabile</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Il Near-RT RIC e il Non-RT RIC portano AI/ML nel RAN tramite xApp e rApp. L'operatore può programmare il comportamento della rete: ottimizzare energia, gestire il traffico, prevenire congestione. L'intelligenza non è più del vendor — è dell'operatore.</div>
+        </div>
+      </div>
+
+      <div class="insight insight-p1">
+        <strong>La sintesi:</strong> disaggregazione + interfacce aperte + intelligenza programmabile = un operatore che controlla la propria rete, sceglie i migliori componenti di mercato, la ottimizza automaticamente e la evolve senza dipendere da un unico vendor. È il passaggio da "cliente captive" a "buyer sovrano".
+      </div>
+
+      <div class="scene-nav-btns">
+        <button class="btn" onclick="showScene(4)">← Precedente</button>
+        <a class="btn btn-primary" href="p2.html">Vai a P2 Near-RT RIC →</a>
+      </div>
+    </div>
+
+    </div><!-- /blocco-content -->
+  </div>
+</main>
+</div>
+
+<script>
+let currentScene = 0;
+
+function showScene(n){
+  // Show scene nav
+  document.getElementById('scene-nav').style.display = 'flex';
+  // Hide all scenes
+  document.querySelectorAll('.scene').forEach(s=>s.classList.remove('active'));
+  // Show target
+  const target = document.getElementById('scene-'+n);
+  if(target){ target.classList.add('active'); currentScene = n; }
+  // Update pills
+  document.querySelectorAll('.scene-pill').forEach((p,i)=>{
+    p.classList.toggle('active', i+1 === n);
+  });
+  // Scroll to content
+  document.getElementById('blocco-content').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Auto-show scene 1 when clicking block 1
+document.querySelectorAll('.block-row').forEach((row, i) => {
+  row.addEventListener('click', function(e){
+    if(i === 0) showScene(1);
+  });
+});
+</script>
+</body>
+</html>

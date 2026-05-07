@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P2 Near-RT RIC — O-RAN Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/academy.css">
+<style>
+.content-area{padding:24px;}
+.section-title{font-size:11px;font-weight:500;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}
+.tabs{border-bottom:0.5px solid var(--border);display:flex;gap:2px;flex-wrap:wrap;margin-bottom:20px;}
+.tab-btn{padding:9px 14px;font-size:13px;font-weight:500;color:var(--text-secondary);border:none;background:transparent;border-bottom:2px solid transparent;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.tab-btn.active{color:var(--p2);border-bottom-color:var(--p2);}
+.tab-btn:hover:not(.active){color:var(--text-primary);}
+.tab-panel{display:none;}.tab-panel.active{display:block;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.insight{border-left:3px solid var(--p2);background:var(--p2l);border-radius:0 6px 6px 0;padding:10px 14px;font-size:13px;color:var(--p2d);margin-top:14px;line-height:1.6;}
+.comp-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;}
+.comp-card{padding:12px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border);background:var(--bg-secondary);}
+.comp-title{font-size:12px;font-weight:500;color:var(--text-primary);margin-bottom:4px;}
+.comp-desc{font-size:11px;color:var(--text-secondary);line-height:1.5;}
+.uc-card{border-radius:var(--radius-lg);border:0.5px solid var(--border);padding:14px;margin-bottom:10px;}
+.uc-title{font-size:14px;font-weight:500;color:var(--text-primary);margin-bottom:6px;}
+.uc-desc{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;}
+.flow-row{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:6px;}
+.flow-step{padding:5px 10px;border-radius:6px;font-size:11px;font-weight:500;}
+.flow-arr{font-size:14px;color:var(--text-tertiary);}
+</style>
+</head>
+<body>
+<div class="page-shell">
+<nav class="sidebar">
+  <div class="sidebar-logo"><div class="logo-badge">O-RAN Academy</div><div class="logo-title">Platform</div><div class="logo-sub">v1.0 · Italiano</div></div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Piattaforma</div>
+    <a class="nav-item" href="index.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+    <div class="nav-section">Temi trasversali</div>
+    <a class="nav-item" href="security.html" style="--active-color:#D85A30"><span class="nav-dot" style="background:#D85A30"></span> Security</a>
+    <a class="nav-item" href="automation.html" style="--active-color:#1D9E75"><span class="nav-dot" style="background:#1D9E75"></span> Automation</a>
+    <div class="nav-section">Moduli</div>
+    <a class="nav-item" href="p1.html" style="--active-color:#888780"><span class="nav-dot" style="background:#888780"></span> P1 Foundations<span class="nav-check">✓</span></a>
+    <a class="nav-item active" href="p2.html" style="--active-color:#534AB7"><span class="nav-dot" style="background:#534AB7"></span> P2 Near-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p3.html" style="--active-color:#7F77DD"><span class="nav-dot" style="background:#7F77DD"></span> P3 Non-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p4.html" style="--active-color:#0F6E56"><span class="nav-dot" style="background:#0F6E56"></span> P4 Fronthaul<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p5.html" style="--active-color:#0C447C"><span class="nav-dot" style="background:#0C447C"></span> P5 Cloud &amp; OAM<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p6.html" style="--active-color:#185FA5"><span class="nav-dot" style="background:#185FA5"></span> P6 HW &amp; Stack<span class="nav-check">✓</span></a>
+  </div>
+  <div class="sidebar-footer"><a href="index.html" style="font-size:11px;color:var(--text-secondary);">← Dashboard</a></div>
+</nav>
+<main class="main-content">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="topbar-title" style="color:var(--p2b);">P2 — Near-RT RIC &amp; E2 Interface</div>
+      <div class="topbar-sub">WG3 · 5 blocchi · tema automation</div>
+    </div>
+    <div class="topbar-actions">
+      <a class="btn btn-sm" href="p1.html">← P1</a>
+      <a class="btn btn-sm" href="p3.html" style="background:var(--p2l);color:var(--p2b);border-color:var(--p2);">P3 Non-RT RIC →</a>
+    </div>
+  </div>
+  <div class="content-area">
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('architettura')">Architettura RIC</button>
+      <button class="tab-btn" onclick="showTab('e2sm')">E2SM-KPM &amp; RC</button>
+      <button class="tab-btn" onclick="showTab('usecase')">4 Use Case</button>
+      <button class="tab-btn" onclick="showTab('aiml')">AI for RAN</button>
+    </div>
+
+    <div id="tab-architettura" class="tab-panel active">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">Cos'è il Near-RT RIC</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Il Near-RT RIC (Near Real-Time RAN Intelligent Controller) è il componente O-RAN che porta intelligenza nel RAN con latenze di controllo tra 10ms e 1s. Ospita le xApp — applicazioni che ottimizzano il RAN in tempo quasi reale tramite l'interfaccia E2.</div>
+      <div class="comp-grid">
+        <div class="comp-card"><div class="comp-title">E2 Termination</div><div class="comp-desc">Interfaccia verso i nodi E2 (vDU/vCU). Gestisce sessioni E2AP, subscription KPM, control RC. Punto di ingresso per tutti i dati RAN.</div></div>
+        <div class="comp-card"><div class="comp-title">xApp Framework</div><div class="comp-desc">Runtime per le xApp. Gestisce lifecycle, API verso SDL e E2, routing messaggi. Ogni xApp è un microservizio isolato.</div></div>
+        <div class="comp-card"><div class="comp-title">SDL — Shared Data Layer</div><div class="comp-desc">Database Redis condiviso tra xApp. Pattern produttore/consumatore. Conflict management per evitare azioni contrastanti su stessa cella.</div></div>
+        <div class="comp-card"><div class="comp-title">A1 Termination</div><div class="comp-desc">Riceve policy dal Non-RT RIC via A1. Le policy guidano il comportamento delle xApp — inclusa la FORBID clause preventiva.</div></div>
+        <div class="comp-card"><div class="comp-title">O1 Interface</div><div class="comp-desc">Connessione verso SMO per management e configurazione. Supporta NETCONF/YANG per provisioning e monitoring del RIC stesso.</div></div>
+        <div class="comp-card"><div class="comp-title">Conflict Management</div><div class="comp-desc">Evita che due xApp inviino comandi contraddittori alla stessa cella. Basato su SDL — pattern reattivo (non preventivo come FORBID).</div></div>
+      </div>
+      <div style="background:var(--bg-secondary);border-radius:var(--radius-lg);padding:14px;margin-bottom:14px;">
+        <div style="font-size:12px;font-weight:500;margin-bottom:8px;">Control loop 10ms – 1s</div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:12px;font-weight:500;">E2 Node (vDU)</span>
+          <span style="color:var(--text-tertiary);">→ KPI report →</span>
+          <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:12px;font-weight:500;">Near-RT RIC</span>
+          <span style="color:var(--text-tertiary);">→ xApp logic →</span>
+          <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:12px;font-weight:500;">E2 Control</span>
+          <span style="color:var(--text-tertiary);">→ RAN action →</span>
+          <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:12px;font-weight:500;">E2 Node (vDU)</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:8px;">Latenza totale loop: 10ms – 1s · sopra 1s → Non-RT RIC · sotto 10ms → non possibile via software</div>
+      </div>
+      <div class="insight">Il Near-RT RIC non sostituisce il vDU — lo controlla. Il vDU continua a gestire il processing L1/L2/L3 in tempo reale. Il RIC invia comandi di controllo (cambia parametro, spegni carrier, fai handover) che il vDU esegue. La separazione control plane / data plane è il cuore dell'architettura O-RAN.</div>
+    </div>
+
+    <div id="tab-e2sm" class="tab-panel">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">E2SM-KPM &amp; E2SM-RC</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">E2 Service Models definiscono come xApp e vDU comunicano sull'interfaccia E2. KPM per monitoraggio KPI, RC per controllo parametri RAN.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div class="card">
+          <div style="font-size:14px;font-weight:500;color:var(--p2b);margin-bottom:8px;">E2SM-KPM — KPI Monitoring</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:8px;">Permette alle xApp di sottoscriversi a KPI dal vDU. 5 step: xApp richiede subscription → E2 Term accetta → vDU inizia a reportare → xApp riceve KPI → xApp analizza e decide.</div>
+          <div style="font-size:11px;color:var(--text-tertiary);margin-bottom:6px;">Categorie KPI disponibili:</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px;">
+            <span class="badge" style="background:var(--p2l);color:var(--p2b);">PRB utilization</span>
+            <span class="badge" style="background:var(--p2l);color:var(--p2b);">throughput DL/UL</span>
+            <span class="badge" style="background:var(--p2l);color:var(--p2b);">CQI / SINR</span>
+            <span class="badge" style="background:var(--p2l);color:var(--p2b);">active UE count</span>
+            <span class="badge" style="background:var(--p2l);color:var(--p2b);">handover stats</span>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:14px;font-weight:500;color:var(--p2b);margin-bottom:8px;">E2SM-RC — RAN Control</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:8px;">Permette alle xApp di inviare comandi di controllo al vDU. 6 tipi di controllo supportati:</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="font-size:11px;color:var(--text-secondary);">→ Handover Control — forzare HO a cella target</div>
+            <div style="font-size:11px;color:var(--text-secondary);">→ Carrier On/Off — Carrier Switch Off/On</div>
+            <div style="font-size:11px;color:var(--text-secondary);">→ RF Channel Reconfig — 64T→32T→16T</div>
+            <div style="font-size:11px;color:var(--text-secondary);">→ Slice Parameter Control</div>
+            <div style="font-size:11px;color:var(--text-secondary);">→ Cell Parameter Modification</div>
+            <div style="font-size:11px;color:var(--text-secondary);">→ UE Policy Control</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:500;margin-bottom:10px;">3 use case Energy Saving via E2SM</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="padding:12px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border);background:var(--bg-secondary);">
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">Carrier Switch Off / On</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;">Spegne carrier NR quando il traffico scende sotto soglia. Prerequisito: Traffic Steering xApp deve avere spostato gli UE prima del switch-off. FORBID clause A1 previene switch-off quando UE critici sono collegati. Saving: 20-40% energia carrier spento.</div>
+        </div>
+        <div style="padding:12px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border);background:var(--bg-secondary);">
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">RF Channel Reconfiguration</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;">Riduce il numero di antenne attive: 64T64R → 32T32R → 16T16R in base al carico. Richiede restart O-RU — non istantaneo. Saving proporzionale al numero di catene RF disattivate.</div>
+        </div>
+        <div style="padding:12px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border);background:var(--bg-secondary);">
+          <div style="font-size:12px;font-weight:500;margin-bottom:3px;">Advanced Sleep Mode (ASM)</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;">SM1 disponibile · SM2 parziale · SM3 in standardizzazione. Non ancora fully available. Saving potenziale: 15-30% aggiuntivo rispetto a Carrier Switch Off.</div>
+        </div>
+      </div>
+      <div class="insight"><strong>Nota critica — non tutto è a 10ms:</strong> E2SM-KPM non garantisce granularità 10ms per tutti i KPI. La granularità reale dipende dal vDU e dal tipo di KPI. Per energy saving, cicli di 100ms-1s sono tipici e sufficienti. La latenza 10ms è il limite inferiore teorico del control loop, non la granularità di reporting.</div>
+    </div>
+
+    <div id="tab-usecase" class="tab-panel">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">4 use case xApp — closed loop automation</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Ogni use case mostra il flusso decisionale completo dell'xApp — da raccolta KPI a azione sul RAN.</div>
+
+      <div class="uc-card" style="border-color:var(--p2l);">
+        <div class="uc-title">1 — Traffic Steering xApp</div>
+        <div class="uc-desc">Ottimizza la distribuzione degli UE tra celle per bilanciare il carico e massimizzare il throughput.</div>
+        <div class="flow-row">
+          <span class="flow-step" style="background:var(--p2l);color:var(--p2b);">KPM: PRB &gt;80%</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--p2l);color:var(--p2b);">cella congestionata?</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--p2l);color:var(--p2b);">cella vicina &lt;50%?</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--te50);color:var(--te800);">E2SM-RC: HO Control</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">Prerequisito per Energy Saving: prima di spegnere un carrier, gli UE devono essere spostati su altre celle.</div>
+      </div>
+
+      <div class="uc-card" style="border-color:var(--te50);">
+        <div class="uc-title">2 — Energy Saving xApp</div>
+        <div class="uc-desc">Spegne carrier e riduce antenne quando il traffico è basso, risparmiando fino al 40% di energia.</div>
+        <div class="flow-row">
+          <span class="flow-step" style="background:var(--te50);color:var(--te800);">KPM: traffico &lt;20%</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--te50);color:var(--te800);">check A1 FORBID</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--te50);color:var(--te800);">TS xApp: svuota cella</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--te50);color:var(--te800);">E2SM-RC: Carrier OFF</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">La FORBID clause A1 blocca lo switch-off se UE critici (emergency, VoLTE prioritario) sono collegati.</div>
+      </div>
+
+      <div class="uc-card" style="border-color:var(--am50);">
+        <div class="uc-title">3 — Congestion Control xApp</div>
+        <div class="uc-desc">Previene e gestisce la congestione applicando prioritizzazione e limitazione selettiva del traffico.</div>
+        <div class="flow-row">
+          <span class="flow-step" style="background:var(--am50);color:var(--am800);">KPM: PRB &gt;90%</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--am50);color:var(--am800);">admission reject rate?</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--am50);color:var(--am800);">slice policy adjust</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--am50);color:var(--am800);">E2SM-RC: Slice Ctrl</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">Interagisce con Capacity Management rApp (Non-RT RIC) per policy di lungo periodo.</div>
+      </div>
+
+      <div class="uc-card" style="border-color:var(--bl50);">
+        <div class="uc-title">4 — HO Optimization xApp</div>
+        <div class="uc-desc">Ottimizza i parametri di handover per ridurre gli handover inutili (ping-pong) e migliorare la continuità di servizio.</div>
+        <div class="flow-row">
+          <span class="flow-step" style="background:var(--bl50);color:var(--bl800);">KPM: HO failure rate</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--bl50);color:var(--bl800);">analisi pattern UE</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--bl50);color:var(--bl800);">tuning TTT/A3 offset</span><span class="flow-arr">→</span>
+          <span class="flow-step" style="background:var(--bl50);color:var(--bl800);">E2SM-RC: Cell Param</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">TTT = Time To Trigger · A3 offset = soglia RSRP per handover. Parametri critici per qualità voce e dati in mobilità.</div>
+      </div>
+
+      <div class="insight"><strong>Automazione closed loop:</strong> questi 4 use case operano simultaneamente, coordinati via SDL (Shared Data Layer). Il conflict management assicura che TS xApp e ES xApp non si contraddicano. Il loop completo — dalla misura KPI all'azione sul RAN — avviene in 10ms-1s senza intervento umano.</div>
+    </div>
+
+    <div id="tab-aiml" class="tab-panel">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">AI for / and / on RAN</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Tre modalità di AI nel RAN O-RAN — distinte per dove gira il modello e cosa controlla.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px;">
+        <div class="card" style="border-color:var(--p2l);">
+          <div style="font-size:12px;font-weight:500;color:var(--p2b);margin-bottom:6px;">AI for RAN</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;">ML per ottimizzare parametri RAN. Gira nel Non-RT RIC o Near-RT RIC. Esempio: predire il traffico per configurare proattivamente i parametri di cella.</div>
+        </div>
+        <div class="card" style="border-color:var(--p2l);">
+          <div style="font-size:12px;font-weight:500;color:var(--p2b);margin-bottom:6px;">AI and RAN</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;">AI che opera insieme al RAN come sistema separato. Esempio: MEC application con AI che usa la rete RAN come infrastruttura ma non la controlla direttamente.</div>
+        </div>
+        <div class="card" style="border-color:var(--p2l);">
+          <div style="font-size:12px;font-weight:500;color:var(--p2b);margin-bottom:6px;">AI on RAN</div>
+          <div style="font-size:11px;color:var(--text-secondary);line-height:1.5;">AI embedded nel processing L1 stesso. NVIDIA Aerial ARCC: ML per channel estimation e beam prediction direttamente sulla GPU che processa il segnale. Latenza &lt;1ms.</div>
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:500;margin-bottom:10px;">ML workflow nel Near-RT RIC</div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px;background:var(--bg-secondary);border-radius:var(--radius-lg);margin-bottom:14px;">
+        <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:11px;font-weight:500;">Raccolta KPI (E2SM-KPM)</span>
+        <span style="color:var(--text-tertiary);">→</span>
+        <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:11px;font-weight:500;">Feature engineering</span>
+        <span style="color:var(--text-tertiary);">→</span>
+        <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:11px;font-weight:500;">Model inference</span>
+        <span style="color:var(--text-tertiary);">→</span>
+        <span style="padding:6px 12px;background:var(--te50);color:var(--te800);border-radius:6px;font-size:11px;font-weight:500;">E2SM-RC: azione</span>
+        <span style="color:var(--text-tertiary);">→</span>
+        <span style="padding:6px 12px;background:var(--p2l);color:var(--p2b);border-radius:6px;font-size:11px;font-weight:500;">Feedback loop</span>
+      </div>
+      <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">Il training del modello avviene nel Non-RT RIC (più lento, più dati). Il modello addestrato viene deployato come xApp nel Near-RT RIC per inference real-time. Il ciclo di retraining è gestito dal ML workflow del Non-RT RIC tramite interfaccia R1.</div>
+      <div class="insight"><strong>NVIDIA Aerial ARCC</strong> è il punto di convergenza AI on RAN: il processig L1 e l'inference ML avvengono sulla stessa GPU. Questo elimina la latenza di trasferimento dati tra baseband e ML engine — impossibile con architetture separate. La sfida è il costo: una GPU H100 costa ~30k$, ma processa 8-16 celle NR con AI nativa integrata.</div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script>
+function showTab(n){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>

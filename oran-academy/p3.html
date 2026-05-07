@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3 Non-RT RIC — O-RAN Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="stylesheet" href="css/academy.css">
+<style>.content-area{padding:24px;}.section-title{font-size:11px;font-weight:500;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;}.tabs{border-bottom:0.5px solid var(--border);display:flex;gap:2px;flex-wrap:wrap;margin-bottom:20px;}.tab-btn{padding:9px 14px;font-size:13px;font-weight:500;color:var(--text-secondary);border:none;background:transparent;border-bottom:2px solid transparent;cursor:pointer;transition:all .15s;white-space:nowrap;}.tab-btn.active{color:var(--p3);border-bottom-color:var(--p3);}.tab-panel{display:none;}.tab-panel.active{display:block;animation:fadeIn .2s ease;}@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}.insight{border-left:3px solid var(--p3);background:var(--p3l);border-radius:0 6px 6px 0;padding:10px 14px;font-size:13px;color:var(--p3b);margin-top:14px;line-height:1.6;}.flow-box{padding:12px 14px;border-radius:var(--radius-md);border:0.5px solid var(--border);background:var(--bg-secondary);margin-bottom:8px;}.flow-title{font-size:12px;font-weight:500;margin-bottom:4px;}.flow-desc{font-size:11px;color:var(--text-secondary);line-height:1.5;}</style>
+</head>
+<body>
+<div class="page-shell">
+<nav class="sidebar">
+  <div class="sidebar-logo"><div class="logo-badge">O-RAN Academy</div><div class="logo-title">Platform</div><div class="logo-sub">v1.0 · Italiano</div></div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Piattaforma</div><a class="nav-item" href="index.html"><i class="ti ti-layout-dashboard"></i> Dashboard</a>
+    <div class="nav-section">Temi</div>
+    <a class="nav-item" href="security.html" style="--active-color:#D85A30"><span class="nav-dot" style="background:#D85A30"></span> Security</a>
+    <a class="nav-item" href="automation.html" style="--active-color:#1D9E75"><span class="nav-dot" style="background:#1D9E75"></span> Automation</a>
+    <div class="nav-section">Moduli</div>
+    <a class="nav-item" href="p1.html" style="--active-color:#888780"><span class="nav-dot" style="background:#888780"></span> P1 Foundations<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p2.html" style="--active-color:#534AB7"><span class="nav-dot" style="background:#534AB7"></span> P2 Near-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item active" href="p3.html" style="--active-color:#7F77DD"><span class="nav-dot" style="background:#7F77DD"></span> P3 Non-RT RIC<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p4.html" style="--active-color:#0F6E56"><span class="nav-dot" style="background:#0F6E56"></span> P4 Fronthaul<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p5.html" style="--active-color:#0C447C"><span class="nav-dot" style="background:#0C447C"></span> P5 Cloud &amp; OAM<span class="nav-check">✓</span></a>
+    <a class="nav-item" href="p6.html" style="--active-color:#185FA5"><span class="nav-dot" style="background:#185FA5"></span> P6 HW &amp; Stack<span class="nav-check">✓</span></a>
+  </div>
+  <div class="sidebar-footer"><a href="index.html" style="font-size:11px;color:var(--text-secondary);">← Dashboard</a></div>
+</nav>
+<main class="main-content">
+  <div class="topbar">
+    <div class="topbar-left"><div class="topbar-title" style="color:var(--p3b);">P3 — Non-RT RIC &amp; A1 Interface</div><div class="topbar-sub">WG2 · 5 blocchi · automation · security</div></div>
+    <div class="topbar-actions"><a class="btn btn-sm" href="p2.html">← P2</a><a class="btn btn-sm" href="p4.html" style="background:var(--p3l);color:var(--p3b);border-color:var(--p3);">P4 Fronthaul →</a></div>
+  </div>
+  <div class="content-area">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('architettura')">Architettura</button>
+      <button class="tab-btn" onclick="showTab('rapp')">rApp &amp; A1</button>
+      <button class="tab-btn" onclick="showTab('forbid')">FORBID Clause</button>
+      <button class="tab-btn" onclick="showTab('usecase')">Use Case rApp</button>
+    </div>
+
+    <div id="tab-architettura" class="tab-panel active">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">Cos'è il Non-RT RIC</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Il Non-RT RIC (Non Real-Time RAN Intelligent Controller) opera su scala temporale superiore a 1 secondo. Ospita le rApp — applicazioni di ottimizzazione AI/ML e gestione policy. Comunica con il Near-RT RIC tramite interfaccia A1.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+        <div class="card"><div style="font-size:13px;font-weight:500;margin-bottom:8px;">Outer loop (&gt;1s)</div><div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">Non-RT RIC analizza dati storici e tendenze. Addestra modelli ML. Genera policy A1 per guidare il Near-RT RIC. Ciclo tipico: minuti-ore-giorni.</div></div>
+        <div class="card"><div style="font-size:13px;font-weight:500;margin-bottom:8px;">Inner loop (10ms-1s)</div><div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">Near-RT RIC esegue la policy A1 ricevuta. Monitora KPI via E2SM-KPM. Applica controllo via E2SM-RC. Manda feedback al Non-RT RIC.</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;">
+        <div style="padding:10px 12px;border-radius:var(--radius-md);background:var(--bg-secondary);"><div style="font-size:11px;font-weight:500;color:var(--p3b);margin-bottom:3px;">A1 Interface</div><div style="font-size:11px;color:var(--text-secondary);">Policy delivery Non-RT → Near-RT RIC</div></div>
+        <div style="padding:10px 12px;border-radius:var(--radius-md);background:var(--bg-secondary);"><div style="font-size:11px;font-weight:500;color:var(--p3b);margin-bottom:3px;">R1 Interface</div><div style="font-size:11px;color:var(--text-secondary);">rApp ↔ Non-RT RIC framework</div></div>
+        <div style="padding:10px 12px;border-radius:var(--radius-md);background:var(--bg-secondary);"><div style="font-size:11px;font-weight:500;color:var(--p3b);margin-bottom:3px;">O1 Interface</div><div style="font-size:11px;color:var(--text-secondary);">Management NF via SMO</div></div>
+        <div style="padding:10px 12px;border-radius:var(--radius-md);background:var(--bg-secondary);"><div style="font-size:11px;font-weight:500;color:var(--p3b);margin-bottom:3px;">DASH / Data Lake</div><div style="font-size:11px;color:var(--text-secondary);">Storage dati storici per ML training</div></div>
+        <div style="padding:10px 12px;border-radius:var(--radius-md);background:var(--bg-secondary);"><div style="font-size:11px;font-weight:500;color:var(--p3b);margin-bottom:3px;">ML Training</div><div style="font-size:11px;color:var(--text-secondary);">Pipeline addestramento modelli AI</div></div>
+        <div style="padding:10px 12px;border-radius:var(--radius-md);background:var(--bg-secondary);"><div style="font-size:11px;font-weight:500;color:var(--p3b);margin-bottom:3px;">Model Repository</div><div style="font-size:11px;color:var(--text-secondary);">Storage e versioning modelli ML</div></div>
+      </div>
+      <div class="insight">La differenza fondamentale rApp vs xApp: le rApp non controllano direttamente il RAN — inviano policy A1 al Near-RT RIC che le esegue. Questo disaccoppiamento permette alle rApp di operare con dati aggregati e cicli lunghi, mentre le xApp eseguono le azioni in tempo reale.</div>
+    </div>
+
+    <div id="tab-rapp" class="tab-panel">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">rApp design &amp; A1 Policy Framework</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Le rApp sono applicazioni che girano nel Non-RT RIC. Accedono ai dati via R1, addestrano modelli ML, e inviano policy A1 al Near-RT RIC.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div>
+          <div style="font-size:13px;font-weight:500;margin-bottom:8px;">Lifecycle policy A1</div>
+          <div class="flow-box"><div class="flow-title">1. Creazione policy</div><div class="flow-desc">rApp definisce policy con: policy type ID, scope (celle/slice/UE), oggetto (parametri), FORBID conditions.</div></div>
+          <div class="flow-box"><div class="flow-title">2. Invio via A1</div><div class="flow-desc">Non-RT RIC invia policy al Near-RT RIC target. Conferma di ricezione.</div></div>
+          <div class="flow-box"><div class="flow-title">3. Esecuzione xApp</div><div class="flow-desc">Near-RT RIC legge policy. xApp la applica nel proprio loop di controllo. Rispetta la FORBID clause.</div></div>
+          <div class="flow-box"><div class="flow-title">4. Feedback A1</div><div class="flow-desc">Near-RT RIC manda status e KPI aggregati al Non-RT RIC. La rApp aggiorna il modello.</div></div>
+        </div>
+        <div>
+          <div style="font-size:13px;font-weight:500;margin-bottom:8px;">rApp vs xApp — differenze chiave</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="padding:10px;border-radius:var(--radius-md);border:0.5px solid var(--border);">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px;">
+                <div style="color:var(--text-tertiary);font-weight:500;">rApp</div>
+                <div style="color:var(--text-tertiary);font-weight:500;">xApp</div>
+                <div style="color:var(--text-secondary);">Non-RT RIC</div><div style="color:var(--text-secondary);">Near-RT RIC</div>
+                <div style="color:var(--text-secondary);">&gt;1 secondo</div><div style="color:var(--text-secondary);">10ms – 1s</div>
+                <div style="color:var(--text-secondary);">Policy A1</div><div style="color:var(--text-secondary);">E2 Control</div>
+                <div style="color:var(--text-secondary);">Dati storici</div><div style="color:var(--text-secondary);">KPI real-time</div>
+                <div style="color:var(--text-secondary);">ML training</div><div style="color:var(--text-secondary);">ML inference</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:12px;font-size:13px;font-weight:500;margin-bottom:6px;">Interfacce rApp via R1</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">R1 espone: accesso al Data Lake, ML pipeline API, policy A1 management, configurazione O-RAN tramite SMO. Le rApp accedono a tutto via R1 — non toccano mai direttamente l'E2.</div>
+        </div>
+      </div>
+      <div class="insight"><strong>rApp = intelligenza strategica · xApp = esecuzione tattica.</strong> La separazione non è solo architetturale — è operativa. Il team che sviluppa la rApp ML ha accesso a dati storici, training infrastrutture, cicli lunghi. Il team che sviluppa l'xApp lavora su latenza, conflict management, real-time constraints.</div>
+    </div>
+
+    <div id="tab-forbid" class="tab-panel">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">FORBID Clause — Security preventiva A1</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">La FORBID clause è un meccanismo di sicurezza preventiva nell'interfaccia A1. Permette alla rApp di specificare condizioni in cui certe azioni NON devono mai essere eseguite dall'xApp — indipendentemente dai KPI.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div class="card" style="border-color:var(--co100);">
+          <div style="font-size:13px;font-weight:500;color:var(--co800);margin-bottom:8px;">Senza FORBID clause</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">L'xApp Energy Saving decide autonomamente quando spegnere un carrier basandosi solo sui KPI PRB. Rischio: spegne una cella che serve una chiamata di emergenza attiva o un UE in handover critico.</div>
+        </div>
+        <div class="card" style="border-color:var(--te100);">
+          <div style="font-size:13px;font-weight:500;color:var(--te800);margin-bottom:8px;">Con FORBID clause</div>
+          <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;">La policy A1 include: "FORBID Carrier Switch Off IF emergency_call_active OR VoLTE_priority_ue_count &gt; 0". L'xApp controlla questa condizione prima di ogni azione. È preventiva — non reattiva.</div>
+        </div>
+      </div>
+      <div style="font-size:13px;font-weight:500;margin-bottom:10px;">Esempio policy A1 con FORBID</div>
+      <div style="background:var(--bg-secondary);border-radius:var(--radius-lg);padding:14px;font-family:var(--font-mono);font-size:12px;color:var(--text-primary);margin-bottom:14px;line-height:1.8;">
+        <span style="color:var(--p3b);">{</span><br>
+        &nbsp;&nbsp;<span style="color:var(--te600);">"policy_type_id"</span>: <span style="color:var(--am600);">"ENERGY_SAVING_v1"</span>,<br>
+        &nbsp;&nbsp;<span style="color:var(--te600);">"scope"</span>: { <span style="color:var(--te600);">"cells"</span>: [<span style="color:var(--am600);">"cell_001"</span>, <span style="color:var(--am600);">"cell_002"</span>] },<br>
+        &nbsp;&nbsp;<span style="color:var(--te600);">"statement"</span>: { <span style="color:var(--te600);">"carrier_off_threshold_prb"</span>: <span style="color:var(--p3b);">20</span> },<br>
+        &nbsp;&nbsp;<span style="color:var(--co600);">"forbid"</span>: {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--co600);">"carrier_switch_off"</span>: {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--co600);">"if"</span>: <span style="color:var(--am600);">"emergency_call_active == true"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--co600);">"or_if"</span>: <span style="color:var(--am600);">"volte_priority_ue_count &gt; 0"</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;}<br>
+        <span style="color:var(--p3b);">}</span>
+      </div>
+      <div class="insight"><strong>FORBID è il meccanismo di security più importante del RIC:</strong> garantisce che l'automazione non comprometta mai la continuità di servizio critica. È preventiva (controlla prima di agire) non reattiva (non corregge dopo l'errore). Il conflict management SDL del Near-RT RIC è invece reattivo — risolve conflitti tra xApp ma non ha visibilità sul contesto di rete come la FORBID clause.</div>
+    </div>
+
+    <div id="tab-usecase" class="tab-panel">
+      <div style="font-size:17px;font-weight:500;margin-bottom:8px;">Use Case rApp — automation flowchart</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:16px;">Due rApp con valore economico diretto: Energy Saving e Capacity Management.</div>
+
+      <div class="card" style="margin-bottom:12px;">
+        <div style="font-size:14px;font-weight:500;margin-bottom:8px;color:var(--te800);">Energy Saving rApp</div>
+        <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Ottimizza il consumo energetico dell'intera rete su scala oraria. Analizza pattern di traffico storici, predice i periodi di basso carico, invia policy A1 all'ES-xApp.</div>
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+          <span style="padding:5px 10px;background:var(--te50);color:var(--te800);border-radius:6px;font-size:11px;font-weight:500;">Analisi dati storici 24h</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--te50);color:var(--te800);border-radius:6px;font-size:11px;font-weight:500;">Predizione traffico</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--te50);color:var(--te800);border-radius:6px;font-size:11px;font-weight:500;">Policy A1 + FORBID</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--te50);color:var(--te800);border-radius:6px;font-size:11px;font-weight:500;">ES-xApp esegue</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--te50);color:var(--te800);border-radius:6px;font-size:11px;font-weight:500;">Feedback KPI</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">Saving tipico: 15-25% OPEX energia per le celle gestite · ROI misurabile in 3-6 mesi da attivazione</div>
+      </div>
+
+      <div class="card">
+        <div style="font-size:14px;font-weight:500;margin-bottom:8px;color:var(--am800);">Capacity Management rApp</div>
+        <div style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px;">Previene la saturazione delle celle ottimizzando proattivamente la distribuzione del carico. Doppio filtro prima di qualsiasi azione: PRB &lt;70% E no admission reject.</div>
+        <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+          <span style="padding:5px 10px;background:var(--am50);color:var(--am800);border-radius:6px;font-size:11px;font-weight:500;">PRB trend &gt;70%?</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--am50);color:var(--am800);border-radius:6px;font-size:11px;font-weight:500;">Admission reject &gt;0?</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--am50);color:var(--am800);border-radius:6px;font-size:11px;font-weight:500;">Policy A1: TS-xApp</span>
+          <span style="color:var(--text-tertiary);">→</span>
+          <span style="padding:5px 10px;background:var(--am50);color:var(--am800);border-radius:6px;font-size:11px;font-weight:500;">Bilanciamento carico</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">Il doppio filtro (PRB + admission reject) evita false positivi — agisce solo quando la saturazione è confermata da due segnali indipendenti.</div>
+      </div>
+
+      <div class="insight"><strong>rApp = scala di rete · xApp = scala di cella.</strong> La rApp vede l'intera rete e ottimizza su ore e giorni. L'xApp vede una cella e agisce in millisecondi. Insieme coprono tutto lo spettro temporale dell'automazione O-RAN senza mai entrare in conflitto — grazie alla FORBID clause che coordina le priorità.</div>
+    </div>
+
+  </div>
+</main>
+</div>
+<script>function showTab(n){document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-'+n).classList.add('active');event.target.classList.add('active');}</script>
+</body>
+</html>

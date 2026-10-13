@@ -52,3 +52,9 @@ Stima indicativa per un singolo evento su IPv4 (etichettare SEMPRE "stima indica
 - Modulo del dispositivo (confermato dal cliente): **SIMCom SIM7070G HP-S**, NB-IoT + NB-NTN.
 - Percentuali 70/30 → 100: sono la visione strategica del cliente, presentarle come "distribuzione del valore (visione)".
 - Nessuna data precisa per le fasi: usare "Oggi / Prossimi anni / Lungo periodo" o "Breve / Medio / Lungo termine".
+
+## Aggiornamento v3 (dal cliente)
+- **Oggi** il device invia **JSON** su CoAP/DTLS/UDP, sia su rete terrestre sia su NTN.
+- **Fase 2**: passaggio a **CBOR** quando la dimensione dei pacchetti pesa sui costi NTN o causa frammentazione. Non ancora implementato.
+- Timer CoAP mostrati: ACK_TIMEOUT 2 s, ACK_RANDOM_FACTOR 1,5, raddoppio a ogni tentativo, MAX_RETRANSMIT 4
+  (default RFC 7252 / Eclipse Californium) — da sostituire con la configurazione reale se diversa.

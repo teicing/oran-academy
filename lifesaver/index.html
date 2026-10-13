@@ -267,6 +267,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 .costs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .costs li{padding:12px 14px;border-radius:12px;border:1px dashed rgba(255,77,77,.45);color:var(--text);font-size:14px;text-decoration:line-through;text-decoration-color:var(--red)}
 
+.phase2{margin-top:28px;padding:20px 22px;border-radius:16px;border:1px dashed rgba(181,123,255,.55);background:rgba(181,123,255,.06)}
+.phase2 .lvl{font:600 11px/1 var(--f-mono);letter-spacing:.12em;color:var(--violet)}
+.phase2 p{margin-top:8px;color:var(--muted)}.phase2 b{color:var(--text)}
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -384,7 +387,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="steps">
       <div class="step reveal"><h3>Rileva</h3><p>Il sensore inerziale riconosce una caduta o un urto anomalo. In alternativa, l'utente preme il pulsante SOS.</p><code>IMU → evento: FALL_DETECTED | SOS_PRESSED</code></div>
       <div class="step reveal"><h3>Localizza</h3><p>Il ricevitore GNSS calcola la posizione. All'evento si aggiungono velocità e ultimo movimento.</p><code>GNSS fix · lat/lon · velocità · timestamp</code></div>
-      <div class="step reveal"><h3>Trasmetti</h3><p>L'evento parte su NB-IoT terrestre o, dove manca copertura, su NB-NTN via satellite. Il telefono dell'utente non serve.</p><code>CoAP CON · DTLS · UDP 5684 · CBOR</code></div>
+      <div class="step reveal"><h3>Trasmetti</h3><p>L'evento parte su NB-IoT terrestre o, dove manca copertura, su NB-NTN via satellite. Il telefono dell'utente non serve.</p><code>CoAP CON · DTLS · UDP 5684 · JSON</code></div>
       <div class="step reveal"><h3>Elabora</h3><p>Il CoAP Gateway conferma la ricezione con un ACK; la piattaforma applica le regole del tenant e dello use case e apre un incidente.</p><code>ACK 2.04 · rule engine (tenant) → incident OPEN</code></div>
       <div class="step reveal"><h3>Allerta</h3><p>Le notifiche raggiungono App, contatti di emergenza e centrale operativa. Ognuno vede la stessa posizione.</p><code>notify → app · contatti · dashboard</code></div>
       <div class="step reveal"><h3>Intervieni</h3><p>L'operatore segue la mappa live e consulta lo storico. A soccorso completato chiude l'incidente.</p><code>incident: OPEN → IN_CORSO → CHIUSO</code></div>
@@ -425,7 +428,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <div class="layer reveal" style="--c:var(--sky)"><span class="lvl">EDGE · UDP 5684</span><h3>Californium + Scandium</h3><ul>
         <li>Anti-DDoS, rate limit e load balancer davanti al gateway.</li>
         <li>CoAP DTLS Gateway: terminazione DTLS con PSK o X.509, anti-replay, session cache.</li>
-        <li>Validazione payload JSON/CBOR, mappatura identità device, stateless e scalabile N+1.</li></ul></div>
+        <li>Validazione payload JSON (CBOR previsto in fase 2), mappatura identità device, stateless e scalabile N+1.</li></ul></div>
       <div class="layer reveal" style="--c:var(--lime)"><span class="lvl">CORE · HTTP REST / MQTT</span><h3>ThingsBoard CE + PostgreSQL</h3><ul>
         <li>Data Collection: registry dei device e ingestione della telemetria.</li>
         <li>Data Storage: storico eventi, sessioni e incidenti.</li>
@@ -444,14 +447,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="sec-head reveal">
       <span class="eyebrow">Dentro il CoAP Gateway</span>
       <h2>Pacchetti più piccoli. Consegna confermata.</h2>
-      <p>Su NB-IoT e soprattutto su satellite ogni byte costa banda, energia e denaro. Il gateway CoAP riduce il traffico e trasforma un trasporto UDP senza connessione in una consegna con conferma della piattaforma.</p>
+      <p>Su NB-IoT e soprattutto su satellite ogni byte costa banda, energia e denaro. Oggi EU-LS invia JSON su CoAP/DTLS/UDP, sia su rete terrestre sia su NTN: già così il traffico si riduce rispetto a HTTPS e un trasporto UDP senza connessione diventa una consegna confermata dalla piattaforma. In fase 2 il passaggio a CBOR ridurrà ancora il payload.</p>
     </div>
     <div class="coap-grid">
       <div class="reveal">
-        <figure class="fig"><img src="assets/svg/payload-compare.svg" alt="Stima indicativa per un evento: circa 306 byte con HTTPS su TCP contro circa 121 byte con CoAP su DTLS e UDP; payload da 94 byte JSON a 52 byte CBOR" width="1000" height="420"></figure>
+        <figure class="fig"><img src="assets/svg/payload-compare.svg" alt="Stima indicativa per un evento: circa 306 byte con HTTPS su TCP; circa 163 byte oggi con CoAP e JSON su DTLS e UDP; circa 121 byte in fase 2 con CBOR" width="1000" height="470"></figure>
         <div class="kpis">
-          <div class="kpi"><b>−45%</b><span>payload: JSON 94 B → CBOR 52 B</span></div>
-          <div class="kpi"><b>≈ −60%</b><span>byte per evento, stima indicativa</span></div>
+          <div class="kpi"><b>≈ −47%</b><span>oggi: CoAP + JSON vs HTTPS, byte per evento</span></div>
+          <div class="kpi"><b style="color:var(--violet)">≈ −60%</b><span>fase 2: CoAP + CBOR (payload 94 → 52 B)</span></div>
           <div class="kpi"><b>0</b><span>handshake TCP/TLS per messaggio</span></div>
         </div>
       </div>
@@ -459,13 +462,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <figure class="fig"><img src="assets/svg/coap-ack.svg" alt="Sequenza CoAP: messaggio Confirmable dal device, inoltro alla piattaforma, ACK 2.04 Changed; in caso di perdita, ritrasmissione con backoff esponenziale e deduplica tramite Message-ID" width="1000" height="540"></figure>
         <ul class="ticks">
           <li><b>Messaggi Confirmable (CON)</b> · ogni evento critico attende l'ACK con l'esito applicativo (es. 2.04 Changed).</li>
-          <li><b>Ritrasmissione con backoff</b> · se l'ACK non arriva, il device ritrasmette; i timer si adattano alla latenza GEO (~0,5 s di andata e ritorno).</li>
+          <li><b>Ritrasmissione con backoff</b> · ACK_TIMEOUT di 2 s con fattore casuale fino a 1,5 (primo timeout tra 2 e 3 s), poi raddoppia a ogni tentativo, fino a 4 ritrasmissioni. Ben oltre i ~0,5 s di andata e ritorno via GEO.</li>
           <li><b>Message-ID e anti-replay</b> · nessun evento duplicato, nessun pacchetto riutilizzato da terzi.</li>
           <li><b>Sicurezza DTLS</b> · PSK o certificati X.509, sessione riutilizzata senza nuovi handshake.</li>
         </ul>
       </div>
     </div>
-    <p class="spec-note">Esempio calcolato su un evento di caduta (id, tipo, lat/lon, velocità, batteria, timestamp). Byte di rete su IPv4: stima indicativa, esclusi gli handshake.</p>
+    <div class="phase2 reveal"><span class="lvl">FASE 2 · CBOR</span><p>Il passaggio da JSON a <b>CBOR</b> (payload binario) non è ancora implementato: verrà attivato quando la dimensione dei pacchetti inizierà a pesare sui costi del collegamento NTN o a causare frammentazione. Il design del gateway prevede già la validazione di entrambi i formati, quindi il cambio resta confinato a dispositivo e gateway.</p></div>
+    <p class="spec-note">Esempio calcolato su un evento di caduta (id, tipo, lat/lon, velocità, batteria, timestamp). Byte di rete su IPv4: stima indicativa, esclusi gli handshake. Timer CoAP: valori di default RFC 7252 / Eclipse Californium.</p>
   </div>
 </section>
 <!-- 5. DISPOSITIVO -->
@@ -627,7 +631,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     </div>
     <table class="spec-table reveal">
       <tr><th>Connettività</th><td>NB-IoT terrestre + NB-NTN satellitare (3GPP Rel-17, GEO, banda S) · modulo SIMCom SIM7070G HP-S</td></tr>
-      <tr><th>Protocollo</th><td>CoAP su DTLS / UDP 5684 · payload CBOR o JSON · messaggi Confirmable con ACK</td></tr>
+      <tr><th>Protocollo</th><td>CoAP su DTLS / UDP 5684 · payload JSON (CBOR in fase 2) · messaggi Confirmable con ACK · ACK_TIMEOUT 2 s, max 4 ritrasmissioni</td></tr>
       <tr><th>GNSS</th><td>Quectel L86 · multi-costellazione · antenna patch integrata</td></tr>
       <tr><th>Sensori</th><td>Sensore inerziale (accelerometro / IMU) per cadute e urti</td></tr>
       <tr><th>Interfaccia</th><td>Display TFT a colori · pulsanti fisici (SOS / funzione)</td></tr>

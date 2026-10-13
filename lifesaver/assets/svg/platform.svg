@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="pl-title pl-desc">
 <title id="pl-title">Struttura della piattaforma EU-LS</title>
-<desc id="pl-desc">Da sinistra: accesso (Device EU-LS NB-IoT + NB-NTN e smartphone LTE/NR; radio eNodeB banda B20 terrestre e satellite GEO a circa 37.000 km in banda S), Rete MNO + SMO (CN-NSA), sia per il ramo terrestre sia per quello satellitare, collegamento UDP 5684 con CoAP / DTLS / UDP e payload CBOR verso l'edge Eclipse Californium + Scandium (Anti-DDoS, Rate Limit, Load Balancer su due istanze N+1, CoAP DTLS Gateway), poi HTTP REST / MQTT verso il core ThingsBoard CE + PostgreSQL (Data Collection, Data Storage, Data Exposure), Northbound Interface e REST APIs verso i partner multitenant. Lo smartphone raggiunge il core direttamente via App / API HTTPS o MQTT su LTE/NR, senza passare dal CoAP gateway.</desc>
+<desc id="pl-desc">Da sinistra: accesso (Device EU-LS NB-IoT + NB-NTN e smartphone LTE/NR; radio eNodeB banda B20 terrestre e satellite GEO a circa 37.000 km in banda S), Rete MNO + SMO (CN-NSA), sia per il ramo terrestre sia per quello satellitare, collegamento UDP 5684 con CoAP / DTLS / UDP e payload JSON (CBOR in fase 2) verso l'edge Eclipse Californium + Scandium (Anti-DDoS, Rate Limit, Load Balancer su due istanze N+1, CoAP DTLS Gateway), poi HTTP REST / MQTT verso il core ThingsBoard CE + PostgreSQL (Data Collection, Data Storage, Data Exposure), Northbound Interface e REST APIs verso i partner multitenant. Lo smartphone raggiunge il core direttamente via App / API HTTPS o MQTT su LTE/NR, senza passare dal CoAP gateway.</desc>
 <defs>
   <marker id="pl-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#B8F04A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
   <marker id="pl-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#4CC3FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
@@ -90,7 +90,7 @@
   <rect x="391" y="227" width="52" height="18" rx="4" class="pl-in"/><text x="417" y="240">DTLS</text>
   <rect x="391" y="248" width="52" height="18" rx="4" class="pl-in"/><text x="417" y="261">UDP</text>
   <text x="417" y="288" style="fill:#B8F04A;font-weight:700">UDP 5684</text>
-  <rect x="391" y="310" width="52" height="18" rx="4" class="pl-in" style="stroke:#B8F04A;stroke-opacity:.5"/><text x="417" y="323" style="fill:#B8F04A">CBOR</text>
+  <rect x="391" y="310" width="52" height="18" rx="4" class="pl-in" style="stroke:#B8F04A;stroke-opacity:.5"/><text x="417" y="323" style="fill:#B8F04A">JSON</text>
 </g>
 <line x1="388" y1="300" x2="446" y2="300" stroke="#B8F04A" stroke-width="2.5" marker-end="url(#pl-arr)"/>
 

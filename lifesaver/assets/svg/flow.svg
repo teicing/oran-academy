@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 240" role="img" aria-labelledby="fh-title fh-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 210" role="img" aria-labelledby="fh-title fh-desc">
 <title id="fh-title">Come funziona Life Saver in 6 passi</title>
 <desc id="fh-desc">Flusso operativo: 1 Rileva, 2 Localizza, 3 Trasmetti, 4 Elabora, 5 Allerta, 6 Intervieni.</desc>
 <defs>
@@ -16,68 +16,68 @@
   @keyframes f-ring{0%{opacity:1}14%{opacity:0}100%{opacity:0}}
   @media (prefers-reduced-motion:reduce){.f-ring{animation:none}.f-pulse{display:none}}
 </style>
-  <line x1="100" y1="84" x2="1100" y2="84" stroke="#22314A" stroke-width="2"/>
-  <line x1="154" y1="84" x2="244" y2="84" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
-  <line x1="354" y1="84" x2="444" y2="84" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
-  <line x1="554" y1="84" x2="644" y2="84" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
-  <line x1="754" y1="84" x2="844" y2="84" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
-  <line x1="954" y1="84" x2="1044" y2="84" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
+  <line x1="100" y1="74" x2="1100" y2="74" stroke="#22314A" stroke-width="2"/>
+  <line x1="154" y1="74" x2="244" y2="74" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
+  <line x1="354" y1="74" x2="444" y2="74" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
+  <line x1="554" y1="74" x2="644" y2="74" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
+  <line x1="754" y1="74" x2="844" y2="74" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
+  <line x1="954" y1="74" x2="1044" y2="74" stroke="#4CC3FF" stroke-width="2" stroke-dasharray="4 6" marker-end="url(#fh-arr)"/>
   <g class="f-pulse">
-    <circle r="14" fill="url(#fh-pg)" opacity="0.8"><animateMotion dur="6s" repeatCount="indefinite" path="M100 84 H1100"/></circle>
-    <circle r="4" fill="#B8F04A"><animateMotion dur="6s" repeatCount="indefinite" path="M100 84 H1100"/></circle>
+    <circle r="14" fill="url(#fh-pg)" opacity="0.8"><animateMotion dur="6s" repeatCount="indefinite" path="M100 74 H1100"/></circle>
+    <circle r="4" fill="#B8F04A"><animateMotion dur="6s" repeatCount="indefinite" path="M100 74 H1100"/></circle>
   </g>
   <g>
-    <circle cx="100" cy="84" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
-    <circle class="f-ring" cx="100" cy="84" r="48" style="animation-delay:0.0s"/>
-    <g class="f-ico" transform="translate(76.0 60.0) scale(1.0)"><path d="M4 28 H13 L17 19 L23 40 L29 8 L33 28 H44"/></g>
-    <circle cx="130.2" cy="53.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
-    <text class="f-n" x="130.2" y="57.8" font-size="12" text-anchor="middle">1</text>
+    <circle cx="100" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
+    <circle class="f-ring" cx="100" cy="74" r="48" style="animation-delay:0.0s"/>
+    <g class="f-ico" transform="translate(72.4 46.4) scale(1.15)"><path d="M4 28 H13 L17 19 L23 40 L29 8 L33 28 H44"/></g>
+    <circle cx="130.2" cy="43.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
+    <text class="f-n" x="130.2" y="47.8" font-size="12" text-anchor="middle">1</text>
   </g>
-  <text class="f-t" x="100" y="170" font-size="19" text-anchor="middle">Rileva</text>
-  <text class="f-s" x="100" y="192" font-size="13" text-anchor="middle">Caduta, urto o SOS</text>
+  <text class="f-t" x="100" y="160" font-size="19" text-anchor="middle">Rileva</text>
+  <text class="f-s" x="100" y="182" font-size="13" text-anchor="middle">Caduta, urto o SOS</text>
   <g>
-    <circle cx="300" cy="84" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
-    <circle class="f-ring" cx="300" cy="84" r="48" style="animation-delay:1.2s"/>
-    <g class="f-ico" transform="translate(276.0 60.0) scale(1.0)"><path d="M24 43 C24 43 11 31 11 20 A13 13 0 0 1 37 20 C37 31 24 43 24 43 Z"/><circle cx="24" cy="20" r="4.5"/></g>
-    <circle cx="330.2" cy="53.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
-    <text class="f-n" x="330.2" y="57.8" font-size="12" text-anchor="middle">2</text>
+    <circle cx="300" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
+    <circle class="f-ring" cx="300" cy="74" r="48" style="animation-delay:1.2s"/>
+    <g class="f-ico" transform="translate(272.4 46.4) scale(1.15)"><path d="M24 43 C24 43 11 31 11 20 A13 13 0 0 1 37 20 C37 31 24 43 24 43 Z"/><circle cx="24" cy="20" r="4.5"/></g>
+    <circle cx="330.2" cy="43.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
+    <text class="f-n" x="330.2" y="47.8" font-size="12" text-anchor="middle">2</text>
   </g>
-  <text class="f-t" x="300" y="170" font-size="19" text-anchor="middle">Localizza</text>
-  <text class="f-s" x="300" y="192" font-size="13" text-anchor="middle">Fix GNSS + contesto</text>
+  <text class="f-t" x="300" y="160" font-size="19" text-anchor="middle">Localizza</text>
+  <text class="f-s" x="300" y="182" font-size="13" text-anchor="middle">Fix GNSS + contesto</text>
   <g>
-    <circle cx="500" cy="84" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
-    <circle class="f-ring" cx="500" cy="84" r="48" style="animation-delay:2.4s"/>
-    <g class="f-ico" transform="translate(476.0 60.0) scale(1.0)"><path d="M24 22 V43 M17 43 L24 22 L31 43 M19.5 35 H28.5"/><circle cx="24" cy="18" r="2.5"/><path d="M16 11 A11 11 0 0 0 16 25 M32 11 A11 11 0 0 1 32 25 M10 6 A18 18 0 0 0 10 30 M38 6 A18 18 0 0 1 38 30"/></g>
-    <circle cx="530.2" cy="53.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
-    <text class="f-n" x="530.2" y="57.8" font-size="12" text-anchor="middle">3</text>
+    <circle cx="500" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
+    <circle class="f-ring" cx="500" cy="74" r="48" style="animation-delay:2.4s"/>
+    <g class="f-ico" transform="translate(472.4 46.4) scale(1.15)"><path d="M24 22 V43 M17 43 L24 22 L31 43 M19.5 35 H28.5"/><circle cx="24" cy="18" r="2.5"/><path d="M16 11 A11 11 0 0 0 16 25 M32 11 A11 11 0 0 1 32 25 M10 6 A18 18 0 0 0 10 30 M38 6 A18 18 0 0 1 38 30"/></g>
+    <circle cx="530.2" cy="43.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
+    <text class="f-n" x="530.2" y="47.8" font-size="12" text-anchor="middle">3</text>
   </g>
-  <text class="f-t" x="500" y="170" font-size="19" text-anchor="middle">Trasmetti</text>
-  <text class="f-s" x="500" y="192" font-size="13" text-anchor="middle">NB-IoT / LTE-M</text>
+  <text class="f-t" x="500" y="160" font-size="19" text-anchor="middle">Trasmetti</text>
+  <text class="f-s" x="500" y="182" font-size="13" text-anchor="middle">NB-IoT / LTE-M</text>
   <g>
-    <circle cx="700" cy="84" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
-    <circle class="f-ring" cx="700" cy="84" r="48" style="animation-delay:3.6s"/>
-    <g class="f-ico" transform="translate(676.0 60.0) scale(1.0)"><path d="M14 36 H35 A8 8 0 0 0 34 20 A11 11 0 0 0 13 22 A7 7 0 0 0 14 36 Z"/><path d="M18 28 L22.5 32 L30 24"/></g>
-    <circle cx="730.2" cy="53.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
-    <text class="f-n" x="730.2" y="57.8" font-size="12" text-anchor="middle">4</text>
+    <circle cx="700" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
+    <circle class="f-ring" cx="700" cy="74" r="48" style="animation-delay:3.6s"/>
+    <g class="f-ico" transform="translate(672.4 46.4) scale(1.15)"><path d="M14 36 H35 A8 8 0 0 0 34 20 A11 11 0 0 0 13 22 A7 7 0 0 0 14 36 Z"/><path d="M18 28 L22.5 32 L30 24"/></g>
+    <circle cx="730.2" cy="43.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
+    <text class="f-n" x="730.2" y="47.8" font-size="12" text-anchor="middle">4</text>
   </g>
-  <text class="f-t" x="700" y="170" font-size="19" text-anchor="middle">Elabora</text>
-  <text class="f-s" x="700" y="192" font-size="13" text-anchor="middle">Regole per use case</text>
+  <text class="f-t" x="700" y="160" font-size="19" text-anchor="middle">Elabora</text>
+  <text class="f-s" x="700" y="182" font-size="13" text-anchor="middle">Regole per use case</text>
   <g>
-    <circle cx="900" cy="84" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
-    <circle class="f-ring" cx="900" cy="84" r="48" style="animation-delay:4.8s"/>
-    <g class="f-ico" transform="translate(876.0 60.0) scale(1.0)"><path d="M15 33 V22 A9 9 0 0 1 33 22 V33 L36 36 H12 Z"/><path d="M21 40 A3.5 3.5 0 0 0 27 40"/><path d="M24 9 V12 M7 20 H10 M38 20 H41 M10 9 L12.5 11.5 M38 9 L35.5 11.5"/></g>
-    <circle cx="930.2" cy="53.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
-    <text class="f-n" x="930.2" y="57.8" font-size="12" text-anchor="middle">5</text>
+    <circle cx="900" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
+    <circle class="f-ring" cx="900" cy="74" r="48" style="animation-delay:4.8s"/>
+    <g class="f-ico" transform="translate(872.4 46.4) scale(1.15)"><path d="M15 33 V22 A9 9 0 0 1 33 22 V33 L36 36 H12 Z"/><path d="M21 40 A3.5 3.5 0 0 0 27 40"/><path d="M24 9 V12 M7 20 H10 M38 20 H41 M10 9 L12.5 11.5 M38 9 L35.5 11.5"/></g>
+    <circle cx="930.2" cy="43.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
+    <text class="f-n" x="930.2" y="47.8" font-size="12" text-anchor="middle">5</text>
   </g>
-  <text class="f-t" x="900" y="170" font-size="19" text-anchor="middle">Allerta</text>
-  <text class="f-s" x="900" y="192" font-size="13" text-anchor="middle">App, contatti, centrale</text>
+  <text class="f-t" x="900" y="160" font-size="19" text-anchor="middle">Allerta</text>
+  <text class="f-s" x="900" y="182" font-size="13" text-anchor="middle">App, contatti, centrale</text>
   <g>
-    <circle cx="1100" cy="84" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
-    <circle class="f-ring" cx="1100" cy="84" r="48" style="animation-delay:6.0s"/>
-    <g class="f-ico" transform="translate(1076.0 60.0) scale(1.0)"><path d="M24 6 L38 11.5 V22 C38 32 32 39 24 42 C16 39 10 32 10 22 V11.5 Z"/><path d="M24 17 V31 M17 24 H31"/></g>
-    <circle cx="1130.2" cy="53.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
-    <text class="f-n" x="1130.2" y="57.8" font-size="12" text-anchor="middle">6</text>
+    <circle cx="1100" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
+    <circle class="f-ring" cx="1100" cy="74" r="48" style="animation-delay:6.0s"/>
+    <g class="f-ico" transform="translate(1072.4 46.4) scale(1.15)"><path d="M24 6 L38 11.5 V22 C38 32 32 39 24 42 C16 39 10 32 10 22 V11.5 Z"/><path d="M24 17 V31 M17 24 H31"/></g>
+    <circle cx="1130.2" cy="43.8" r="12" fill="#4CC3FF" stroke="#0B1220" stroke-width="3"/>
+    <text class="f-n" x="1130.2" y="47.8" font-size="12" text-anchor="middle">6</text>
   </g>
-  <text class="f-t" x="1100" y="170" font-size="19" text-anchor="middle">Intervieni</text>
-  <text class="f-s" x="1100" y="192" font-size="13" text-anchor="middle">Mappa live e storico</text>
+  <text class="f-t" x="1100" y="160" font-size="19" text-anchor="middle">Intervieni</text>
+  <text class="f-s" x="1100" y="182" font-size="13" text-anchor="middle">Mappa live e storico</text>
 </svg>

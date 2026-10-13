@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" role="img" aria-labelledby="ap-title ap-desc">
-  <title id="ap-title">Mockup App smartphone Life Saver</title>
-  <desc id="ap-desc">Mockup della App Life Saver con dati di esempio: stato Protezione attiva, mini mappa con posizione, grande pulsante SOS, stato del dispositivo (batteria, segnale NB-IoT, GNSS) e contatti di emergenza.</desc>
+  <title id="ap-title">Mockup App smartphone EU-LS</title>
+  <desc id="ap-desc">Mockup della App EU-LS con dati di esempio: stato Protezione attiva, mini mappa con posizione, grande pulsante SOS, stato del dispositivo (batteria, segnale NB-IoT, GNSS) e contatti di emergenza.</desc>
   <defs>
     <clipPath id="ap-screen"><rect x="20" y="16" width="260" height="568" rx="32"/></clipPath>
     <clipPath id="ap-mapclip"><rect x="34" y="146" width="232" height="92" rx="12"/></clipPath>
@@ -40,7 +40,7 @@
     <rect x="242" y="30" width="13" height="6" rx="1.5" fill="#E6EDF7"/>
 
     <!-- header -->
-    <text x="34" y="76" class="p-sans" font-size="17" font-weight="700" fill="#E6EDF7">Life Saver</text>
+    <text x="34" y="76" class="p-sans" font-size="17" font-weight="700" fill="#E6EDF7">EU-LS</text>
     <rect x="186" y="62" width="80" height="20" rx="10" fill="#111A2B" stroke="#22314A"/>
     <text x="226" y="76" class="p-mono" font-size="11" fill="#4CC3FF" text-anchor="middle">SB_XXXXX</text>
 

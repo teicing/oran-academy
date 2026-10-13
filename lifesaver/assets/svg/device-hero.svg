@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560" role="img" aria-labelledby="dh-title dh-desc">
-  <title id="dh-title">Dispositivo Life Saver</title>
-  <desc id="dh-desc">Illustrazione stilizzata del dispositivo Life Saver: case arrotondato con display a colori che mostra ID dispositivo SB_XXXXX, tempo di sessione, segnale cellulare, stato del fix satellitare, tecnologia LTE NB-IoT con RSRP -93 e RSRQ -11, pulsante SOS rosso laterale e LED di stato.</desc>
+  <title id="dh-title">Dispositivo EU-LS</title>
+  <desc id="dh-desc">Illustrazione stilizzata del dispositivo EU-LS: case arrotondato con display a colori che mostra ID dispositivo SB_XXXXX, tempo di sessione, segnale cellulare, stato del fix satellitare, tecnologia LTE NB-IoT con RSRP -93 e RSRQ -11, pulsante SOS rosso laterale e LED di stato.</desc>
   <defs>
     <linearGradient id="dh-case" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#1A2740"/>
@@ -75,7 +75,7 @@
   <!-- LED + etichette -->
   <circle cx="102" cy="76" r="9" fill="#B8F04A" opacity="0.18" class="dh-led"/>
   <circle cx="102" cy="76" r="4.5" fill="#B8F04A" class="dh-led" filter="url(#dh-glow)"/>
-  <text x="116" y="80" class="dh-mono" font-size="11" fill="#8EA0B8" letter-spacing="1">LIFE SAVER</text>
+  <text x="116" y="80" class="dh-mono" font-size="11" fill="#8EA0B8" letter-spacing="1">EU-LS</text>
   <g fill="#22314A">
     <circle cx="288" cy="76" r="2"/><circle cx="298" cy="76" r="2"/><circle cx="308" cy="76" r="2"/><circle cx="318" cy="76" r="2"/>
   </g>

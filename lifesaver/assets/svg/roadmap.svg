@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="rm-title rm-desc">
+<title id="rm-title">Roadmap Life Saver</title>
+<desc id="rm-desc">Tre fasi. Breve termine: Device NB-IoT + NB-NTN e smartphone LTE/NR; distribuzione del valore (visione) Device 70%, Piattaforma 30%. Medio termine: Device NB-IoT + NB-NTN, smartphone LTE/NR e primi smartphone NTN (LTE/NR + NTN); fase di transizione. Lungo termine: smartphone LTE/NR + NTN + 6G che sostituisce il device; Piattaforma 100%. Tutti i terminali puntano alla stessa Piattaforma IoT multitenant con Dashboard, che resta in tutte le fasi: il valore si sposta sulla piattaforma.</desc>
+<defs>
+  <marker id="rm-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#B8F04A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <linearGradient id="rm-grad" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FFC247"/><stop offset="1" stop-color="#B8F04A"/></linearGradient>
+  <linearGradient id="rm-grad2" gradientUnits="userSpaceOnUse" x1="60" x2="440" y1="0" y2="0"><stop offset="0" stop-color="#FFC247" stop-opacity=".7"/><stop offset="1" stop-color="#B8F04A"/></linearGradient>
+</defs>
+<style>
+  .rm-k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;fill:#8EA0B8}
+  .rm-h{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:17px;fill:#0B1220}
+  .rm-t{font-family:Inter,"Space Grotesk",sans-serif;font-size:13px;fill:#E6EDF7}
+  .rm-s{font-family:Inter,"Space Grotesk",sans-serif;font-size:11.5px;fill:#8EA0B8}
+  .rm-m{font-family:"JetBrains Mono",monospace;font-size:11px;fill:#E6EDF7}
+  .rm-b{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;fill:#0B1220}
+  .rm-panel{fill:#111A2B;stroke:#22314A;stroke-width:1.5}
+  .rm-flow{fill:none;animation:rm-dash 1.4s linear infinite}
+  @keyframes rm-dash{to{stroke-dashoffset:-18}}
+  .rm-pk{animation:rm-move 4s ease-in-out infinite}
+  @keyframes rm-move{0%{transform:translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateX(1040px);opacity:0}}
+  @media (prefers-reduced-motion:reduce){.rm-flow,.rm-pk{animation:none}.rm-pk{display:none}}
+</style>
+<rect x="8" y="8" width="1184" height="504" rx="22" fill="none" stroke="#22314A" stroke-width="1.5"/>
+<text x="36" y="44" class="rm-k">ROADMAP · DAL DEVICE ALLO SMARTPHONE, LA PIATTAFORMA RESTA</text>
+<line x1="40" y1="72" x2="1152" y2="72" stroke="#22314A" stroke-width="2" marker-end="url(#rm-arr)"/>
+<circle cx="220" cy="72" r="7" fill="#0B1220" stroke="#B8F04A" stroke-width="2"/><circle cx="220" cy="72" r="3" fill="#B8F04A"/>
+<line x1="220" y1="79" x2="220" y2="92" stroke="#22314A" stroke-width="1.5"/>
+<rect x="40" y="92" width="360" height="298" rx="16" class="rm-panel"/>
+<text x="58" y="120" class="rm-k" style="fill:#B8F04A;font-weight:700">BREVE TERMINE</text><text x="382" y="120" class="rm-s" text-anchor="end">oggi</text>
+<text x="58" y="146" class="rm-s">distribuzione del valore (visione)</text>
+<rect x="58" y="156" width="226.8" height="22" rx="5" fill="#FFC247"/><rect x="284.8" y="156" width="97.2" height="22" rx="5" fill="#B8F04A"/>
+<text x="68" y="171" class="rm-b">Device 70%</text><text x="374" y="171" class="rm-b" text-anchor="end">Piatt. 30%</text>
+<line x1="58" y1="194" x2="382" y2="194" stroke="#22314A"/>
+<rect x="58" y="206" width="324" height="48" rx="10" fill="#0B1220" stroke="#22314A" stroke-width="1"/>
+<g transform="translate(70 212)"><rect x="2" y="0" width="26" height="36" rx="6" fill="#0B1220" stroke="#B8F04A" stroke-width="1.7"/><rect x="7" y="6" width="16" height="12" rx="2" fill="none" stroke="#B8F04A" stroke-width="1.3"/><circle cx="11" cy="27" r="2.5" fill="none" stroke="#FF4D4D" stroke-width="1.4"/><circle cx="19" cy="27" r="2.5" fill="none" stroke="#B8F04A" stroke-width="1.3"/></g>
+<text x="120" y="227" class="rm-t" style="font-weight:600">Device</text><text x="120" y="244" class="rm-s" style="fill:#B8F04A">NB-IoT + NB-NTN</text>
+<rect x="58" y="262" width="324" height="48" rx="10" fill="#0B1220" stroke="#22314A" stroke-width="1"/>
+<g transform="translate(70 268)" fill="none" stroke="#4CC3FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="0" width="20" height="36" rx="4" fill="#0B1220"/><path d="M13 31 H19"/></g>
+<text x="120" y="283" class="rm-t" style="font-weight:600">Smartphone</text><text x="120" y="300" class="rm-s" style="fill:#4CC3FF">LTE / NR</text>
+<text x="58" y="336" class="rm-s">il device porta la copertura</text>
+<text x="58" y="352" class="rm-s">satellitare già adesso</text>
+<path class="rm-flow" d="M220 390 V414" stroke="#B8F04A" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#rm-arr)"/>
+<circle cx="600" cy="72" r="7" fill="#0B1220" stroke="#B8F04A" stroke-width="2"/><circle cx="600" cy="72" r="3" fill="#B8F04A"/>
+<line x1="600" y1="79" x2="600" y2="92" stroke="#22314A" stroke-width="1.5"/>
+<rect x="420" y="92" width="360" height="298" rx="16" class="rm-panel"/>
+<text x="438" y="120" class="rm-k" style="fill:#B8F04A;font-weight:700">MEDIO TERMINE</text><text x="762" y="120" class="rm-s" text-anchor="end">prossimi anni</text>
+<text x="438" y="146" class="rm-s">distribuzione del valore (visione)</text>
+<rect x="438" y="156" width="324" height="22" rx="5" fill="url(#rm-grad)"/>
+<text x="600.0" y="171" class="rm-b" text-anchor="middle">transizione</text>
+<line x1="438" y1="194" x2="762" y2="194" stroke="#22314A"/>
+<rect x="438" y="206" width="324" height="48" rx="10" fill="#0B1220" stroke="#22314A" stroke-width="1"/>
+<g transform="translate(450 212)"><rect x="2" y="0" width="26" height="36" rx="6" fill="#0B1220" stroke="#B8F04A" stroke-width="1.7"/><rect x="7" y="6" width="16" height="12" rx="2" fill="none" stroke="#B8F04A" stroke-width="1.3"/><circle cx="11" cy="27" r="2.5" fill="none" stroke="#FF4D4D" stroke-width="1.4"/><circle cx="19" cy="27" r="2.5" fill="none" stroke="#B8F04A" stroke-width="1.3"/></g>
+<text x="500" y="227" class="rm-t" style="font-weight:600">Device</text><text x="500" y="244" class="rm-s" style="fill:#B8F04A">NB-IoT + NB-NTN</text>
+<rect x="438" y="262" width="324" height="48" rx="10" fill="#0B1220" stroke="#22314A" stroke-width="1"/>
+<g transform="translate(450 268)" fill="none" stroke="#4CC3FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="0" width="20" height="36" rx="4" fill="#0B1220"/><path d="M13 31 H19"/></g>
+<text x="500" y="283" class="rm-t" style="font-weight:600">Smartphone</text><text x="500" y="300" class="rm-s" style="fill:#4CC3FF">LTE / NR</text>
+<rect x="438" y="318" width="324" height="48" rx="10" fill="#0B1220" stroke="#B57BFF" stroke-width="1.6"/>
+<g transform="translate(450 324)" fill="none" stroke="#B57BFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="0" width="20" height="36" rx="4" fill="#0B1220"/><path d="M13 31 H19"/><path d="M28 2 A8 8 0 0 1 34 10 M28 -3 A13 13 0 0 1 39 9"/></g>
+<text x="500" y="339" class="rm-t" style="font-weight:600">Smartphone NTN</text><text x="500" y="356" class="rm-s" style="fill:#B57BFF">LTE / NR + NTN</text>
+<rect x="696" y="332" width="54" height="20" rx="10" fill="#B57BFF" fill-opacity=".18" stroke="#B57BFF"/><text x="723" y="346" class="rm-m" text-anchor="middle" style="fill:#B57BFF">primi</text>
+<path class="rm-flow" d="M600 390 V414" stroke="#B8F04A" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#rm-arr)"/>
+<circle cx="980" cy="72" r="7" fill="#0B1220" stroke="#B8F04A" stroke-width="2"/><circle cx="980" cy="72" r="3" fill="#B8F04A"/>
+<line x1="980" y1="79" x2="980" y2="92" stroke="#22314A" stroke-width="1.5"/>
+<rect x="800" y="92" width="360" height="298" rx="16" class="rm-panel"/>
+<text x="818" y="120" class="rm-k" style="fill:#B8F04A;font-weight:700">LUNGO TERMINE</text><text x="1142" y="120" class="rm-s" text-anchor="end">lungo periodo</text>
+<text x="818" y="146" class="rm-s">distribuzione del valore (visione)</text>
+<rect x="818" y="156" width="324" height="22" rx="5" fill="#B8F04A"/>
+<text x="980.0" y="171" class="rm-b" text-anchor="middle">Piattaforma 100%</text>
+<line x1="818" y1="194" x2="1142" y2="194" stroke="#22314A"/>
+<rect x="818" y="206" width="324" height="48" rx="10" fill="#0B1220" stroke="#22314A" stroke-width="1"/>
+<g transform="translate(830 212)" fill="none" stroke="#B57BFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="0" width="20" height="36" rx="4" fill="#0B1220"/><path d="M13 31 H19"/><path d="M28 2 A8 8 0 0 1 34 10 M28 -3 A13 13 0 0 1 39 9"/></g>
+<text x="880" y="227" class="rm-t" style="font-weight:600">Smartphone</text><text x="880" y="244" class="rm-s" style="fill:#B57BFF">LTE / NR + NTN + 6G</text>
+<text x="818" y="280" class="rm-s">lo smartphone sostituisce il device:</text>
+<text x="818" y="296" class="rm-s">niente asset hardware da gestire</text>
+<text x="818" y="312" class="rm-s">(logistica, riparazioni, sostituzioni,</text>
+<text x="818" y="328" class="rm-s">batterie)</text>
+<path class="rm-flow" d="M980 390 V414" stroke="#B8F04A" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#rm-arr)"/>
+<rect x="40" y="416" width="1120" height="52" rx="14" fill="#111A2B" stroke="#B8F04A" stroke-width="1.8"/>
+<text x="600" y="439" text-anchor="middle" style="font-family:'Space Grotesk',Inter,sans-serif;font-weight:700;font-size:17px;fill:#E6EDF7">Piattaforma IoT multitenant + Dashboard</text>
+<text x="600" y="458" class="rm-s" text-anchor="middle">la stessa in tutte le fasi · già integrata con smartphone LTE/NR, poi NTN</text>
+<line x1="60" y1="492" x2="440" y2="492" stroke="url(#rm-grad2)" stroke-width="2"/>
+<text x="600" y="496" class="rm-m" text-anchor="middle" style="fill:#B8F04A;font-weight:700">il valore si sposta sulla piattaforma</text>
+<line x1="760" y1="492" x2="1140" y2="492" stroke="#B8F04A" stroke-width="2" marker-end="url(#rm-arr)"/>
+<circle class="rm-pk" cx="60" cy="492" r="4" fill="#B8F04A"/>
+</svg>

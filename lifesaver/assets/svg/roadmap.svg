@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="rm-title rm-desc">
-<title id="rm-title">Roadmap Life Saver</title>
+<title id="rm-title">Roadmap EU-LS</title>
 <desc id="rm-desc">Tre fasi. Breve termine: Device NB-IoT + NB-NTN e smartphone LTE/NR; distribuzione del valore (visione) Device 70%, Piattaforma 30%. Medio termine: Device NB-IoT + NB-NTN, smartphone LTE/NR e primi smartphone NTN (LTE/NR + NTN); fase di transizione. Lungo termine: smartphone LTE/NR + NTN + 6G che sostituisce il device; Piattaforma 100%. Tutti i terminali puntano alla stessa Piattaforma IoT multitenant con Dashboard, che resta in tutte le fasi: il valore si sposta sulla piattaforma.</desc>
 <defs>
   <marker id="rm-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#B8F04A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>

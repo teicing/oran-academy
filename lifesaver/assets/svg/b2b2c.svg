@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="bb-title bb-desc">
-<title id="bb-title">Modello B2B2C Life Saver</title>
-<desc id="bb-desc">Digital Bear, con la piattaforma Life Saver, offre piattaforma, device, NBI/API e aggiornamenti ai Partner B2B (comprensori, noleggi, assicurazioni, operatori, aziende), che ricevono tenant dedicato, brand, regole e dashboard. I partner servono gli utenti finali (ciclisti, sciatori, escursionisti, lavoratori), che ricevono App, SOS e protezione anche senza campo.</desc>
+<title id="bb-title">Modello B2B2C EU-LS</title>
+<desc id="bb-desc">Digital Bear, con la piattaforma EU-LS, offre piattaforma, device, NBI/API e aggiornamenti ai Partner B2B (comprensori, noleggi, assicurazioni, operatori, aziende), che ricevono tenant dedicato, brand, regole e dashboard. I partner servono gli utenti finali (ciclisti, sciatori, escursionisti, lavoratori), che ricevono App, SOS e protezione anche senza campo.</desc>
 <defs>
   <marker id="bb-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#B8F04A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
 </defs>
@@ -23,7 +23,7 @@
 <g transform="translate(58 94)" fill="none" stroke="#B8F04A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L22 7 V13 C22 18 17 22 12 23 C7 22 2 18 2 13 V7 Z"/><path d="M8 12 L11 15 L16 9"/></g>
 <text x="104" y="96" class="bb-k" style="fill:#B8F04A">PIATTAFORMA</text>
 <text x="104" y="118" class="bb-h">Digital Bear</text>
-<text x="48" y="152" class="bb-t">Piattaforma Life Saver</text>
+<text x="48" y="152" class="bb-t">Piattaforma EU-LS</text>
 <line x1="48" y1="170" x2="292" y2="170" stroke="#22314A"/>
 <text x="48" y="192" class="bb-k">OFFRE</text>
 <g class="bb-s" style="fill:#E6EDF7">

@@ -18,7 +18,7 @@ Lingua: **italiano**.
 "Quando succede qualcosa, ogni secondo conta. Life Saver rileva, localizza e allerta — anche dove lo smartphone non arriva."
 
 ## Componenti reali della soluzione (fonte: prototipo fotografato, `assets/device-prototype.jpg`)
-- Modulo cellulare **SIMCom SIM7080G** → LTE-M / **NB-IoT** (copertura profonda, bassi consumi).
+- Modulo cellulare **SIMCom SIM7070G HP-S** → **NB-IoT** terrestre + **NB-NTN** satellitare (corretto in v3).
 - Ricevitore GNSS **Quectel L86** (antenna patch integrata, multi-costellazione).
 - Sensore inerziale (accelerometro/IMU) per rilevare cadute e urti.
 - Display TFT a colori: ID dispositivo (es. `SB_XXXXX` = Smart Bike), tempo sessione,

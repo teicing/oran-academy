@@ -25,7 +25,7 @@
 <!-- lifeline heads -->
 <rect x="60" y="62" width="160" height="44" rx="12" fill="#111A2B" stroke="#B8F04A" stroke-opacity=".6" stroke-width="1.5"/>
 <text x="140" y="81" class="ca-h" text-anchor="middle">Device</text>
-<text x="140" y="98" class="ca-s" text-anchor="middle">Life Saver</text>
+<text x="140" y="98" class="ca-s" text-anchor="middle">EU-LS</text>
 <rect x="400" y="62" width="200" height="44" rx="12" fill="#111A2B" stroke="#4CC3FF" stroke-opacity=".6" stroke-width="1.5"/>
 <text x="500" y="81" class="ca-h" text-anchor="middle">CoAP DTLS Gateway</text>
 <text x="500" y="98" class="ca-s" text-anchor="middle">Edge · Californium</text>

@@ -1,4 +1,4 @@
-# Brief v2 — Riposizionamento Life Saver (B2B2C · NB-NTN · Piattaforma multitenant)
+# Brief v2 — Riposizionamento EU-LS (European Life Saver) (B2B2C · NB-NTN · Piattaforma multitenant)
 
 Integra `00-brief.md` (palette, font, vincoli di onestà restano validi).
 Riferimento architetturale fornito dal cliente: `agentic/ref/eu-ls-architecture.png` ("EU-LS Architect Solution").
@@ -49,7 +49,6 @@ Stima indicativa per un singolo evento su IPv4 (etichettare SEMPRE "stima indica
   sessione DTLS riutilizzata, 1 ACK CoAP con esito applicativo.
 
 ## Onestà
-- Il prototipo fotografato monta SIMCom SIM7080G (NB-IoT / LTE-M). Il modulo NB-NTN va indicato come
-  "[DA CONFERMARE]" — non attribuire NB-NTN al SIM7080G.
+- Modulo del dispositivo (confermato dal cliente): **SIMCom SIM7070G HP-S**, NB-IoT + NB-NTN.
 - Percentuali 70/30 → 100: sono la visione strategica del cliente, presentarle come "distribuzione del valore (visione)".
 - Nessuna data precisa per le fasi: usare "Oggi / Prossimi anni / Lungo periodo" o "Breve / Medio / Lungo termine".

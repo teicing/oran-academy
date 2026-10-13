@@ -51,3 +51,11 @@ Ogni agente ha un ruolo, un input e un output precisi; il brief condiviso evita 
 ## Vincoli permanenti
 - Niente clienti, testimonianze, certificazioni o statistiche inventate.
 - I valori non noti restano marcati `[DA CONFERMARE]` finché non vengono validati.
+
+## Iterazione v2 — riposizionamento B2B2C · NB-NTN · multitenant
+- Input aggiuntivo: design "EU-LS Architect Solution" (`ref/eu-ls-architecture.png`) e nuova strategia del cliente.
+- `01-brief-v2.md`: messaggi chiave, roadmap breve/medio/lungo termine, struttura reale della piattaforma
+  (edge Californium + Scandium, CoAP DTLS Gateway, core ThingsBoard CE + PostgreSQL, NBI) ed esempio di payload calcolato.
+- Agente Visual v2 → `platform.svg`, `coap-ack.svg`, `payload-compare.svg`, `roadmap.svg`, `b2b2c.svg`, `ntn-coverage.svg`.
+- Integratore → nuove sezioni in `index.html`: NB-NTN, B2B2C, Piattaforma, CoAP Gateway, Roadmap; aggiornati hero, specifiche e CTA.
+- I testi v2 sono scritti direttamente in `index.html`; `10-copy.md` resta come storico della v1.

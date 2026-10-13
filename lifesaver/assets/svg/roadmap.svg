@@ -29,7 +29,7 @@
 <text x="58" y="120" class="rm-k" style="fill:#B8F04A;font-weight:700">BREVE TERMINE</text><text x="382" y="120" class="rm-s" text-anchor="end">oggi</text>
 <text x="58" y="146" class="rm-s">distribuzione del valore (visione)</text>
 <rect x="58" y="156" width="226.8" height="22" rx="5" fill="#FFC247"/><rect x="284.8" y="156" width="97.2" height="22" rx="5" fill="#B8F04A"/>
-<text x="68" y="171" class="rm-b">Device 70%</text><text x="374" y="171" class="rm-b" text-anchor="end">Piatt. 30%</text>
+<text x="68" y="171" class="rm-b" style="font-family:Inter,sans-serif">Device 70%</text><text x="375" y="171" class="rm-b" text-anchor="end" style="font-family:Inter,sans-serif;letter-spacing:-.2px">Piattaforma 30%</text>
 <line x1="58" y1="194" x2="382" y2="194" stroke="#22314A"/>
 <rect x="58" y="206" width="324" height="48" rx="10" fill="#0B1220" stroke="#22314A" stroke-width="1"/>
 <g transform="translate(70 212)"><rect x="2" y="0" width="26" height="36" rx="6" fill="#0B1220" stroke="#B8F04A" stroke-width="1.7"/><rect x="7" y="6" width="16" height="12" rx="2" fill="none" stroke="#B8F04A" stroke-width="1.3"/><circle cx="11" cy="27" r="2.5" fill="none" stroke="#FF4D4D" stroke-width="1.4"/><circle cx="19" cy="27" r="2.5" fill="none" stroke="#B8F04A" stroke-width="1.3"/></g>
@@ -80,6 +80,5 @@
 <text x="600" y="458" class="rm-s" text-anchor="middle">la stessa in tutte le fasi · già integrata con smartphone LTE/NR, poi NTN</text>
 <line x1="60" y1="492" x2="440" y2="492" stroke="url(#rm-grad2)" stroke-width="2"/>
 <text x="600" y="496" class="rm-m" text-anchor="middle" style="fill:#B8F04A;font-weight:700">il valore si sposta sulla piattaforma</text>
-<line x1="760" y1="492" x2="1140" y2="492" stroke="#B8F04A" stroke-width="2" marker-end="url(#rm-arr)"/>
-<circle class="rm-pk" cx="60" cy="492" r="4" fill="#B8F04A"/>
+<line class="rm-flow" x1="760" y1="492" x2="1140" y2="492" stroke="#B8F04A" stroke-width="2" stroke-dasharray="8 4" marker-end="url(#rm-arr)"/>
 </svg>

@@ -133,7 +133,7 @@ section{padding:96px 0;position:relative}
 .device-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:start}
 @media (max-width:900px){.device-grid{grid-template-columns:1fr}}
 .photo{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--surface);max-width:440px;margin:0 auto}
-.photo img{width:100%;aspect-ratio:844/1100;object-fit:cover;object-position:center 22%}
+.photo img{width:100%;aspect-ratio:844/900;object-fit:cover;object-position:center 30%}
 .photo figcaption{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(11,18,32,.85);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:12.5px;color:var(--muted)}
 .photo figcaption b{color:var(--text)}
 .photo .tag{position:absolute;top:12px;left:12px;font:600 11px/1 var(--f-mono);letter-spacing:.1em;background:var(--lime);color:#0B1220;padding:6px 9px;border-radius:6px}
@@ -220,7 +220,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 
 /* v2: NTN, B2B2C, CoAP, roadmap */
 .ntn{background:radial-gradient(ellipse at 85% 20%,rgba(181,123,255,.14),transparent 55%),var(--bg);border-bottom:1px solid var(--line)}
-.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.split{display:grid;grid-template-columns:1fr;gap:36px}
+.split .ticks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.split .ticks{grid-template-columns:1fr}}
+.split .sub{max-width:760px}
 @media (max-width:900px){.split{grid-template-columns:1fr}}
 .h2{font-size:clamp(30px,4.2vw,46px);margin:14px 0 14px}
 .sub{color:var(--muted);font-size:18px}
@@ -238,7 +241,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 .role .num{font:600 11px/1 var(--f-mono);letter-spacing:.12em;color:var(--c)}
 .role h3{font-size:20px;margin:12px 0 8px}.role p{color:var(--muted)}
 .device-sec{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.coap-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.coap-grid{display:grid;grid-template-columns:1fr;gap:36px}
+.coap-grid>*{min-width:0}.coap-grid .fig{overflow-x:auto}.coap-grid .fig img{min-width:640px}
+.coap-grid .ticks{grid-template-columns:1fr 1fr;gap:14px 28px}
+@media (max-width:760px){.coap-grid .ticks{grid-template-columns:1fr}}
 @media (max-width:1000px){.coap-grid{grid-template-columns:1fr}}
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
 @media (max-width:560px){.kpis{grid-template-columns:1fr}}
@@ -358,7 +364,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
           <li><b>Un solo percorso dati</b> · entrambi i rami passano dalla rete MNO + SMO e arrivano all'edge Life Saver su UDP 5684.</li>
         </ul>
       </div>
-      <figure class="fig reveal"><img src="assets/svg/ntn-coverage.svg" alt="Copertura: NB-IoT terrestre dall'antenna eNodeB e NB-NTN via satellite GEO a circa 37.000 km in banda S per le zone senza campo" width="1000" height="420"></figure>
+      <figure class="fig wide reveal" style="margin-bottom:0"><img src="assets/svg/ntn-coverage.svg" alt="Copertura: NB-IoT terrestre dall'antenna eNodeB e NB-NTN via satellite GEO a circa 37.000 km in banda S per le zone senza campo" width="1000" height="420"></figure>
     </div>
   </div>
 </section>
@@ -395,13 +401,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>B2B2C: noi diamo la piattaforma, i partner la portano ai loro utenti.</h2>
       <p>Digital Bear fornisce dispositivo, piattaforma e API. Il partner offre il servizio con il proprio brand, le proprie regole e la propria dashboard. L'utente finale riceve protezione, App e SOS.</p>
     </div>
-    <figure class="fig wide reveal"><img src="assets/svg/b2b2c.svg" alt="Modello B2B2C: Digital Bear fornisce la piattaforma ai partner B2B che offrono il servizio agli utenti finali" width="1000" height="360"></figure>
-    <div class="cards3">
-      <article class="card role reveal" style="--c:var(--lime)"><span class="num">B · DIGITAL BEAR</span><h3>Tecnologia e piattaforma</h3><p>Dispositivo NB-IoT + NB-NTN, edge CoAP, core IoT, NBI con REST API, aggiornamenti e nuovi use case.</p></article>
-      <article class="card role reveal" style="--c:var(--sky)"><span class="num">B · PARTNER</span><h3>Servizio con il proprio brand</h3><p>Comprensori, noleggi, assicurazioni, operatori, aziende: ognuno con il proprio tenant, regole, utenti e dashboard.</p></article>
-      <article class="card role reveal" style="--c:var(--amber)"><span class="num">C · UTENTE FINALE</span><h3>Protezione semplice</h3><p>Ciclisti, sciatori, escursionisti, lavoratori: App, pulsante SOS e allarmi che partono anche senza campo.</p></article>
-    </div>
-  </div>
+    <figure class="fig wide reveal" style="margin-bottom:0"><img src="assets/svg/b2b2c.svg" alt="Modello B2B2C: Digital Bear fornisce la piattaforma ai partner B2B che offrono il servizio agli utenti finali" width="1000" height="360"></figure>
+      </div>
 </section>
 
 <!-- 4. PIATTAFORMA -->
@@ -455,7 +456,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         </div>
       </div>
       <div class="reveal">
-        <figure class="fig"><img src="assets/svg/coap-ack.svg" alt="Sequenza CoAP: messaggio Confirmable dal device, inoltro alla piattaforma, ACK 2.04 Changed; in caso di perdita, ritrasmissione con backoff esponenziale e deduplica tramite Message-ID" width="1000" height="520"></figure>
+        <figure class="fig"><img src="assets/svg/coap-ack.svg" alt="Sequenza CoAP: messaggio Confirmable dal device, inoltro alla piattaforma, ACK 2.04 Changed; in caso di perdita, ritrasmissione con backoff esponenziale e deduplica tramite Message-ID" width="1000" height="540"></figure>
         <ul class="ticks">
           <li><b>Messaggi Confirmable (CON)</b> · ogni evento critico attende l'ACK con l'esito applicativo (es. 2.04 Changed).</li>
           <li><b>Ritrasmissione con backoff</b> · se l'ACK non arriva, il device ritrasmette; i timer si adattano alla latenza GEO (~0,5 s di andata e ritorno).</li>
@@ -478,7 +479,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="device-grid">
       <figure class="photo reveal" style="margin:0 auto">
         <span class="tag">PROTOTIPO REALE</span>
-        <img src="assets/device-prototype.jpg" alt="Foto del prototipo Life Saver: scheda con modulo SIMCom SIM7080G, GNSS Quectel L86, display TFT con stato LTE NB-IoT, pulsanti e slot microSD" width="844" height="1100">
+        <img src="assets/device-prototype.jpg" alt="Foto del prototipo Life Saver: scheda con modulo SIMCom SIM7080G, GNSS Quectel L86, display TFT con stato LTE NB-IoT, pulsanti e slot microSD" width="844" height="900">
         <figcaption><b>Prototipo Life Saver, configurazione Smart Bike.</b> Immagine reale, non un rendering.</figcaption>
       </figure>
       <div class="callouts">
@@ -508,20 +509,17 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <article class="phase reveal" style="--c:var(--lime)">
         <span class="lvl">BREVE TERMINE</span><h3>Device + smartphone</h3>
         <p>Device <b>NB-IoT + NB-NTN</b> e smartphone <b>LTE/NR</b>, entrambi integrati con piattaforma e dashboard.</p>
-        <div class="vbar"><span class="d" style="width:70%">Device 70%</span><span class="p" style="width:30%">30%</span></div>
       </article>
       <article class="phase reveal" style="--c:var(--sky)">
         <span class="lvl">MEDIO TERMINE</span><h3>Arrivano i telefoni NTN</h3>
         <p>Device NB-IoT + NB-NTN, smartphone LTE/NR e i <b>primi smartphone LTE/NR + NTN</b>, tutti sulla stessa piattaforma.</p>
-        <div class="vbar"><span class="d" style="width:45%">Device</span><span class="p" style="width:55%">transizione</span></div>
       </article>
       <article class="phase reveal" style="--c:var(--violet)">
         <span class="lvl">LUNGO TERMINE</span><h3>Solo smartphone</h3>
         <p>Smartphone <b>LTE/NR + NTN + 6G</b> integrati con piattaforma e dashboard. Il dispositivo dedicato non serve più.</p>
-        <div class="vbar"><span class="p" style="width:100%">Piattaforma 100%</span></div>
       </article>
     </div>
-    <p class="spec-note">Distribuzione del valore tra dispositivo e piattaforma: visione strategica Digital Bear.</p>
+    <p class="spec-note">Distribuzione del valore tra dispositivo e piattaforma (70/30 → 100): visione strategica Digital Bear.</p>
     <div class="shift reveal">
       <div>
         <h3>Il valore si sposta sulla piattaforma</h3>

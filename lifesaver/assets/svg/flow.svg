@@ -52,7 +52,7 @@
     <text class="f-n" x="530.2" y="47.8" font-size="12" text-anchor="middle">3</text>
   </g>
   <text class="f-t" x="500" y="160" font-size="19" text-anchor="middle">Trasmetti</text>
-  <text class="f-s" x="500" y="182" font-size="13" text-anchor="middle">NB-IoT / LTE-M</text>
+  <text class="f-s" x="500" y="182" font-size="13" text-anchor="middle">NB-IoT / NB-NTN</text>
   <g>
     <circle cx="700" cy="74" r="42" fill="#111A2B" stroke="#22314A" stroke-width="2"/>
     <circle class="f-ring" cx="700" cy="74" r="48" style="animation-delay:3.6s"/>

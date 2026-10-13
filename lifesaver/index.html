@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Life Saver — Digital Bear</title>
-<meta name="description" content="Life Saver by Digital Bear: la piattaforma di sicurezza IoT che rileva cadute e SOS, localizza la persona e allerta chi può intervenire tramite rete NB-IoT / LTE-M.">
+<meta name="description" content="Life Saver by Digital Bear: piattaforma di sicurezza B2B2C con dispositivo NB-IoT + NB-NTN satellitare e piattaforma IoT multitenant con CoAP Gateway.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 :root{
   --bg:#0B1220; --bg2:#0E1729; --surface:#111A2B; --surface2:#16223A;
   --line:#22314A; --text:#E6EDF7; --muted:#8EA0B8;
-  --lime:#B8F04A; --sky:#4CC3FF; --red:#FF4D4D; --amber:#FFC247;
+  --lime:#B8F04A; --sky:#4CC3FF; --violet:#B57BFF; --red:#FF4D4D; --amber:#FFC247;
   --r:16px; --max:1180px;
   --f-head:'Space Grotesk',Inter,system-ui,sans-serif;
   --f-body:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -218,6 +218,49 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 .foot .tagline{margin-top:14px;max-width:280px}
 .legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
 
+/* v2: NTN, B2B2C, CoAP, roadmap */
+.ntn{background:radial-gradient(ellipse at 85% 20%,rgba(181,123,255,.14),transparent 55%),var(--bg);border-bottom:1px solid var(--line)}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.h2{font-size:clamp(30px,4.2vw,46px);margin:14px 0 14px}
+.sub{color:var(--muted);font-size:18px}
+.sub b,.lead b{color:var(--text);font-weight:600}
+.ticks{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+.ticks li{position:relative;padding-left:26px;color:var(--muted);font-size:15px}
+.ticks li b{color:var(--text);font-weight:600}
+.ticks li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border-radius:4px;border:2px solid var(--lime)}
+.fig{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px}
+.fig img{width:100%;height:auto}
+.fig.wide{margin-bottom:28px;overflow-x:auto}
+.fig.wide img{min-width:640px}
+.b2b{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.role{border-top:3px solid var(--c)}
+.role .num{font:600 11px/1 var(--f-mono);letter-spacing:.12em;color:var(--c)}
+.role h3{font-size:20px;margin:12px 0 8px}.role p{color:var(--muted)}
+.device-sec{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.coap-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:1000px){.coap-grid{grid-template-columns:1fr}}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+@media (max-width:560px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi b{display:block;font:700 28px/1 var(--f-head);color:var(--lime);margin-bottom:6px}
+.kpi span{font-size:13px;color:var(--muted)}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.phases{grid-template-columns:1fr}}
+.phase{padding:22px;border-radius:16px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c)}
+.phase .lvl{font:600 11px/1 var(--f-mono);letter-spacing:.12em;color:var(--c)}
+.phase h3{font-size:20px;margin:10px 0 8px}
+.phase p{color:var(--muted);font-size:15px}.phase p b{color:var(--text);font-weight:600}
+.vbar{display:flex;margin-top:18px;height:30px;border-radius:8px;overflow:hidden;font:600 11.5px/30px var(--f-mono);border:1px solid var(--line)}
+.vbar span{padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vbar .d{background:rgba(255,194,71,.18);color:var(--amber)}
+.vbar .p{background:rgba(184,240,74,.18);color:var(--lime);text-align:right}
+.shift{margin-top:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;padding:28px;border-radius:20px;background:linear-gradient(120deg,rgba(184,240,74,.10),rgba(181,123,255,.08));border:1px solid var(--line)}
+@media (max-width:900px){.shift{grid-template-columns:1fr}}
+.shift h3{font-size:24px;margin-bottom:8px}.shift p{color:var(--muted)}
+.costs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.costs li{padding:12px 14px;border-radius:12px;border:1px dashed rgba(255,77,77,.45);color:var(--text);font-size:14px;text-decoration:line-through;text-decoration-color:var(--red)}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -236,10 +279,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     </a>
     <nav class="nav-links" aria-label="Sezioni">
       <a href="#come-funziona">Come funziona</a>
-      <a href="#architettura">Architettura</a>
-      <a href="#dispositivo">Dispositivo</a>
+      <a href="#satellite">NB-NTN</a>
+      <a href="#b2b2c">B2B2C</a>
+      <a href="#architettura">Piattaforma</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#use-case">Use case</a>
-      <a href="#specifiche">Specifiche</a>
     </nav>
     <a class="btn btn-primary" href="#contatti">Richiedi una demo</a>
   </div>
@@ -252,20 +296,20 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
   <div class="grid-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div>
-      <span class="eyebrow">Piattaforma di sicurezza IoT · by Digital Bear</span>
-      <h1>Quando succede qualcosa, <em>ogni secondo conta.</em></h1>
-      <p class="lead">Life Saver rileva cadute e richieste di SOS, localizza la persona e allerta chi può intervenire, tramite rete cellulare IoT e senza dipendere dallo smartphone.</p>
+      <span class="eyebrow">Piattaforma di sicurezza B2B2C · by Digital Bear</span>
+      <h1>Sicurezza connessa, <em>anche dove la rete finisce.</em></h1>
+      <p class="lead">Life Saver unisce un dispositivo <b>NB-IoT + NB-NTN</b> (terrestre e satellitare) a una <b>piattaforma IoT multitenant</b> che i partner offrono ai propri utenti: rileva cadute e SOS, localizza e allerta chi può intervenire.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contatti">Richiedi una demo
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#come-funziona">Guarda come funziona</a>
+        <a class="btn btn-ghost" href="#architettura">Scopri la piattaforma</a>
       </div>
       <div class="chips">
-        <span class="chip"><i></i>NB-IoT / LTE-M</span>
-        <span class="chip"><i></i>GNSS multi-costellazione</span>
-        <span class="chip"><i></i>Rilevamento cadute</span>
+        <span class="chip"><i></i>NB-IoT + NB-NTN satellitare</span>
+        <span class="chip"><i></i>Piattaforma multitenant</span>
+        <span class="chip"><i></i>CoAP · DTLS · UDP 5684</span>
       </div>
-      <p class="micro">Prototipo funzionante. Progetti pilota aperti.</p>
+      <p class="micro">Per comprensori, noleggi, assicurazioni, operatori e aziende. Progetti pilota aperti.</p>
     </div>
     <div class="hero-visual">
       <img src="assets/svg/device-hero.svg" alt="Illustrazione del dispositivo Life Saver con display: ID SB_XXXXX, segnale LTE NB-IoT RSRP -93 RSRQ -11 e fix satellitare" width="420" height="560">
@@ -293,10 +337,29 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <h3>Sciatore fuori pista</h3>
         <p>Una deviazione fuori dal tracciato battuto, poi un urto. Nessuno lo ha visto uscire e nessuno sa dove cercarlo.</p></article>
       <article class="card scenario reveal"><span class="bar"></span><span class="num">SCENARIO 03</span>
-        <h3>Telefono scarico o senza campo</h3>
-        <p>La batteria è finita da un'ora, oppure il segnale va e viene. Proprio quando serve chiamare aiuto, lo smartphone non risponde.</p></article>
+        <h3>Nessuna copertura terrestre</h3>
+        <p>Valle profonda, alta quota, batteria del telefono finita. Proprio quando serve chiamare aiuto, la rete terrestre non arriva.</p></article>
     </div>
     <p class="closing reveal">Life Saver nasce per i momenti in cui la persona <span>non può chiedere aiuto da sola.</span></p>
+  </div>
+</section>
+
+<!-- NB-NTN -->
+<section class="ntn" id="satellite">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="eyebrow" style="color:var(--violet)">Il punto di forza oggi</span>
+        <h2 class="h2">Terrestre quando c'è, <span style="color:var(--violet)">satellite quando serve.</span></h2>
+        <p class="sub">Il dispositivo Life Saver è <b>NB-NTN capable</b>: usa la rete NB-IoT terrestre e, dove la copertura finisce, invia l'allarme via satellite con lo standard 3GPP NB-NTN. Stesso protocollo, stessa piattaforma.</p>
+        <ul class="ticks">
+          <li><b>NB-IoT terrestre</b> · copertura profonda e bassi consumi, banda B20 sulla rete dell'operatore.</li>
+          <li><b>NB-NTN satellitare</b> · 3GPP Rel-17, satellite GEO a ~37.000 km in banda S.</li>
+          <li><b>Un solo percorso dati</b> · entrambi i rami arrivano al core dell'operatore e poi all'edge Life Saver su UDP 5684.</li>
+        </ul>
+      </div>
+      <figure class="fig reveal"><img src="assets/svg/ntn-coverage.svg" alt="Copertura: NB-IoT terrestre dall'antenna eNodeB e NB-NTN via satellite GEO a circa 37.000 km in banda S per le zone senza campo" width="1000" height="420"></figure>
+    </div>
   </div>
 </section>
 
@@ -315,49 +378,97 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="steps">
       <div class="step reveal"><h3>Rileva</h3><p>Il sensore inerziale riconosce una caduta o un urto anomalo. In alternativa, l'utente preme il pulsante SOS.</p><code>IMU → evento: FALL_DETECTED | SOS_PRESSED</code></div>
       <div class="step reveal"><h3>Localizza</h3><p>Il ricevitore GNSS calcola la posizione. All'evento si aggiungono velocità e ultimo movimento.</p><code>GNSS fix · lat/lon · velocità · timestamp</code></div>
-      <div class="step reveal"><h3>Trasmetti</h3><p>L'evento parte sulla rete cellulare IoT verso la piattaforma. Il telefono dell'utente non serve.</p><code>uplink NB-IoT / LTE-M · SIM7080G</code></div>
-      <div class="step reveal"><h3>Elabora</h3><p>La piattaforma valida l'evento e applica le regole dello use case. Se le condizioni sono confermate, apre un incidente.</p><code>rules engine · use case: bike | ski → incident OPEN</code></div>
+      <div class="step reveal"><h3>Trasmetti</h3><p>L'evento parte su NB-IoT terrestre o, dove manca copertura, su NB-NTN via satellite. Il telefono dell'utente non serve.</p><code>CoAP CON · DTLS · UDP 5684 · CBOR</code></div>
+      <div class="step reveal"><h3>Elabora</h3><p>Il CoAP Gateway conferma la ricezione con un ACK; la piattaforma applica le regole del tenant e dello use case e apre un incidente.</p><code>ACK 2.04 · rule engine (tenant) → incident OPEN</code></div>
       <div class="step reveal"><h3>Allerta</h3><p>Le notifiche raggiungono App, contatti di emergenza e centrale operativa. Ognuno vede la stessa posizione.</p><code>notify → app · contatti · dashboard</code></div>
       <div class="step reveal"><h3>Intervieni</h3><p>L'operatore segue la mappa live e consulta lo storico. A soccorso completato chiude l'incidente.</p><code>incident: OPEN → IN_CORSO → CHIUSO</code></div>
     </div>
   </div>
 </section>
 
-<!-- 4. ARCHITETTURA -->
-<section class="arch" id="architettura">
+
+<!-- B2B2C -->
+<section class="b2b" id="b2b2c">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Architettura</span>
-      <h2>Un sistema completo, dal sensore allo schermo.</h2>
-      <p>Quattro livelli già realizzati e integrati tra loro. Ogni livello fa una cosa sola, e la fa in modo affidabile.</p>
+      <span class="eyebrow">Modello di business</span>
+      <h2>B2B2C: noi diamo la piattaforma, i partner la portano ai loro utenti.</h2>
+      <p>Digital Bear fornisce dispositivo, piattaforma e API. Il partner offre il servizio con il proprio brand, le proprie regole e la propria dashboard. L'utente finale riceve protezione, App e SOS.</p>
     </div>
-    <div class="arch-figure reveal">
-      <img src="assets/svg/architecture.svg" alt="Architettura end-to-end: Device, rete NB-IoT / LTE-M, piattaforma IoT, dashboard, App e notifiche" width="1200" height="540">
-    </div>
-    <p class="scroll-hint">← scorri il diagramma →</p>
-    <div class="layers">
-      <div class="layer reveal" style="--c:var(--lime)"><span class="lvl">LIVELLO 1</span><h3>Device</h3><ul>
-        <li>Rileva cadute e urti con il sensore inerziale e gestisce il pulsante SOS.</li>
-        <li>Calcola la posizione con il GNSS multi-costellazione.</li>
-        <li>Salva un log locale su microSD e mostra lo stato sul display.</li></ul></div>
-      <div class="layer reveal" style="--c:var(--sky)"><span class="lvl">LIVELLO 2</span><h3>Rete cellulare</h3><ul>
-        <li>Usa NB-IoT e LTE-M, pensate per oggetti connessi a basso consumo.</li>
-        <li>Offre copertura profonda anche in zone difficili per lo smartphone.</li>
-        <li>Invia pacchetti piccoli e frequenti con un consumo energetico contenuto.</li></ul></div>
-      <div class="layer reveal" style="--c:var(--amber)"><span class="lvl">LIVELLO 3</span><h3>Piattaforma IoT</h3><ul>
-        <li>Riceve la telemetria tramite protocolli IoT leggeri (ad esempio MQTT o CoAP).</li>
-        <li>Valida gli eventi e applica regole specifiche per ogni use case.</li>
-        <li>Apre, traccia e archivia gli incidenti con il loro storico completo.</li></ul></div>
-      <div class="layer reveal" style="--c:var(--red)"><span class="lvl">LIVELLO 4</span><h3>Dashboard &amp; App</h3><ul>
-        <li>Dashboard web per la centrale operativa: mappa live, incidenti, flotta.</li>
-        <li>App smartphone per l'utente e i suoi contatti di emergenza.</li>
-        <li>Notifiche in tempo reale verso tutti i soggetti coinvolti.</li></ul></div>
+    <figure class="fig wide reveal"><img src="assets/svg/b2b2c.svg" alt="Modello B2B2C: Digital Bear fornisce la piattaforma ai partner B2B che offrono il servizio agli utenti finali" width="1000" height="360"></figure>
+    <div class="cards3">
+      <article class="card role reveal" style="--c:var(--lime)"><span class="num">B · DIGITAL BEAR</span><h3>Tecnologia e piattaforma</h3><p>Dispositivo NB-IoT + NB-NTN, edge CoAP, core IoT, NBI con REST API, aggiornamenti e nuovi use case.</p></article>
+      <article class="card role reveal" style="--c:var(--sky)"><span class="num">B · PARTNER</span><h3>Servizio con il proprio brand</h3><p>Comprensori, noleggi, assicurazioni, operatori, aziende: ognuno con il proprio tenant, regole, utenti e dashboard.</p></article>
+      <article class="card role reveal" style="--c:var(--amber)"><span class="num">C · UTENTE FINALE</span><h3>Protezione semplice</h3><p>Ciclisti, sciatori, escursionisti, lavoratori: App, pulsante SOS e allarmi che partono anche senza campo.</p></article>
     </div>
   </div>
 </section>
 
+<!-- 4. PIATTAFORMA -->
+<section class="arch" id="architettura">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">La piattaforma</span>
+      <h2>Edge CoAP, core IoT, NBI: il valore è qui.</h2>
+      <p>Una piattaforma multitenant già funzionante, costruita su componenti open source solidi e pensata per milioni di messaggi piccoli: dal pacchetto UDP all'API del partner.</p>
+    </div>
+    <div class="arch-figure reveal">
+      <img src="assets/svg/platform.svg" alt="Architettura della piattaforma: accesso terrestre e satellitare, rete dell'operatore, edge Eclipse Californium e Scandium con anti-DDoS, rate limit, load balancer e CoAP DTLS gateway, core ThingsBoard CE con PostgreSQL, NBI con REST API verso i tenant" width="1200" height="620">
+    </div>
+    <p class="scroll-hint">← scorri il diagramma →</p>
+    <div class="layers">
+      <div class="layer reveal" style="--c:var(--violet)"><span class="lvl">ACCESSO</span><h3>Device &amp; smartphone</h3><ul>
+        <li>Device Life Saver su NB-IoT terrestre (B20) o NB-NTN via GEO.</li>
+        <li>Smartphone LTE/NR collegati via App e API.</li>
+        <li>Rete dell'operatore mobile fino al core (CN).</li></ul></div>
+      <div class="layer reveal" style="--c:var(--sky)"><span class="lvl">EDGE · UDP 5684</span><h3>Californium + Scandium</h3><ul>
+        <li>Anti-DDoS, rate limit e load balancer davanti al gateway.</li>
+        <li>CoAP DTLS Gateway: terminazione DTLS con PSK o X.509, anti-replay, session cache.</li>
+        <li>Validazione payload JSON/CBOR, mappatura identità device, stateless e scalabile N+1.</li></ul></div>
+      <div class="layer reveal" style="--c:var(--lime)"><span class="lvl">CORE · HTTP REST / MQTT</span><h3>ThingsBoard CE + PostgreSQL</h3><ul>
+        <li>Data Collection: registry dei device e ingestione della telemetria.</li>
+        <li>Data Storage: storico eventi, sessioni e incidenti.</li>
+        <li>Rule Engine e dashboard per use case e per tenant.</li></ul></div>
+      <div class="layer reveal" style="--c:var(--red)"><span class="lvl">NBI · REST API</span><h3>Multitenant</h3><ul>
+        <li>Data Exposure verso partner e sistemi terzi tramite REST API.</li>
+        <li>Ogni partner ha il proprio tenant: utenti, device, regole, brand.</li>
+        <li>Integrabile con centrali operative, CRM e sistemi assicurativi.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- CoAP GATEWAY -->
+<section id="coap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Dentro il CoAP Gateway</span>
+      <h2>Pacchetti più piccoli. Consegna confermata.</h2>
+      <p>Su NB-IoT e soprattutto su satellite ogni byte costa banda, energia e denaro. Il gateway CoAP riduce il traffico e trasforma un trasporto UDP senza connessione in una consegna con conferma della piattaforma.</p>
+    </div>
+    <div class="coap-grid">
+      <div class="reveal">
+        <figure class="fig"><img src="assets/svg/payload-compare.svg" alt="Stima indicativa per un evento: circa 306 byte con HTTPS su TCP contro circa 121 byte con CoAP su DTLS e UDP; payload da 94 byte JSON a 52 byte CBOR" width="1000" height="420"></figure>
+        <div class="kpis">
+          <div class="kpi"><b>−45%</b><span>payload: JSON 94 B → CBOR 52 B</span></div>
+          <div class="kpi"><b>≈ −60%</b><span>byte per evento, stima indicativa</span></div>
+          <div class="kpi"><b>0</b><span>handshake TCP/TLS per messaggio</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <figure class="fig"><img src="assets/svg/coap-ack.svg" alt="Sequenza CoAP: messaggio Confirmable dal device, inoltro alla piattaforma, ACK 2.04 Changed; in caso di perdita, ritrasmissione con backoff esponenziale e deduplica tramite Message-ID" width="1000" height="520"></figure>
+        <ul class="ticks">
+          <li><b>Messaggi Confirmable (CON)</b> · ogni evento critico attende l'ACK con l'esito applicativo (es. 2.04 Changed).</li>
+          <li><b>Ritrasmissione con backoff</b> · se l'ACK non arriva, il device ritrasmette; i timer si adattano alla latenza GEO (~0,5 s di andata e ritorno).</li>
+          <li><b>Message-ID e anti-replay</b> · nessun evento duplicato, nessun pacchetto riutilizzato da terzi.</li>
+          <li><b>Sicurezza DTLS</b> · PSK o certificati X.509, sessione riutilizzata senza nuovi handshake.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="spec-note">Esempio calcolato su un evento di caduta (id, tipo, lat/lon, velocità, batteria, timestamp). Byte di rete su IPv4: stima indicativa, esclusi gli handshake.</p>
+  </div>
+</section>
 <!-- 5. DISPOSITIVO -->
-<section id="dispositivo">
+<section class="device-sec" id="dispositivo">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Il dispositivo</span>
@@ -371,7 +482,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <figcaption><b>Prototipo Life Saver, configurazione Smart Bike.</b> Immagine reale, non un rendering.</figcaption>
       </figure>
       <div class="callouts">
-        <div class="callout reveal"><span class="n">01</span><div><h3>Modulo cellulare SIMCom SIM7080G</h3><p>Si connette in NB-IoT e LTE-M, consumando poco.</p></div></div>
+        <div class="callout reveal"><span class="n">01</span><div><h3>Connettività NB-IoT + NB-NTN</h3><p>Rete terrestre e satellite per l'allarme. Prototipo: SIMCom SIM7080G.</p></div></div>
         <div class="callout reveal"><span class="n">02</span><div><h3>GNSS Quectel L86</h3><p>Antenna integrata e più costellazioni per una posizione affidabile.</p></div></div>
         <div class="callout reveal"><span class="n">03</span><div><h3>Sensore inerziale (IMU)</h3><p>Riconosce cadute e urti anche se l'utente non reagisce.</p></div></div>
         <div class="callout reveal"><span class="n">04</span><div><h3>Display TFT a colori</h3><p>Mostra ID, sessione, segnale e fix satellitare a colpo d'occhio.</p></div></div>
@@ -380,6 +491,45 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <div class="callout reveal"><span class="n">07</span><div><h3>Slot microSD</h3><p>Registra un log locale degli eventi, utile per analisi successive.</p></div></div>
         <div class="callout reveal"><span class="n">08</span><div><h3>USB-C</h3><p>Alimentazione e ricarica con un connettore standard.</p></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Roadmap</span>
+      <h2>Oggi il dispositivo. Domani lo smartphone. Sempre la piattaforma.</h2>
+      <p>La roadmap 3GPP porta la connettività satellitare negli smartphone. Quando i telefoni NTN saranno diffusi e il costo del collegamento satellitare non sarà più un freno, il telefono potrà sostituire il dispositivo. La piattaforma Life Saver sarà già pronta e integrata.</p>
+    </div>
+    <figure class="fig wide reveal"><img src="assets/svg/roadmap.svg" alt="Roadmap in tre fasi: breve termine device NB-IoT e NB-NTN più smartphone LTE/NR; medio termine si aggiungono i primi smartphone NTN; lungo termine smartphone LTE/NR, NTN e 6G. Tutti sulla stessa piattaforma IoT multitenant" width="1200" height="520"></figure>
+    <div class="phases">
+      <article class="phase reveal" style="--c:var(--lime)">
+        <span class="lvl">BREVE TERMINE</span><h3>Device + smartphone</h3>
+        <p>Device <b>NB-IoT + NB-NTN</b> e smartphone <b>LTE/NR</b>, entrambi integrati con piattaforma e dashboard.</p>
+        <div class="vbar"><span class="d" style="width:70%">Device 70%</span><span class="p" style="width:30%">30%</span></div>
+      </article>
+      <article class="phase reveal" style="--c:var(--sky)">
+        <span class="lvl">MEDIO TERMINE</span><h3>Arrivano i telefoni NTN</h3>
+        <p>Device NB-IoT + NB-NTN, smartphone LTE/NR e i <b>primi smartphone LTE/NR + NTN</b>, tutti sulla stessa piattaforma.</p>
+        <div class="vbar"><span class="d" style="width:45%">Device</span><span class="p" style="width:55%">transizione</span></div>
+      </article>
+      <article class="phase reveal" style="--c:var(--violet)">
+        <span class="lvl">LUNGO TERMINE</span><h3>Solo smartphone</h3>
+        <p>Smartphone <b>LTE/NR + NTN + 6G</b> integrati con piattaforma e dashboard. Il dispositivo dedicato non serve più.</p>
+        <div class="vbar"><span class="p" style="width:100%">Piattaforma 100%</span></div>
+      </article>
+    </div>
+    <p class="spec-note">Distribuzione del valore tra dispositivo e piattaforma: visione strategica Digital Bear.</p>
+    <div class="shift reveal">
+      <div>
+        <h3>Il valore si sposta sulla piattaforma</h3>
+        <p>Da 70% dispositivo + 30% piattaforma a 100% piattaforma. Senza un hardware dedicato spariscono i costi dell'asset fisico, mentre restano tenant, dati, regole e integrazioni costruiti nel tempo.</p>
+      </div>
+      <ul class="costs">
+        <li>Logistica e magazzino</li><li>Riparazioni hardware</li><li>Sostituzioni</li><li>Batterie</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -478,7 +628,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <p>Riepilogo del prototipo attuale. Alcuni valori sono ancora in fase di validazione.</p>
     </div>
     <table class="spec-table reveal">
-      <tr><th>Connettività</th><td>Cellulare LTE-M / NB-IoT · modulo SIMCom SIM7080G</td></tr>
+      <tr><th>Connettività</th><td>NB-IoT terrestre + NB-NTN satellitare (3GPP Rel-17, GEO, banda S) · prototipo fotografato: SIMCom SIM7080G (NB-IoT / LTE-M) · modulo NB-NTN <span class="tbc">[DA CONFERMARE]</span></td></tr>
+      <tr><th>Protocollo</th><td>CoAP su DTLS / UDP 5684 · payload CBOR o JSON · messaggi Confirmable con ACK</td></tr>
       <tr><th>GNSS</th><td>Quectel L86 · multi-costellazione · antenna patch integrata</td></tr>
       <tr><th>Sensori</th><td>Sensore inerziale (accelerometro / IMU) per cadute e urti</td></tr>
       <tr><th>Interfaccia</th><td>Display TFT a colori · pulsanti fisici (SOS / funzione)</td></tr>
@@ -487,7 +638,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <tr><th>Alimentazione</th><td>USB-C (alimentazione e ricarica) · batteria <span class="tbc">[DA CONFERMARE]</span></td></tr>
       <tr><th>Autonomia</th><td><span class="tbc">[DA CONFERMARE]</span></td></tr>
       <tr><th>Grado di protezione</th><td><span class="tbc">[DA CONFERMARE]</span></td></tr>
-      <tr><th>Piattaforma</th><td>Piattaforma IoT cloud · dashboard web · App smartphone</td></tr>
+      <tr><th>Edge</th><td>Eclipse Californium + Scandium · anti-DDoS · rate limit · load balancer · CoAP DTLS Gateway (PSK / X.509)</td></tr>
+      <tr><th>Core</th><td>ThingsBoard CE + PostgreSQL · rule engine · dashboard · multitenant</td></tr>
+      <tr><th>Integrazione</th><td>NBI con REST API · HTTP REST / MQTT · App smartphone LTE/NR</td></tr>
     </table>
     <p class="spec-note">Specifiche riferite al prototipo. Possono cambiare nella versione di produzione.</p>
   </div>
@@ -499,11 +652,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="final-box reveal">
       <span class="pulse-ring" aria-hidden="true"></span><span class="pulse-ring" aria-hidden="true"></span><span class="pulse-ring" aria-hidden="true"></span>
       <span class="eyebrow">Iniziamo</span>
-      <h2>Portiamo Life Saver sul tuo territorio.</h2>
-      <p>Gestisci un comprensorio, un servizio di noleggio, una flotta o un'organizzazione outdoor? Costruiamo insieme un progetto pilota sul tuo use case.</p>
+      <h2>Offri Life Saver ai tuoi utenti, con il tuo brand.</h2>
+      <p>Gestisci un comprensorio, un noleggio, una compagnia assicurativa, una rete mobile o un'azienda con lavoratori isolati? Attiviamo il tuo tenant e costruiamo insieme un progetto pilota.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="mailto:info@digitalbear.example?subject=Richiesta%20demo%20Life%20Saver">Richiedi una demo</a>
-        <a class="btn btn-ghost" href="mailto:info@digitalbear.example?subject=Progetto%20pilota%20Life%20Saver">Proponi un progetto pilota</a>
+        <a class="btn btn-ghost" href="mailto:info@digitalbear.example?subject=Partnership%20Life%20Saver">Diventa partner</a>
       </div>
       <p class="micro">Scrivici a <a href="mailto:info@digitalbear.example">info@digitalbear.example</a>. Ti rispondiamo con una proposta concreta.</p>
     </div>
@@ -518,11 +671,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="foot">
       <div>
         <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 16.5 12 21 12 21z"/><path d="M8 12h2l1.2-2 1.6 4 1.2-2h2"/></svg></span><span>Life Saver<small>by Digital Bear</small></span></a>
-        <p class="tagline">Life Saver by Digital Bear: rileva, localizza, allerta.</p>
+        <p class="tagline">Life Saver by Digital Bear: piattaforma di sicurezza B2B2C, terrestre e satellitare.</p>
       </div>
-      <div><h4>Prodotto</h4><ul><li><a href="#come-funziona">Come funziona</a></li><li><a href="#architettura">Architettura</a></li><li><a href="#dispositivo">Il dispositivo</a></li><li><a href="#specifiche">Specifiche</a></li></ul></div>
+      <div><h4>Prodotto</h4><ul><li><a href="#come-funziona">Come funziona</a></li><li><a href="#satellite">NB-NTN</a></li><li><a href="#architettura">Piattaforma</a></li><li><a href="#coap">CoAP Gateway</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#specifiche">Specifiche</a></li></ul></div>
       <div><h4>Use case</h4><ul><li><a href="#use-case">Smart Bike</a></li><li><a href="#use-case">Smart Ski</a></li><li><a href="#use-case">Prossimi use case</a></li></ul></div>
-      <div><h4>Azienda</h4><ul><li><a href="#top">Digital Bear</a></li><li><a href="#contatti">Progetti pilota</a></li></ul></div>
+      <div><h4>Azienda</h4><ul><li><a href="#top">Digital Bear</a></li><li><a href="#b2b2c">Modello B2B2C</a></li><li><a href="#contatti">Diventa partner</a></li></ul></div>
       <div><h4>Contatti</h4><ul><li><a href="mailto:info@digitalbear.example">info@digitalbear.example</a></li><li><a href="#contatti">Richiedi una demo</a></li></ul></div>
     </div>
     <div class="legal"><span>© 2026 Digital Bear. Tutti i diritti riservati.</span><span>Privacy <span class="tbc">[DA CONFERMARE]</span> · Cookie <span class="tbc">[DA CONFERMARE]</span></span></div>

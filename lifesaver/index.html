@@ -353,9 +353,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <h2 class="h2">Terrestre quando c'è, <span style="color:var(--violet)">satellite quando serve.</span></h2>
         <p class="sub">Il dispositivo Life Saver è <b>NB-NTN capable</b>: usa la rete NB-IoT terrestre e, dove la copertura finisce, invia l'allarme via satellite con lo standard 3GPP NB-NTN. Stesso protocollo, stessa piattaforma.</p>
         <ul class="ticks">
-          <li><b>NB-IoT terrestre</b> · copertura profonda e bassi consumi, banda B20 sulla rete dell'operatore.</li>
+          <li><b>NB-IoT terrestre</b> · copertura profonda e bassi consumi, banda B20 sulla rete MNO.</li>
           <li><b>NB-NTN satellitare</b> · 3GPP Rel-17, satellite GEO a ~37.000 km in banda S.</li>
-          <li><b>Un solo percorso dati</b> · entrambi i rami arrivano al core dell'operatore e poi all'edge Life Saver su UDP 5684.</li>
+          <li><b>Un solo percorso dati</b> · entrambi i rami passano dalla rete MNO + SMO e arrivano all'edge Life Saver su UDP 5684.</li>
         </ul>
       </div>
       <figure class="fig reveal"><img src="assets/svg/ntn-coverage.svg" alt="Copertura: NB-IoT terrestre dall'antenna eNodeB e NB-NTN via satellite GEO a circa 37.000 km in banda S per le zone senza campo" width="1000" height="420"></figure>
@@ -413,14 +413,14 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <p>Una piattaforma multitenant già funzionante, costruita su componenti open source solidi e pensata per milioni di messaggi piccoli: dal pacchetto UDP all'API del partner.</p>
     </div>
     <div class="arch-figure reveal">
-      <img src="assets/svg/platform.svg" alt="Architettura della piattaforma: accesso terrestre e satellitare, rete dell'operatore, edge Eclipse Californium e Scandium con anti-DDoS, rate limit, load balancer e CoAP DTLS gateway, core ThingsBoard CE con PostgreSQL, NBI con REST API verso i tenant" width="1200" height="620">
+      <img src="assets/svg/platform.svg" alt="Architettura della piattaforma: accesso terrestre e satellitare, rete MNO + SMO, edge Eclipse Californium e Scandium con anti-DDoS, rate limit, load balancer e CoAP DTLS gateway, core ThingsBoard CE con PostgreSQL, NBI con REST API verso i tenant" width="1200" height="620">
     </div>
     <p class="scroll-hint">← scorri il diagramma →</p>
     <div class="layers">
       <div class="layer reveal" style="--c:var(--violet)"><span class="lvl">ACCESSO</span><h3>Device &amp; smartphone</h3><ul>
         <li>Device Life Saver su NB-IoT terrestre (B20) o NB-NTN via GEO.</li>
         <li>Smartphone LTE/NR collegati via App e API.</li>
-        <li>Rete dell'operatore mobile fino al core (CN).</li></ul></div>
+        <li>Rete MNO + SMO (terrestre e satellitare) fino al core (CN), indipendente dall'operatore.</li></ul></div>
       <div class="layer reveal" style="--c:var(--sky)"><span class="lvl">EDGE · UDP 5684</span><h3>Californium + Scandium</h3><ul>
         <li>Anti-DDoS, rate limit e load balancer davanti al gateway.</li>
         <li>CoAP DTLS Gateway: terminazione DTLS con PSK o X.509, anti-replay, session cache.</li>

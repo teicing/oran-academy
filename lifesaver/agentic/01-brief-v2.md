@@ -20,7 +20,7 @@ Riferimento architetturale fornito dal cliente: `agentic/ref/eu-ls-architecture.
    - Beneficio: si eliminano i costi dell'asset hardware (logistica, riparazione HW, sostituzioni, batterie).
    - La piattaforma sarà già funzionante e integrata con smartphone LTE/NR e poi NTN.
 5. **La vera struttura della piattaforma** (dal design):
-   - Device → rete MNO (eNodeB banda B20 terrestre, oppure GEO S-band via NTN) → CN-NSA → **UDP 5684**
+   - Device → rete MNO + SMO, senza nominare l'operatore (eNodeB banda B20 terrestre, oppure GEO S-band via NTN) → CN-NSA → **UDP 5684**
    - **EDGE: Eclipse Californium + Scandium** — Anti-DDoS · Rate Limit · Load Balancer · **CoAP DTLS Gateway**
      (DTLS termination PSK / X.509 · anti-replay / session cache · payload validation JSON/CBOR ·
      device identity mapping · rate limiting per device · stateless, horizontal scaling N+1)

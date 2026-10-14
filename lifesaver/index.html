@@ -204,6 +204,14 @@ section{padding:96px 0;position:relative}
 .final-box p{color:var(--muted);max-width:620px;margin:0 auto;font-size:18px}
 .final-box .cta-row{justify-content:center}
 .final-box .micro a{color:var(--lime)}
+.contact-card{margin:28px auto 0;max-width:560px;padding:18px 20px;border:1px solid var(--line,rgba(255,255,255,.12));border-radius:14px;background:rgba(255,255,255,.03);text-align:left;position:relative}
+.contact-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:12px}
+.contact-name strong{font-family:"Space Grotesk",sans-serif;font-size:18px}
+.contact-name span{font-size:13px;color:var(--muted)}
+.contact-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px}
+.contact-list a{display:inline-flex;align-items:center;gap:8px;color:var(--lime);text-decoration:none;font-size:15px;overflow-wrap:anywhere}
+.contact-list a:hover{text-decoration:underline}
+.contact-list svg{flex:none}
 .pulse-ring{position:absolute;left:50%;top:-140px;width:280px;height:280px;margin-left:-140px;border-radius:50%;border:1px solid rgba(184,240,74,.25);animation:ring 4s ease-out infinite}
 .pulse-ring:nth-child(2){animation-delay:1.3s}.pulse-ring:nth-child(3){animation-delay:2.6s}
 @keyframes ring{0%{transform:scale(.4);opacity:1}100%{transform:scale(2.4);opacity:0}}
@@ -657,10 +665,18 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Offri EU-LS ai tuoi utenti, con il tuo brand.</h2>
       <p>Gestisci un comprensorio, un noleggio, una compagnia assicurativa, una rete mobile o un'azienda con lavoratori isolati? Attiviamo il tuo tenant e costruiamo insieme un progetto pilota.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:info@digitalbear.example?subject=Richiesta%20demo%20Life%20Saver">Richiedi una demo</a>
-        <a class="btn btn-ghost" href="mailto:info@digitalbear.example?subject=Partnership%20Life%20Saver">Diventa partner</a>
+        <a class="btn btn-primary" href="mailto:a.cingolani.db@outlook.it?subject=Richiesta%20demo%20EU-LS">Richiedi una demo</a>
+        <a class="btn btn-ghost" href="mailto:a.cingolani.db@outlook.it?subject=Partnership%20EU-LS">Diventa partner</a>
       </div>
-      <p class="micro">Scrivici a <a href="mailto:info@digitalbear.example">info@digitalbear.example</a>. Ti rispondiamo con una proposta concreta.</p>
+      <div class="contact-card">
+        <div class="contact-name"><strong>Alessandro Cingolani</strong><span>Digital Bear · EU-LS</span></div>
+        <ul class="contact-list">
+          <li><a href="tel:+393357503359"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+39 335 750 3359</a></li>
+          <li><a href="mailto:a.cingolani.db@outlook.it"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>a.cingolani.db@outlook.it</a></li>
+          <li><a href="https://www.linkedin.com/in/alessandro-cingolani-580a8a26/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></li>
+        </ul>
+      </div>
+      <p class="micro">Ti rispondiamo con una proposta concreta.</p>
     </div>
   </div>
 </section>
@@ -678,7 +694,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <div><h4>Prodotto</h4><ul><li><a href="#come-funziona">Come funziona</a></li><li><a href="#satellite">NB-NTN</a></li><li><a href="#architettura">Piattaforma</a></li><li><a href="#coap">CoAP Gateway</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#specifiche">Specifiche</a></li></ul></div>
       <div><h4>Use case</h4><ul><li><a href="#use-case">Smart Bike</a></li><li><a href="#use-case">Smart Ski</a></li><li><a href="#use-case">Prossimi use case</a></li></ul></div>
       <div><h4>Azienda</h4><ul><li><a href="#top">Digital Bear</a></li><li><a href="#b2b2c">Modello B2B2C</a></li><li><a href="#contatti">Diventa partner</a></li></ul></div>
-      <div><h4>Contatti</h4><ul><li><a href="mailto:info@digitalbear.example">info@digitalbear.example</a></li><li><a href="#contatti">Richiedi una demo</a></li></ul></div>
+      <div><h4>Contatti</h4><ul><li>Alessandro Cingolani</li><li><a href="tel:+393357503359">+39 335 750 3359</a></li><li><a href="mailto:a.cingolani.db@outlook.it">a.cingolani.db@outlook.it</a></li><li><a href="https://www.linkedin.com/in/alessandro-cingolani-580a8a26/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#contatti">Richiedi una demo</a></li></ul></div>
     </div>
     <div class="legal"><span>© 2026 Digital Bear. Tutti i diritti riservati.</span><span>Privacy <span class="tbc">[DA CONFERMARE]</span> · Cookie <span class="tbc">[DA CONFERMARE]</span></span></div>
   </div>

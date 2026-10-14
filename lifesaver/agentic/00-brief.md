@@ -38,7 +38,7 @@ Lingua: **italiano**.
 - NON inventare clienti, testimonianze, loghi partner, certificazioni, premi o numeri di mercato.
 - Numeri ammessi solo se tecnici e generici/qualitativi (es. "NB-IoT", "multi-costellazione GNSS").
   Se serve un valore non noto, usare un segnaposto evidente tipo `[DA CONFERMARE]`.
-- Contatti: email segnaposto `info@digitalbear.example` — da sostituire.
+- Contatti (confermati dal cliente): Alessandro Cingolani · +39 335 750 3359 · a.cingolani.db@outlook.it · LinkedIn.
 
 ## Identità visiva
 - Tema scuro "tecnico" ispirato al display del device: sfondo blu notte (#0B1220), accenti

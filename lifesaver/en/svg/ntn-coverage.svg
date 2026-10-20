@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-labelledby="nt-title nt-desc">
+<title id="nt-title">Terrestrial and satellite coverage</title>
+<desc id="nt-desc">Mountain scene: an eNodeB tower covers the nearby slopes with terrestrial NB-IoT, but the signal does not reach the deep valley behind the ridge. A user in the valley, with no terrestrial coverage, is connected via NB-NTN satellite (3GPP Rel-17) to a GEO satellite at about 37,000 km in S-band, which relays to a ground gateway. Both paths reach the MNO + SMO network. Terrestrial when available, satellite when needed.</desc>
+<defs>
+  <marker id="nt-arr-v" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#B57BFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <marker id="nt-arr-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#4CC3FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  <clipPath id="nt-clip"><rect x="8" y="8" width="984" height="404" rx="22"/></clipPath>
+  <pattern id="nt-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#FFC247" stroke-opacity=".25" stroke-width="2"/></pattern>
+</defs>
+<style>
+  .nt-k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;fill:#8EA0B8}
+  .nt-t{font-family:Inter,"Space Grotesk",sans-serif;font-size:13px;fill:#E6EDF7}
+  .nt-s{font-family:Inter,"Space Grotesk",sans-serif;font-size:11.5px;fill:#8EA0B8}
+  .nt-m{font-family:"JetBrains Mono",monospace;font-size:11px;fill:#E6EDF7}
+  .nt-flow{animation:nt-dash 1.3s linear infinite}
+  @keyframes nt-dash{to{stroke-dashoffset:-20}}
+  .nt-wave{fill:none;stroke:#4CC3FF;stroke-width:2;stroke-linecap:round;animation:nt-w 2.4s ease-in-out infinite}
+  .nt-w2{animation-delay:.3s}.nt-w3{animation-delay:.6s}.nt-w4{animation-delay:.9s}
+  @keyframes nt-w{0%,100%{opacity:.2}50%{opacity:.9}}
+  @media (prefers-reduced-motion:reduce){.nt-flow,.nt-wave{animation:none}.nt-wave{opacity:.6}.nt-pk{display:none}}
+</style>
+<rect x="8" y="8" width="984" height="404" rx="22" fill="none" stroke="#22314A" stroke-width="1.5"/>
+<g clip-path="url(#nt-clip)">
+  <g fill="#8EA0B8" opacity=".5"><circle cx="420" cy="70" r="1.2"/><circle cx="520" cy="110" r="1"/><circle cx="610" cy="60" r="1.2"/><circle cx="900" cy="130" r="1"/><circle cx="960" cy="60" r="1.2"/><circle cx="340" cy="120" r="1"/></g>
+  <!-- shadowed valley -->
+  <path d="M512 200 L540 230 L600 330 L650 350 L700 330 L748 242 L748 200 Z" fill="url(#nt-hatch)" opacity=".8"/>
+  <!-- terrain -->
+  <path d="M0 420 L0 290 L80 250 L150 230 L230 266 L330 296 L420 200 L480 150 L540 230 L600 330 L650 350 L700 330 L760 220 L820 170 L880 230 L940 252 L1000 270 L1000 420 Z" fill="#111A2B" stroke="#22314A" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M465 165 L480 150 L496 172 L486 168 L478 176 Z M806 186 L820 170 L834 190 L825 186 L818 192 Z" fill="#E6EDF7" opacity=".55"/>
+</g>
+<text x="36" y="44" class="nt-k">COVERAGE · TERRESTRIAL NB-IoT + SATELLITE NB-NTN</text>
+
+<!-- eNodeB tower -->
+<g fill="none" stroke="#E6EDF7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M150 160 L134 232 M150 160 L166 232 M138 214 H162 M141 198 L159 214 M159 198 L141 214 M143 182 H157"/>
+  <circle cx="150" cy="158" r="3.5" fill="#E6EDF7"/>
+</g>
+<path class="nt-wave" d="M173.0 138.7 A30 30 0 0 1 173.0 177.3"/>
+<path class="nt-wave nt-w2" d="M197.3 121.1 A60 60 0 0 1 197.3 194.9"/>
+<path class="nt-wave nt-w3" d="M228.8 104.9 A95 95 0 0 1 228.8 211.1"/>
+<path class="nt-wave nt-w4" d="M262.6 93.0 A130 130 0 0 1 262.6 223.0"/>
+<text x="140" y="300" class="nt-t" text-anchor="end" style="font-weight:600">eNodeB</text>
+<text x="140" y="316" class="nt-m" text-anchor="end" style="fill:#4CC3FF">terrestrial NB-IoT</text>
+<!-- covered user -->
+<g transform="translate(296 262)" fill="none" stroke="#4CC3FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="4" r="3.5"/><path d="M8 8 V18 M8 18 L3 28 M8 18 L13 28 M2 12 L14 12"/></g>
+<path class="nt-flow" d="M168 172 L294 262" fill="none" stroke="#4CC3FF" stroke-width="1.8" stroke-dasharray="6 4" marker-start="url(#nt-arr-b)"/>
+<text x="318" y="268" class="nt-s" style="fill:#4CC3FF">in coverage</text>
+<!-- blocked signal -->
+<path d="M170 168 L400 214" fill="none" stroke="#4CC3FF" stroke-width="1.5" stroke-dasharray="2 5" stroke-opacity=".6"/>
+<path d="M403 206 L415 218 M415 206 L403 218" stroke="#FF4D4D" stroke-width="2.6" stroke-linecap="round"/>
+<text x="404" y="238" class="nt-s" text-anchor="middle" style="fill:#FF4D4D">ridge blocks signal</text>
+
+<!-- satellite GEO -->
+<g transform="translate(790 82) rotate(-20)" fill="none" stroke="#B57BFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="-9" y="-9" width="18" height="18" rx="3" fill="#0B1220"/>
+  <rect x="-40" y="-7" width="24" height="14" rx="1.5"/><path d="M-28 -7 V7 M-16 0 H-9"/>
+  <rect x="16" y="-7" width="24" height="14" rx="1.5"/><path d="M28 -7 V7 M9 0 H16"/>
+  <path d="M-6 15 A7 7 0 0 0 6 15 M0 9 V15"/>
+</g>
+<text x="842" y="70" class="nt-t" style="font-weight:600">GEO satellite</text>
+<text x="842" y="87" class="nt-m" style="fill:#B57BFF">~37,000 km · S-band</text>
+
+<!-- user in valley -->
+<g transform="translate(642 318)" fill="none" stroke="#FFC247" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="4" r="3.5"/><path d="M8 8 V18 M8 18 L3 28 M8 18 L13 28 M2 12 L14 12"/></g>
+<circle class="nt-pk" cx="650" cy="322" r="18" fill="none" stroke="#FF4D4D" stroke-width="1.5" stroke-opacity=".7"><animate attributeName="r" values="14;26;14" dur="2s" repeatCount="indefinite"/></circle>
+<text x="650" y="372" class="nt-t" text-anchor="middle" style="font-weight:600;fill:#FFC247">no terrestrial coverage</text>
+<!-- satellite link -->
+<path class="nt-flow" d="M658 304 L778 104" fill="none" stroke="#B57BFF" stroke-width="2.2" stroke-dasharray="7 4" marker-end="url(#nt-arr-v)"/>
+<text x="690" y="172" class="nt-t" text-anchor="end" style="fill:#B57BFF;font-weight:600">NB-NTN satellite</text>
+<text x="690" y="189" class="nt-s" text-anchor="end" style="fill:#B57BFF">3GPP Rel-17</text>
+<!-- ground gateway -->
+<path class="nt-flow" d="M806 100 L922 236" fill="none" stroke="#B57BFF" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#nt-arr-v)"/>
+<g transform="translate(918 236)" fill="none" stroke="#B57BFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10 A12 12 0 0 0 20 2 Z"/><path d="M11 9 L8 20 M11 9 L16 20 M5 20 H19"/></g>
+
+<!-- MNO + SMO network -->
+<rect x="806" y="352" width="164" height="44" rx="12" fill="#0B1220" stroke="#4CC3FF" stroke-opacity=".7" stroke-width="1.5"/>
+<text x="888" y="371" class="nt-t" text-anchor="middle" style="font-weight:700">MNO + SMO network</text>
+<text x="888" y="387" class="nt-s" text-anchor="middle">terrestrial + satellite</text>
+<path d="M930 258 V350" fill="none" stroke="#B57BFF" stroke-width="1.6" stroke-dasharray="4 4" class="nt-flow" marker-end="url(#nt-arr-v)"/>
+<path d="M150 236 V384 H804" fill="none" stroke="#4CC3FF" stroke-width="1.6" stroke-dasharray="4 4" class="nt-flow" marker-end="url(#nt-arr-b)"/>
+
+<!-- badge -->
+<rect x="396" y="58" width="350" height="30" rx="15" fill="#111A2B" stroke="#B8F04A" stroke-opacity=".7" stroke-width="1.5"/>
+<text x="571" y="78" class="nt-t" text-anchor="middle" style="fill:#B8F04A;font-weight:600">terrestrial when available, satellite when needed</text>
+</svg>

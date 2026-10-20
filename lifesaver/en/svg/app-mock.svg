@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 600" role="img" aria-labelledby="ap-title ap-desc">
+  <title id="ap-title">EU-LS smartphone app mockup</title>
+  <desc id="ap-desc">Mockup of the EU-LS app with sample data: Protection active status, mini map with position, large SOS button, device status (battery, NB-IoT signal, GNSS) and emergency contacts.</desc>
+  <defs>
+    <clipPath id="ap-screen"><rect x="20" y="16" width="260" height="568" rx="32"/></clipPath>
+    <clipPath id="ap-mapclip"><rect x="34" y="146" width="232" height="92" rx="12"/></clipPath>
+    <pattern id="ap-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0 H0 V20" fill="none" stroke="#16223A"/></pattern>
+    <radialGradient id="ap-sos" cx="0.5" cy="0.4" r="0.6">
+      <stop offset="0" stop-color="#FF6B6B"/>
+      <stop offset="1" stop-color="#D93636"/>
+    </radialGradient>
+  </defs>
+  <style>
+    .p-sans{font-family:"Space Grotesk",Inter,sans-serif}
+    .p-ui{font-family:Inter,"Space Grotesk",sans-serif}
+    .p-mono{font-family:"JetBrains Mono",monospace}
+    .p-ring{transform-box:fill-box;transform-origin:center;animation:p-ring 2.4s ease-out infinite}
+    .p-ring2{animation-delay:1.2s}
+    @keyframes p-ring{0%{transform:scale(.85);opacity:.7}100%{transform:scale(1.4);opacity:0}}
+    .p-dot{transform-box:fill-box;transform-origin:center;animation:p-dot 2s ease-out infinite}
+    @keyframes p-dot{0%{transform:scale(.5);opacity:.8}100%{transform:scale(2);opacity:0}}
+    .p-live{animation:p-live 1.6s ease-in-out infinite}
+    @keyframes p-live{0%,100%{opacity:1}50%{opacity:.35}}
+    @media (prefers-reduced-motion:reduce){.p-ring,.p-dot,.p-live{animation:none}}
+  </style>
+
+  <!-- phone -->
+  <rect x="8" y="4" width="284" height="592" rx="42" fill="#05080F" stroke="#22314A" stroke-width="2"/>
+  <rect x="5" y="120" width="3" height="40" rx="1.5" fill="#22314A"/>
+  <rect x="292" y="150" width="3" height="60" rx="1.5" fill="#22314A"/>
+
+  <g clip-path="url(#ap-screen)">
+    <rect x="20" y="16" width="260" height="568" fill="#0E1626"/>
+
+    <!-- status bar -->
+    <text x="40" y="38" class="p-ui" font-size="12" font-weight="600" fill="#E6EDF7">9:41</text>
+    <rect x="114" y="24" width="72" height="20" rx="10" fill="#05080F"/>
+    <g fill="#E6EDF7"><rect x="222" y="32" width="3" height="5" rx="1"/><rect x="227" y="30" width="3" height="7" rx="1"/><rect x="232" y="28" width="3" height="9" rx="1"/></g>
+    <rect x="240" y="28" width="20" height="10" rx="3" fill="none" stroke="#E6EDF7" stroke-width="1.2"/>
+    <rect x="242" y="30" width="13" height="6" rx="1.5" fill="#E6EDF7"/>
+
+    <!-- header -->
+    <text x="34" y="76" class="p-sans" font-size="17" font-weight="700" fill="#E6EDF7">EU-LS</text>
+    <rect x="186" y="62" width="80" height="20" rx="10" fill="#111A2B" stroke="#22314A"/>
+    <text x="226" y="76" class="p-mono" font-size="11" fill="#4CC3FF" text-anchor="middle">SB_XXXXX</text>
+
+    <!-- protection status -->
+    <rect x="34" y="88" width="232" height="48" rx="12" fill="#B8F04A" fill-opacity="0.08" stroke="#B8F04A" stroke-opacity="0.5"/>
+    <path d="M58 98 L68 102 V110 C68 117 63 121 58 123 C53 121 48 117 48 110 V102 Z" fill="none" stroke="#B8F04A" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M53.5 111 L57 114.5 L63 107.5" fill="none" stroke="#B8F04A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="80" y="108" class="p-sans" font-size="14" font-weight="700" fill="#B8F04A">Protection active</text>
+    <text x="80" y="125" class="p-ui" font-size="11" fill="#8EA0B8">Smart Bike · session 00:42:18</text>
+    <circle cx="252" cy="104" r="4" fill="#B8F04A" class="p-live"/>
+
+    <!-- mini map -->
+    <g clip-path="url(#ap-mapclip)">
+      <rect x="34" y="146" width="232" height="92" fill="#0B1220"/>
+      <rect x="34" y="146" width="232" height="92" fill="url(#ap-grid)"/>
+      <path d="M20 200 C80 170 140 230 200 190 S260 170 290 180" fill="none" stroke="#1B2A44" stroke-width="1.5"/>
+      <path d="M20 222 C80 196 140 250 200 214 S260 196 290 206" fill="none" stroke="#1B2A44" stroke-width="1.5"/>
+      <path d="M120 146 C130 180 100 210 130 240" fill="none" stroke="#1E2C46" stroke-width="5"/>
+      <path d="M52 228 C80 210 110 214 140 196 S190 170 206 176" fill="none" stroke="#4CC3FF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 4"/>
+      <circle cx="52" cy="228" r="4" fill="#0B1220" stroke="#B8F04A" stroke-width="2"/>
+      <circle class="p-dot" cx="206" cy="176" r="9" fill="#4CC3FF" fill-opacity="0.5"/>
+      <circle cx="206" cy="176" r="5" fill="#4CC3FF" stroke="#0B1220" stroke-width="2"/>
+      <rect x="42" y="152" width="96" height="18" rx="9" fill="#111A2B" stroke="#22314A"/>
+      <text x="90" y="165" class="p-mono" font-size="11" fill="#8EA0B8" text-anchor="middle">fix 12 s ago</text>
+    </g>
+    <rect x="34" y="146" width="232" height="92" rx="12" fill="none" stroke="#22314A"/>
+
+    <!-- SOS -->
+    <circle class="p-ring" cx="150" cy="316" r="52" fill="none" stroke="#FF4D4D" stroke-width="2"/>
+    <circle class="p-ring p-ring2" cx="150" cy="316" r="52" fill="none" stroke="#FF4D4D" stroke-width="2"/>
+    <circle cx="150" cy="316" r="62" fill="#FF4D4D" fill-opacity="0.08"/>
+    <circle cx="150" cy="316" r="52" fill="url(#ap-sos)"/>
+    <circle cx="150" cy="316" r="44" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="1.5"/>
+    <text x="150" y="326" class="p-sans" font-size="30" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">SOS</text>
+    <text x="150" y="404" class="p-ui" font-size="11.5" fill="#8EA0B8" text-anchor="middle">Press and hold to send an alert</text>
+
+    <!-- device status -->
+    <g>
+      <rect x="34" y="418" width="72" height="54" rx="10" fill="#111A2B" stroke="#22314A"/>
+      <rect x="44" y="430" width="18" height="10" rx="2" fill="none" stroke="#B8F04A" stroke-width="1.5"/>
+      <rect x="62.5" y="433" width="2" height="4" rx="1" fill="#B8F04A"/>
+      <rect x="46" y="432" width="11" height="6" rx="1" fill="#B8F04A"/>
+      <text x="44" y="462" class="p-sans" font-size="14" font-weight="700" fill="#E6EDF7">78%</text>
+      <text x="96" y="439" class="p-ui" font-size="11" fill="#8EA0B8" text-anchor="end">batt.</text>
+
+      <rect x="114" y="418" width="72" height="54" rx="10" fill="#111A2B" stroke="#22314A"/>
+      <g fill="#4CC3FF"><rect x="124" y="436" width="3" height="4" rx="1"/><rect x="129" y="433" width="3" height="7" rx="1"/><rect x="134" y="430" width="3" height="10" rx="1"/><rect x="139" y="427" width="3" height="13" rx="1" opacity="0.35"/></g>
+      <text x="124" y="462" class="p-mono" font-size="11" font-weight="700" fill="#E6EDF7">NB-IoT</text>
+      <text x="176" y="439" class="p-ui" font-size="11" fill="#8EA0B8" text-anchor="end">net</text>
+
+      <rect x="194" y="418" width="72" height="54" rx="10" fill="#111A2B" stroke="#22314A"/>
+      <g fill="none" stroke="#B8F04A" stroke-width="1.5" stroke-linejoin="round"><rect x="208" y="430" width="6" height="7" rx="1"/><path d="M202 431.5 H206 V435.5 H202 Z M216 431.5 H220 V435.5 H216 Z"/></g>
+      <text x="204" y="462" class="p-mono" font-size="11" font-weight="700" fill="#E6EDF7">Fix OK</text>
+      <text x="256" y="439" class="p-ui" font-size="11" fill="#8EA0B8" text-anchor="end">GNSS</text>
+    </g>
+
+    <!-- contacts -->
+    <text x="34" y="496" class="p-sans" font-size="13" font-weight="700" fill="#E6EDF7">Emergency contacts</text>
+    <text x="266" y="496" class="p-ui" font-size="11" fill="#4CC3FF" text-anchor="end">Manage</text>
+    <g>
+      <rect x="34" y="506" width="232" height="26" rx="13" fill="#111A2B" stroke="#22314A"/>
+      <circle cx="48" cy="519" r="9" fill="#4CC3FF" fill-opacity="0.2"/>
+      <text x="48" y="523" class="p-ui" font-size="11" font-weight="700" fill="#4CC3FF" text-anchor="middle">A</text>
+      <text x="64" y="523" class="p-ui" font-size="11.5" fill="#E6EDF7">Contact A</text>
+      <text x="256" y="523" class="p-mono" font-size="11" fill="#8EA0B8" text-anchor="end">SMS · push</text>
+
+      <rect x="34" y="538" width="232" height="26" rx="13" fill="#111A2B" stroke="#22314A"/>
+      <circle cx="48" cy="551" r="9" fill="#FFC247" fill-opacity="0.2"/>
+      <text x="48" y="555" class="p-ui" font-size="11" font-weight="700" fill="#FFC247" text-anchor="middle">C</text>
+      <text x="64" y="555" class="p-ui" font-size="11.5" fill="#E6EDF7">Control room</text>
+      <text x="256" y="555" class="p-mono" font-size="11" fill="#8EA0B8" text-anchor="end">dashboard</text>
+    </g>
+
+    <rect x="110" y="572" width="80" height="4" rx="2" fill="#8EA0B8" opacity="0.6"/>
+  </g>
+</svg>

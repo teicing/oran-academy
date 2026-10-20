@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="bb-title bb-desc">
+<title id="bb-title">EU-LS B2B2C model</title>
+<desc id="bb-desc">With the EU-LS platform, Digital Bear provides the platform, devices, NBI/APIs and updates to B2B Partners (ski resorts, rentals, insurers, operators, companies), who get a dedicated tenant, their own brand, rules and dashboard. Partners serve end users (cyclists, skiers, hikers, workers), who get the app, SOS and protection even with no signal.</desc>
+<defs>
+  <marker id="bb-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#B8F04A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style>
+  .bb-k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;fill:#8EA0B8}
+  .bb-h{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:18px;fill:#E6EDF7}
+  .bb-t{font-family:Inter,"Space Grotesk",sans-serif;font-size:13px;fill:#E6EDF7}
+  .bb-s{font-family:Inter,"Space Grotesk",sans-serif;font-size:11.5px;fill:#8EA0B8}
+  .bb-panel{fill:#111A2B;stroke:#22314A;stroke-width:1.5}
+  .bb-flow{animation:bb-dash 1.2s linear infinite}
+  @keyframes bb-dash{to{stroke-dashoffset:-18}}
+  @media (prefers-reduced-motion:reduce){.bb-flow{animation:none}.bb-pk{display:none}}
+</style>
+<rect x="8" y="8" width="984" height="344" rx="22" fill="none" stroke="#22314A" stroke-width="1.5"/>
+<text x="36" y="44" class="bb-k">B2B2C MODEL</text>
+
+<!-- Digital Bear -->
+<rect x="30" y="64" width="280" height="250" rx="16" class="bb-panel" style="stroke:#B8F04A;stroke-opacity:.55"/>
+<circle cx="70" cy="106" r="22" fill="#0B1220" stroke="#B8F04A" stroke-opacity=".6"/>
+<g transform="translate(58 94)" fill="none" stroke="#B8F04A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L22 7 V13 C22 18 17 22 12 23 C7 22 2 18 2 13 V7 Z"/><path d="M8 12 L11 15 L16 9"/></g>
+<text x="104" y="96" class="bb-k" style="fill:#B8F04A">PLATFORM</text>
+<text x="104" y="118" class="bb-h">Digital Bear</text>
+<text x="48" y="152" class="bb-t">EU-LS platform</text>
+<line x1="48" y1="170" x2="292" y2="170" stroke="#22314A"/>
+<text x="48" y="192" class="bb-k">PROVIDES</text>
+<g class="bb-s" style="fill:#E6EDF7">
+  <circle cx="52" cy="210" r="2.5" fill="#B8F04A"/><text x="62" y="214">multitenant platform</text>
+  <circle cx="52" cy="232" r="2.5" fill="#B8F04A"/><text x="62" y="236">NB-IoT + NB-NTN device</text>
+  <circle cx="52" cy="254" r="2.5" fill="#B8F04A"/><text x="62" y="258">NBI / integration APIs</text>
+  <circle cx="52" cy="276" r="2.5" fill="#B8F04A"/><text x="62" y="280">continuous updates</text>
+</g>
+
+<!-- Partner -->
+<rect x="360" y="64" width="280" height="250" rx="16" class="bb-panel" style="stroke:#4CC3FF;stroke-opacity:.55"/>
+<circle cx="400" cy="106" r="22" fill="#0B1220" stroke="#4CC3FF" stroke-opacity=".6"/>
+<g transform="translate(388 94)" fill="none" stroke="#4CC3FF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="14" rx="2"/><path d="M8 8 V4 H16 V8 M3 14 H21"/></g>
+<text x="434" y="96" class="bb-k" style="fill:#4CC3FF">B2B</text>
+<text x="434" y="118" class="bb-h">Partner</text>
+<text x="378" y="146" class="bb-s">ski resorts · rentals · insurers</text>
+<text x="378" y="162" class="bb-s">operators · companies</text>
+<line x1="378" y1="170" x2="622" y2="170" stroke="#22314A"/>
+<text x="378" y="192" class="bb-k">GETS</text>
+<g class="bb-s" style="fill:#E6EDF7">
+  <circle cx="382" cy="210" r="2.5" fill="#4CC3FF"/><text x="392" y="214">dedicated tenant</text>
+  <circle cx="382" cy="232" r="2.5" fill="#4CC3FF"/><text x="392" y="236">its own brand</text>
+  <circle cx="382" cy="254" r="2.5" fill="#4CC3FF"/><text x="392" y="258">rules for its own service</text>
+  <circle cx="382" cy="276" r="2.5" fill="#4CC3FF"/><text x="392" y="280">operations dashboard</text>
+</g>
+
+<!-- Users -->
+<rect x="690" y="64" width="280" height="250" rx="16" class="bb-panel" style="stroke:#FFC247;stroke-opacity:.55"/>
+<circle cx="730" cy="106" r="22" fill="#0B1220" stroke="#FFC247" stroke-opacity=".6"/>
+<g transform="translate(718 94)" fill="none" stroke="#FFC247" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M4 22 C4 16 8 13 12 13 C16 13 20 16 20 22"/></g>
+<text x="764" y="96" class="bb-k" style="fill:#FFC247">C</text>
+<text x="764" y="118" class="bb-h">End users</text>
+<text x="708" y="146" class="bb-s">cyclists · skiers</text>
+<text x="708" y="162" class="bb-s">hikers · workers</text>
+<line x1="708" y1="170" x2="952" y2="170" stroke="#22314A"/>
+<text x="708" y="192" class="bb-k">GETS</text>
+<g class="bb-s" style="fill:#E6EDF7">
+  <circle cx="712" cy="210" r="2.5" fill="#FFC247"/><text x="722" y="214">Smartphone app</text>
+  <circle cx="712" cy="232" r="2.5" fill="#FFC247"/><text x="722" y="236">SOS and fall detection</text>
+  <circle cx="712" cy="254" r="2.5" fill="#FFC247"/><text x="722" y="258">protection even with no signal</text>
+</g>
+
+<!-- arrows -->
+<path class="bb-flow" d="M312 106 H356" fill="none" stroke="#B8F04A" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#bb-arr)"/>
+<path class="bb-flow" d="M642 106 H686" fill="none" stroke="#B8F04A" stroke-width="2.2" stroke-dasharray="6 3" marker-end="url(#bb-arr)"/>
+<g class="bb-pk">
+  <circle r="4" fill="#E6EDF7" opacity="0"><animateMotion dur="1.8s" repeatCount="indefinite" path="M314 106 H350"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="1.8s" repeatCount="indefinite"/></circle>
+  <circle r="4" fill="#E6EDF7" opacity="0"><animateMotion dur="1.8s" begin="0.9s" repeatCount="indefinite" path="M644 106 H680"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.2;0.8;1" dur="1.8s" begin="0.9s" repeatCount="indefinite"/></circle>
+</g>
+<text x="500" y="338" class="bb-s" text-anchor="middle">Each partner uses the platform with its own tenant, brand, rules and dashboard.</text>
+</svg>

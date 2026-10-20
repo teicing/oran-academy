@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560" role="img" aria-labelledby="dh-title dh-desc">
+  <title id="dh-title">EU-LS device</title>
+  <desc id="dh-desc">Stylised illustration of the EU-LS device: rounded case with a colour display showing device ID SB_XXXXX, session time, cellular signal, satellite fix status, LTE NB-IoT technology with RSRP -93 and RSRQ -11, a red side SOS button and a status LED.</desc>
+  <defs>
+    <linearGradient id="dh-case" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1A2740"/>
+      <stop offset="0.55" stop-color="#111A2B"/>
+      <stop offset="1" stop-color="#0D1524"/>
+    </linearGradient>
+    <linearGradient id="dh-edge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A4E70"/>
+      <stop offset="1" stop-color="#22314A"/>
+    </linearGradient>
+    <linearGradient id="dh-screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070B14"/>
+      <stop offset="1" stop-color="#03060C"/>
+    </linearGradient>
+    <linearGradient id="dh-glare" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.07"/>
+      <stop offset="0.45" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="dh-halo" cx="0.5" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#4CC3FF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#4CC3FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dh-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <style>
+    .dh-mono{font-family:"JetBrains Mono","SFMono-Regular",Menlo,Consolas,monospace}
+    .dh-sans{font-family:"Space Grotesk",Inter,sans-serif}
+    .dh-bar{animation:dh-pulse 2.4s ease-in-out infinite}
+    .dh-b2{animation-delay:.2s}.dh-b3{animation-delay:.4s}.dh-b4{animation-delay:.6s}
+    @keyframes dh-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+    .dh-wave{fill:none;stroke:#4CC3FF;stroke-width:2;stroke-linecap:round;opacity:0;
+      transform-box:view-box;transform-origin:322px 22px;animation:dh-wave 3s ease-out infinite}
+    .dh-w2{animation-delay:1s}.dh-w3{animation-delay:2s}
+    @keyframes dh-wave{0%{opacity:0;transform:scale(.4)}15%{opacity:.9}100%{opacity:0;transform:scale(1.6)}}
+    .dh-led{animation:dh-blink 2s steps(1,end) infinite}
+    @keyframes dh-blink{0%,70%{opacity:1}70.01%,100%{opacity:.25}}
+    .dh-sos{animation:dh-sos 2.8s ease-in-out infinite}
+    @keyframes dh-sos{0%,100%{opacity:.15}50%{opacity:.6}}
+    .dh-colon{animation:dh-tick 1s steps(1,end) infinite}
+    @keyframes dh-tick{0%,50%{opacity:1}50.01%,100%{opacity:.2}}
+    @media (prefers-reduced-motion:reduce){.dh-bar,.dh-wave,.dh-led,.dh-sos,.dh-colon{animation:none}.dh-wave{opacity:.5}}
+  </style>
+
+  <!-- halo -->
+  <ellipse cx="210" cy="290" rx="200" ry="250" fill="url(#dh-halo)"/>
+
+  <!-- antenna + radio waves -->
+  <rect x="314" y="18" width="16" height="28" rx="6" fill="#1A2740" stroke="url(#dh-edge)" stroke-width="2"/>
+  <circle cx="322" cy="22" r="3" fill="#4CC3FF"/>
+  <g>
+    <path class="dh-wave" d="M306 14 A20 20 0 0 1 338 14"/>
+    <path class="dh-wave dh-w2" d="M306 14 A20 20 0 0 1 338 14"/>
+    <path class="dh-wave dh-w3" d="M306 14 A20 20 0 0 1 338 14"/>
+  </g>
+
+  <!-- side SOS button -->
+  <rect x="352" y="196" width="22" height="84" rx="9" fill="#FF4D4D" class="dh-sos" filter="url(#dh-glow)"/>
+  <rect x="352" y="196" width="22" height="84" rx="9" fill="#C8303A"/>
+  <rect x="355" y="200" width="10" height="76" rx="5" fill="#FF4D4D"/>
+  <text x="392" y="238" class="dh-sans" font-size="12" font-weight="700" fill="#FF4D4D" text-anchor="middle" transform="rotate(90 392 238)" letter-spacing="2">SOS</text>
+
+  <!-- left function button -->
+  <rect x="46" y="210" width="16" height="48" rx="7" fill="#22314A" stroke="#3A4E70" stroke-width="1.5"/>
+
+  <!-- case -->
+  <rect x="58" y="40" width="300" height="490" rx="52" fill="url(#dh-case)" stroke="url(#dh-edge)" stroke-width="2.5"/>
+  <rect x="68" y="50" width="280" height="470" rx="44" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1.5"/>
+
+  <!-- LED + labels -->
+  <circle cx="102" cy="76" r="9" fill="#B8F04A" opacity="0.18" class="dh-led"/>
+  <circle cx="102" cy="76" r="4.5" fill="#B8F04A" class="dh-led" filter="url(#dh-glow)"/>
+  <text x="116" y="80" class="dh-mono" font-size="11" fill="#8EA0B8" letter-spacing="1">EU-LS</text>
+  <g fill="#22314A">
+    <circle cx="288" cy="76" r="2"/><circle cx="298" cy="76" r="2"/><circle cx="308" cy="76" r="2"/><circle cx="318" cy="76" r="2"/>
+  </g>
+
+  <!-- display bezel -->
+  <rect x="84" y="98" width="248" height="340" rx="20" fill="#05080F" stroke="#22314A" stroke-width="2"/>
+  <rect x="94" y="108" width="228" height="320" rx="12" fill="url(#dh-screen)"/>
+
+  <!-- display content -->
+  <text x="106" y="140" class="dh-mono" font-size="19" font-weight="700" fill="#4CC3FF">SB_XXXXX</text>
+  <text x="310" y="140" class="dh-mono" font-size="19" font-weight="700" fill="#B8F04A" text-anchor="end">00<tspan class="dh-colon">:</tspan>03<tspan class="dh-colon">:</tspan>25</text>
+
+  <!-- icon row -->
+  <!-- cellular antenna -->
+  <g fill="none" stroke="#FFC247" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M114 186 L119 164 L124 186 M116 178 H122"/>
+    <path d="M110 166 A7 7 0 0 1 110 160" transform="translate(0 2)"/>
+    <path d="M128 166 A7 7 0 0 0 128 160" transform="translate(0 2)"/>
+    <circle cx="119" cy="164" r="1.5" fill="#FFC247"/>
+  </g>
+  <!-- cell bars -->
+  <rect class="dh-bar" x="132" y="180" width="5" height="6" rx="1" fill="#FFC247"/>
+  <rect class="dh-bar dh-b2" x="140" y="175" width="5" height="11" rx="1" fill="#FFC247"/>
+  <rect class="dh-bar dh-b3" x="148" y="169" width="5" height="17" rx="1" fill="#B8F04A"/>
+  <rect class="dh-bar dh-b4" x="156" y="162" width="5" height="24" rx="1" fill="#4CC3FF" opacity="0.9"/>
+  <!-- link -->
+  <g fill="none" stroke="#E6EDF7" stroke-width="2" stroke-linecap="round">
+    <rect x="182" y="171" width="13" height="8" rx="2" fill="#E6EDF7"/>
+    <path d="M195 175 H206"/>
+    <path d="M206 169 v12 M206 169 h4 a6 6 0 0 1 0 12 h-4"/>
+  </g>
+  <!-- satellite -->
+  <g fill="#FF4D4D" stroke="#FF4D4D" stroke-width="1.5" stroke-linejoin="round">
+    <rect x="234" y="170" width="9" height="11" rx="1.5"/>
+    <rect x="222" y="172" width="10" height="7" rx="1" fill="none"/>
+    <rect x="245" y="172" width="10" height="7" rx="1" fill="none"/>
+    <path d="M232 175.5 H234 M243 175.5 H245" />
+    <path d="M238.5 170 V164" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- GNSS bars -->
+  <rect class="dh-bar" x="266" y="180" width="5" height="6" rx="1" fill="#4CC3FF"/>
+  <rect class="dh-bar dh-b2" x="274" y="175" width="5" height="11" rx="1" fill="#4CC3FF"/>
+  <rect class="dh-bar dh-b3" x="282" y="169" width="5" height="17" rx="1" fill="#4CC3FF"/>
+  <rect class="dh-bar dh-b4" x="290" y="162" width="5" height="24" rx="1" fill="#4CC3FF"/>
+  <rect x="298" y="155" width="5" height="31" rx="1" fill="#FF4D4D"/>
+
+  <!-- counters -->
+  <g class="dh-mono" font-size="11">
+    <text x="106" y="218" fill="#E6EDF7">TT <tspan fill="#FFC247">000:02:39</tspan></text>
+    <text x="106" y="236" fill="#E6EDF7">PT <tspan fill="#B8F04A">000:02:39</tspan></text>
+    <text x="310" y="218" fill="#4CC3FF" text-anchor="end">TN 000:00:00</text>
+    <text x="310" y="236" fill="#B8F04A" text-anchor="end">PN 000:00:00</text>
+  </g>
+
+  <!-- radio technology -->
+  <text x="106" y="284" class="dh-mono" font-size="20" font-weight="600" fill="#E6EDF7">LTE NB-IOT</text>
+  <text x="106" y="316" class="dh-mono" font-size="17" font-weight="600" fill="#B8F04A" xml:space="preserve">RSRP -93  RSRQ -11</text>
+
+  <!-- separator -->
+  <line x1="106" y1="352" x2="310" y2="352" stroke="#22314A" stroke-width="1" stroke-dasharray="2 4"/>
+
+  <!-- bottom indicators -->
+  <g fill="none" stroke="#4CC3FF" stroke-width="1.5">
+    <circle cx="112" cy="402" r="4.5"/><circle cx="126" cy="402" r="4.5"/><circle cx="140" cy="402" r="4.5"/><circle cx="154" cy="402" r="4.5"/><circle cx="168" cy="402" r="4.5"/>
+  </g>
+  <g fill="#4CC3FF">
+    <rect x="252" y="396" width="8" height="12" rx="1"/><rect x="263" y="396" width="8" height="12" rx="1"/><rect x="274" y="396" width="8" height="12" rx="1"/><rect x="285" y="396" width="8" height="12" rx="1"/><rect x="296" y="396" width="8" height="12" rx="1" opacity="0.35"/>
+  </g>
+
+  <!-- glass reflection -->
+  <rect x="94" y="108" width="228" height="320" rx="12" fill="url(#dh-glare)" pointer-events="none"/>
+
+  <!-- lower case: speaker + USB-C -->
+  <g fill="#22314A">
+    <circle cx="186" cy="470" r="2.5"/><circle cx="198" cy="470" r="2.5"/><circle cx="210" cy="470" r="2.5"/><circle cx="222" cy="470" r="2.5"/><circle cx="234" cy="470" r="2.5"/>
+  </g>
+  <rect x="188" y="520" width="44" height="12" rx="6" fill="#05080F" stroke="#3A4E70" stroke-width="1.5"/>
+</svg>

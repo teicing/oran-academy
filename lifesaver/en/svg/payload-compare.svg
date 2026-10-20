@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-labelledby="pc-title pc-desc">
+<title id="pc-title">Bytes per event: HTTPS, CoAP with JSON (today) and CoAP with CBOR (phase 2)</title>
+<desc id="pc-desc">Indicative estimate of the bytes sent for a single fall event over IPv4. HTTPS over TCP with JSON: about 306 bytes plus the TCP/TLS handshake. CoAP over DTLS/UDP with JSON, the current setup on terrestrial and NTN: about 163 bytes, roughly 47% less. Phase 2, CoAP with CBOR, not yet implemented: about 121 bytes, roughly 60% less; the payload drops from 94 to 52 bytes.</desc>
+<style>
+  .pc-k{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:1.5px;fill:#8EA0B8}
+  .pc-h{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:16px;fill:#E6EDF7}
+  .pc-t{font-family:Inter,"Space Grotesk",sans-serif;font-size:13px;fill:#E6EDF7}
+  .pc-s{font-family:Inter,"Space Grotesk",sans-serif;font-size:11.5px;fill:#8EA0B8}
+  .pc-m{font-family:"JetBrains Mono",monospace;font-size:11px;fill:#8EA0B8}
+  .pc-b{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;fill:#0B1220}
+  .pc-tot{font-family:"Space Grotesk",Inter,sans-serif;font-weight:700;font-size:20px;fill:#E6EDF7}
+  .pc-tag{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;letter-spacing:1px}
+  .pc-grow{transform-box:fill-box;transform-origin:left center;animation:pc-g 1.2s ease-out both}
+  .pc-d2{animation-delay:.35s}.pc-d3{animation-delay:.7s}
+  @keyframes pc-g{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  @media (prefers-reduced-motion:reduce){.pc-grow{animation:none}}
+</style>
+<rect x="8" y="8" width="984" height="454" rx="22" fill="none" stroke="#22314A" stroke-width="1.5"/>
+<text x="36" y="44" class="pc-k">ONE FALL EVENT · BYTES ON THE WIRE (IPv4)</text>
+<rect x="808" y="28" width="156" height="22" rx="11" fill="#111A2B" stroke="#FFC247" stroke-opacity=".6"/>
+<text x="886" y="43" class="pc-m" text-anchor="middle" style="fill:#FFC247">indicative estimate</text>
+
+<text x="36" y="112" class="pc-h">HTTPS over TCP</text>
+<text x="36" y="130" class="pc-s">baseline · TLS 1.3 · JSON</text>
+<g class="pc-grow"><rect x="230.0" y="96" width="39.2" height="36" fill="#8EA0B8" stroke="#0B1220" stroke-width="1.5"/>
+<text x="249.6" y="89" class="pc-m" text-anchor="middle" style="fill:#8EA0B8">IP</text>
+<text x="249.6" y="118.5" class="pc-b" text-anchor="middle">20</text>
+<rect x="269.2" y="96" width="39.2" height="36" fill="#4CC3FF" stroke="#0B1220" stroke-width="1.5"/>
+<text x="288.8" y="89" class="pc-m" text-anchor="middle" style="fill:#4CC3FF">TCP</text>
+<text x="288.8" y="118.5" class="pc-b" text-anchor="middle">20</text>
+<rect x="308.4" y="96" width="43.1" height="36" fill="#B57BFF" stroke="#0B1220" stroke-width="1.5"/>
+<text x="330.0" y="89" class="pc-m" text-anchor="middle" style="fill:#B57BFF">TLS</text>
+<text x="330.0" y="118.5" class="pc-b" text-anchor="middle">22</text>
+<rect x="351.6" y="96" width="294.1" height="36" fill="#FFC247" stroke="#0B1220" stroke-width="1.5"/>
+<text x="498.6" y="89" class="pc-m" text-anchor="middle" style="fill:#FFC247">HTTP header</text>
+<text x="498.6" y="118.5" class="pc-b" text-anchor="middle">~150</text>
+<rect x="645.7" y="96" width="184.3" height="36" fill="#B8F04A" stroke="#0B1220" stroke-width="1.5"/>
+<text x="737.8" y="89" class="pc-m" text-anchor="middle" style="fill:#B8F04A">JSON</text>
+<text x="737.8" y="118.5" class="pc-b" text-anchor="middle">94</text></g>
+<text x="842" y="121" class="pc-tot">~306 B</text>
+<text x="230" y="150" class="pc-s" style="fill:#FFC247">+ TCP/TLS handshake on every new connection, plus TCP ACKs</text>
+
+<rect x="36" y="180" width="54" height="18" rx="9" fill="#B8F04A"/><text x="63" y="193" class="pc-tag" text-anchor="middle" style="fill:#0B1220">TODAY</text>
+<text x="36" y="222" class="pc-h">CoAP + JSON</text>
+<text x="36" y="240" class="pc-s">DTLS · CON · terrestrial + NTN</text>
+<g class="pc-grow pc-d2"><rect x="230.0" y="206" width="39.2" height="36" fill="#8EA0B8" stroke="#0B1220" stroke-width="1.5"/>
+<text x="249.6" y="199" class="pc-m" text-anchor="middle" style="fill:#8EA0B8">IP</text>
+<text x="249.6" y="228.5" class="pc-b" text-anchor="middle">20</text>
+<rect x="269.2" y="206" width="15.7" height="36" fill="#4CC3FF" stroke="#0B1220" stroke-width="1.5"/>
+<text x="277.1" y="199" class="pc-m" text-anchor="middle" style="fill:#4CC3FF">UDP</text>
+<text x="277.1" y="228.5" class="pc-b" text-anchor="middle"></text>
+<rect x="284.9" y="206" width="56.9" height="36" fill="#B57BFF" stroke="#0B1220" stroke-width="1.5"/>
+<text x="313.3" y="199" class="pc-m" text-anchor="middle" style="fill:#B57BFF">DTLS</text>
+<text x="313.3" y="228.5" class="pc-b" text-anchor="middle">29</text>
+<rect x="341.8" y="206" width="23.5" height="36" fill="#FFC247" stroke="#0B1220" stroke-width="1.5"/>
+<text x="353.5" y="199" class="pc-m" text-anchor="middle" style="fill:#FFC247">CoAP</text>
+<text x="353.5" y="228.5" class="pc-b" text-anchor="middle">12</text>
+<rect x="365.3" y="206" width="184.3" height="36" fill="#B8F04A" stroke="#0B1220" stroke-width="1.5"/>
+<text x="457.5" y="199" class="pc-m" text-anchor="middle" style="fill:#B8F04A">JSON</text>
+<text x="457.5" y="228.5" class="pc-b" text-anchor="middle">94</text></g>
+<text x="562" y="231" class="pc-tot" style="fill:#B8F04A">~163 B</text>
+<text x="646" y="231" class="pc-t" style="fill:#B8F04A;font-weight:700">≈ −47%</text>
+<text x="230" y="260" class="pc-s" style="fill:#B8F04A">DTLS session reused · 1 application ACK</text>
+
+<rect x="36" y="290" width="74" height="18" rx="9" fill="none" stroke="#B57BFF"/><text x="73" y="303" class="pc-tag" text-anchor="middle" style="fill:#B57BFF">PHASE 2</text>
+<text x="36" y="332" class="pc-h">CoAP + CBOR</text>
+<text x="36" y="350" class="pc-s">binary payload · not yet active</text>
+<g class="pc-grow pc-d3"><rect x="230.0" y="316" width="39.2" height="36" fill="#8EA0B8" fill-opacity=".55" stroke="#0B1220" stroke-width="1.5"/>
+<text x="249.6" y="309" class="pc-m" text-anchor="middle" style="fill:#8EA0B8">IP</text>
+<text x="249.6" y="338.5" class="pc-b" text-anchor="middle">20</text>
+<rect x="269.2" y="316" width="15.7" height="36" fill="#4CC3FF" fill-opacity=".55" stroke="#0B1220" stroke-width="1.5"/>
+<text x="277.1" y="309" class="pc-m" text-anchor="middle" style="fill:#4CC3FF">UDP</text>
+<text x="277.1" y="338.5" class="pc-b" text-anchor="middle"></text>
+<rect x="284.9" y="316" width="56.9" height="36" fill="#B57BFF" fill-opacity=".55" stroke="#0B1220" stroke-width="1.5"/>
+<text x="313.3" y="309" class="pc-m" text-anchor="middle" style="fill:#B57BFF">DTLS</text>
+<text x="313.3" y="338.5" class="pc-b" text-anchor="middle">29</text>
+<rect x="341.8" y="316" width="23.5" height="36" fill="#FFC247" fill-opacity=".55" stroke="#0B1220" stroke-width="1.5"/>
+<text x="353.5" y="309" class="pc-m" text-anchor="middle" style="fill:#FFC247">CoAP</text>
+<text x="353.5" y="338.5" class="pc-b" text-anchor="middle">12</text>
+<rect x="365.3" y="316" width="102.0" height="36" fill="#B8F04A" fill-opacity=".55" stroke="#0B1220" stroke-width="1.5"/>
+<text x="416.3" y="309" class="pc-m" text-anchor="middle" style="fill:#B8F04A">CBOR</text>
+<text x="416.3" y="338.5" class="pc-b" text-anchor="middle">52</text></g>
+<text x="479" y="341" class="pc-tot" style="fill:#B57BFF">~121 B</text>
+<text x="563" y="341" class="pc-t" style="fill:#B57BFF;font-weight:700">≈ −60%</text>
+<text x="230" y="370" class="pc-s" style="fill:#B57BFF">when size drives NTN costs or risks fragmentation</text>
+
+<line x1="36" y1="392" x2="964" y2="392" stroke="#22314A"/>
+<g class="pc-s">
+  <rect x="36" y="408" width="14" height="14" rx="3" fill="#8EA0B8"/><text x="58" y="419">IP</text>
+  <rect x="104" y="408" width="14" height="14" rx="3" fill="#4CC3FF"/><text x="126" y="419">Transport · TCP / UDP</text>
+  <rect x="290" y="408" width="14" height="14" rx="3" fill="#B57BFF"/><text x="312" y="419">Security · TLS / DTLS</text>
+  <rect x="482" y="408" width="14" height="14" rx="3" fill="#FFC247"/><text x="504" y="419">Application header · HTTP / CoAP</text>
+  <rect x="736" y="408" width="14" height="14" rx="3" fill="#B8F04A"/><text x="758" y="419">Payload · JSON / CBOR</text>
+</g>
+<text x="36" y="446" class="pc-s">Widths proportional to bytes. Sample payload: JSON 94 B, CBOR 52 B. HTTP header size varies by client and server.</text>
+</svg>

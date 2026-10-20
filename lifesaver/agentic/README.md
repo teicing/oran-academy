@@ -62,3 +62,7 @@ Ogni agente ha un ruolo, un input e un output precisi; il brief condiviso evita 
 
 ## Iterazione v3
 - Rinominata la soluzione in **EU-LS · European Life Saver** e corretto il modulo in **SIMCom SIM7070G HP-S** (NB-NTN).
+
+## Iterazione v4 — versione inglese
+- `lifesaver/en/index.html` + `lifesaver/en/svg/`: traduzione inglese di pagina e schemi (due agenti in parallelo: testi HTML e SVG), con link IT nel menu.
+- La pagina italiana `lifesaver/index.html` resta invariata.

@@ -279,6 +279,33 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 .phase2{margin-top:28px;padding:20px 22px;border-radius:16px;border:1px dashed rgba(181,123,255,.55);background:rgba(181,123,255,.06)}
 .phase2 .lvl{font:600 11px/1 var(--f-mono);letter-spacing:.12em;color:var(--violet)}
 .phase2 p{margin-top:8px;color:var(--muted)}.phase2 b{color:var(--text)}
+/* v3: sicurezza e payload */
+.sec-alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
+@media (max-width:900px){.two-col{grid-template-columns:1fr}}
+.two-col>*{min-width:0}
+.card h3{font-size:20px;margin-bottom:6px}
+.card .lvl{font:600 11px/1 var(--f-mono);letter-spacing:.12em;color:var(--c,var(--lime))}
+.card.top{border-top:3px solid var(--c,var(--lime))}
+.card .ticks{margin-top:14px}
+.card.bad .ticks li::before{border-color:var(--red)}
+.ev{font:600 10.5px/1 var(--f-mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 6px;margin-left:4px;white-space:nowrap}
+.cmp-wrap{overflow-x:auto;margin-top:28px}
+.cmp{min-width:640px}
+.cmp th{width:26%}
+.cmp td.old{color:var(--muted)}
+.cmp td.new{color:var(--text)}
+.cmp thead th{background:var(--surface2);color:var(--text)}
+.cbor{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:18px;font:12.5px/1.65 var(--f-mono);color:var(--sky);overflow-x:auto;white-space:pre}
+.cbor .k{color:var(--amber)}.cbor .c{color:var(--muted)}
+.why .num{font:600 12px/1 var(--f-mono);color:var(--lime)}
+.why h3{font-size:19px;margin:12px 0 8px}.why p{color:var(--muted);font-size:15px}
+.nav-links a{white-space:nowrap}
+@media (max-width:1180px){.nav-links{gap:16px;font-size:13.5px}}
+@media (max-width:1040px){.nav-links{display:none}}
+.kpis4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.kpis4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.kpis4{grid-template-columns:1fr}}
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -304,6 +331,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <a href="#satellite">NB-NTN</a>
       <a href="#b2b2c">B2B2C</a>
       <a href="#architettura">Platform</a>
+      <a href="#sicurezza">Security</a>
+      <a href="#payload">Payload</a>
       <a href="#roadmap">Roadmap</a>
       <a href="#use-case">Use cases</a>
     </nav>
@@ -330,7 +359,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <div class="chips">
         <span class="chip"><i></i>NB-IoT + NB-NTN satellite</span>
         <span class="chip"><i></i>Multitenant platform</span>
-        <span class="chip"><i></i>CoAP · DTLS · UDP 5684</span>
+        <span class="chip"><i></i>CoAP · AES-GCM · CBOR</span>
       </div>
       <p class="micro">For ski resorts, rental companies, insurers, operators and businesses. Pilot projects now open.</p>
     </div>
@@ -378,7 +407,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <ul class="ticks">
           <li><b>Terrestrial NB-IoT</b> · deep coverage and low power consumption, band B20 on the MNO network.</li>
           <li><b>Satellite NB-NTN</b> · 3GPP Rel-17, GEO satellite at ~37,000 km in S-band.</li>
-          <li><b>A single data path</b> · both branches run through the MNO + SMO network and reach the EU-LS edge on UDP 5684.</li>
+          <li><b>A single data path</b> · both branches run through the MNO + SMO network and reach the EU-LS edge with the same CoAP over UDP.</li>
         </ul>
       </div>
       <figure class="fig wide reveal" style="margin-bottom:0"><img src="svg/ntn-coverage.svg" alt="Coverage: terrestrial NB-IoT from the eNodeB antenna and NB-NTN via a GEO satellite at around 37,000 km in S-band for areas with no signal" width="1000" height="420"></figure>
@@ -401,7 +430,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="steps">
       <div class="step reveal"><h3>Detect</h3><p>The inertial sensor recognises a fall or an unusual impact. Alternatively, the user presses the SOS button.</p><code>IMU → event: FALL_DETECTED | SOS_PRESSED</code></div>
       <div class="step reveal"><h3>Locate</h3><p>The GNSS receiver calculates the position. Speed and last movement are added to the event.</p><code>GNSS fix · lat/lon · speed · timestamp</code></div>
-      <div class="step reveal"><h3>Transmit</h3><p>The event is sent over terrestrial NB-IoT or, where there is no coverage, over NB-NTN via satellite. The user's phone isn't needed.</p><code>CoAP CON · DTLS · UDP 5684 · JSON</code></div>
+      <div class="step reveal"><h3>Transmit</h3><p>The event is sent over terrestrial NB-IoT or, where there is no coverage, over NB-NTN via satellite. The user's phone isn't needed.</p><code>CoAP CON · AES-128-GCM · CBOR · UDP</code></div>
       <div class="step reveal"><h3>Process</h3><p>The CoAP Gateway confirms receipt with an ACK; the platform applies the tenant and use-case rules and opens an incident.</p><code>ACK 2.04 · rule engine (tenant) → incident OPEN</code></div>
       <div class="step reveal"><h3>Alert</h3><p>Notifications reach the App, emergency contacts and the control room. Everyone sees the same location.</p><code>notify → app · contacts · dashboard</code></div>
       <div class="step reveal"><h3>Respond</h3><p>The operator follows the live map and checks the history. Once the rescue is complete, they close the incident.</p><code>incident: OPEN → IN_PROGRESS → CLOSED</code></div>
@@ -431,7 +460,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <p>A multitenant platform that already works, built on solid open-source components and designed for millions of small messages, from the UDP packet to the partner's API.</p>
     </div>
     <div class="arch-figure reveal">
-      <img src="svg/platform.svg" alt="Platform architecture: terrestrial and satellite access, MNO + SMO network, Eclipse Californium and Scandium edge with anti-DDoS, rate limiting, load balancer and CoAP DTLS gateway, ThingsBoard CE core with PostgreSQL, NBI with REST API to the tenants" width="1200" height="620">
+      <img src="svg/platform.svg" alt="Platform architecture: terrestrial and satellite access, MNO + SMO network, Eclipse Californium and Scandium edge with anti-DDoS, rate limiting, load balancer and CoAP gateway (AES-GCM envelope, DTLS for earlier firmware), ThingsBoard CE core with PostgreSQL, NBI with REST API to the tenants" width="1200" height="620">
     </div>
     <p class="scroll-hint">← scroll the diagram →</p>
     <div class="layers">
@@ -439,10 +468,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <li>EU-LS device on terrestrial NB-IoT (B20) or NB-NTN via GEO.</li>
         <li>LTE/NR smartphones connected through the App and APIs.</li>
         <li>MNO + SMO network (terrestrial and satellite) up to the core (CN), independent of the operator.</li></ul></div>
-      <div class="layer reveal" style="--c:var(--sky)"><span class="lvl">EDGE · UDP 5684</span><h3>Californium + Scandium</h3><ul>
+      <div class="layer reveal" style="--c:var(--sky)"><span class="lvl">EDGE · UDP</span><h3>Californium + Scandium</h3><ul>
         <li>Anti-DDoS, rate limiting and load balancer in front of the gateway.</li>
-        <li>CoAP DTLS Gateway: DTLS termination with PSK or X.509, anti-replay, session cache.</li>
-        <li>JSON payload validation (CBOR planned for phase 2), device identity mapping, stateless and N+1 scalable.</li></ul></div>
+        <li>CoAP Gateway: AES-128-GCM envelope with anti-replay on every message; DTLS (PSK or X.509) for earlier firmware.</li>
+        <li>CBOR payload decoding and validation, device identity mapping, stateless and N+1 scalable.</li></ul></div>
       <div class="layer reveal" style="--c:var(--lime)"><span class="lvl">CORE · HTTP REST / MQTT</span><h3>ThingsBoard CE + PostgreSQL</h3><ul>
         <li>Data Collection: device registry and telemetry ingestion.</li>
         <li>Data Storage: history of events, sessions and incidents.</li>
@@ -461,29 +490,101 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     <div class="sec-head reveal">
       <span class="eyebrow">Inside the CoAP Gateway</span>
       <h2>Smaller packets. Confirmed delivery.</h2>
-      <p>On NB-IoT, and even more so over satellite, every byte costs bandwidth, energy and money. Today EU-LS sends JSON over CoAP/DTLS/UDP on both the terrestrial network and NTN. That alone cuts traffic compared with HTTPS, and turns a connectionless UDP transport into delivery confirmed by the platform. In phase 2, the move to CBOR will shrink the payload further.</p>
+      <p>On NB-IoT, and even more so over satellite, every byte costs bandwidth, energy and money. EU-LS uses CoAP over UDP on both terrestrial and NTN: a connectionless transport becomes delivery confirmed by the platform. How we protect it and how much each send weighs is explained in the <a href="#sicurezza" style="color:var(--lime)">Security</a> and <a href="#payload" style="color:var(--lime)">Payload</a> chapters.</p>
     </div>
     <div class="coap-grid">
-      <div class="reveal">
-        <figure class="fig"><img src="svg/payload-compare.svg" alt="Indicative estimate for one event: about 306 bytes with HTTPS over TCP; about 163 bytes today with CoAP and JSON over DTLS and UDP; about 121 bytes in phase 2 with CBOR" width="1000" height="470"></figure>
-        <div class="kpis">
-          <div class="kpi"><b>≈ −47%</b><span>today: CoAP + JSON vs HTTPS, bytes per event</span></div>
-          <div class="kpi"><b style="color:var(--violet)">≈ −60%</b><span>phase 2: CoAP + CBOR (payload 94 → 52 B)</span></div>
-          <div class="kpi"><b>0</b><span>TCP/TLS handshakes per message</span></div>
-        </div>
-      </div>
-      <div class="reveal">
+            <div class="reveal">
         <figure class="fig"><img src="svg/coap-ack.svg" alt="CoAP sequence: Confirmable message from the device, forwarded to the platform, ACK 2.04 Changed; if lost, retransmission with exponential backoff and deduplication via Message-ID" width="1000" height="540"></figure>
         <ul class="ticks">
           <li><b>Confirmable messages (CON)</b> · every critical event waits for an ACK carrying the application result (e.g. 2.04 Changed).</li>
-          <li><b>Retransmission with backoff</b> · ACK_TIMEOUT of 2 s with a random factor of up to 1.5 (first timeout between 2 and 3 s), then doubling with each attempt, up to 4 retransmissions. Well beyond the ~0.5 s round trip via GEO.</li>
-          <li><b>Message-ID and anti-replay</b> · no duplicate events, no packets reused by third parties.</li>
-          <li><b>DTLS security</b> · PSK or X.509 certificates, with session resumption and no new handshakes.</li>
+          <li><b>Retransmission timed for the network</b> · the firmware builds the CoAP message and controls its timers: 4, 8, 16, 32 s on terrestrial; 25 s then 50 s over satellite, where a reply arrives in ~10 s.</li>
+          <li><b>Message-ID, counter and eid</b> · no duplicate events, no packets reused by third parties.</li>
+          <li><b>Security in every message</b> · AES-128-GCM envelope with a per-device key, no handshake (see <a href="#sicurezza" style="color:var(--lime)">Security</a>).</li>
         </ul>
       </div>
     </div>
-    <div class="phase2 reveal"><span class="lvl">PHASE 2 · CBOR</span><p>The switch from JSON to <b>CBOR</b> (binary payload) is not yet implemented. It will be enabled once packet size starts to weigh on NTN link costs or to cause fragmentation. The gateway is already designed to validate both formats, so the change stays confined to the device and the gateway.</p></div>
-    <p class="spec-note">Example based on a fall event (id, type, lat/lon, speed, battery, timestamp). Network bytes over IPv4: indicative estimate, handshakes excluded. CoAP timers: RFC 7252 / Eclipse Californium default values.</p>
+      </div>
+</section>
+<!-- SECURITY -->
+<section class="sec-alt" id="sicurezza">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Security</span>
+      <h2>Security inside every message, even over satellite.</h2>
+      <p>The first prototypes encrypted the channel with <b>DTLS</b>. Over satellite, that channel turned out to be the weak spot: slow to open, impossible to keep open, expensive. We replaced it with an <b>encrypted, authenticated envelope inside every single message</b>: same per-device key, no session, no SOS waiting for a handshake.</p>
+    </div>
+    <figure class="fig wide reveal"><img src="svg/security-aead.svg" alt="Comparison: DTLS needs 4 handshake round trips over satellite (35-140 seconds, modem blocked) and the session is lost when the NAT changes port after 70-180 seconds, about 3.4 KB per send; the AEAD envelope uses one packet up and one down, about 0.26 KB and 10 seconds. Envelope layout: version 1 byte, KID 4 bytes, counter 4 bytes, CBOR encrypted with AES-128-GCM, 16-byte tag" width="1000" height="668"></figure>
+    <div class="two-col">
+      <div class="card top bad reveal" style="--c:var(--red)"><span class="lvl">WHY DTLS DIDN'T WORK</span>
+        <ul class="ticks">
+          <li><b>Very long handshake</b> · 4 round trips before the first useful byte: 35–140 s over satellite, while the modem answers no other command. <span class="ev">measured</span></li>
+          <li><b>Retransmission storms</b> · server and modem repeat handshake packets because satellite latency makes them look lost. <span class="ev">measured</span></li>
+          <li><b>Session can't be reused</b> · the operator NAT changes port after 70–180 s of silence, on terrestrial and satellite alike: every send needs a new handshake. The server offers Connection ID (RFC 9146), but the modem doesn't use it. <span class="ev">measured</span></li>
+          <li><b>Cost</b> · ~3.4 KB per satellite send, over half of it just to manage the session; on terrestrial 1.36 KB, of which 611 B handshake and 134 B close. <span class="ev">measured</span></li>
+          <li><b>Vendor advice</b> · SIMCom also recommends avoiding handshake-based protocols on NTN links.</li>
+        </ul>
+      </div>
+      <div class="card top reveal" style="--c:var(--lime)"><span class="lvl">HOW WE IMPROVED IT</span>
+        <ul class="ticks">
+          <li><b>AES-128-GCM on every message</b> · authenticated encryption (NIST SP 800-38D): a forged or altered SOS or cancellation is dropped. The server reply is encrypted and authenticated too.</li>
+          <li><b>Per-device key</b> · derived with HKDF-SHA256 from the key already installed at provisioning; the identity stated in the message must match the key's identity.</li>
+          <li><b>A counter that never goes back</b> · every message carries a new number, persisted in flash: recorded messages replayed by third parties are rejected, and the same key+nonce pair is never reused.</li>
+          <li><b>No session</b> · one packet up, one down, independent of the NAT: the SOS travels in the first packet, even right after power-on. Fixed cost: 25 B per message.</li>
+          <li><b>Hardware and standards</b> · hardware AES in the STM32U385 microcontroller; AES-GCM is native on Android, iOS and Java, so the same scheme works for smartphones, terrestrial and satellite.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cmp-wrap reveal"><table class="spec-table cmp">
+      <thead><tr><th>Aspect</th><td class="old"><b>DTLS (before)</b></td><td class="new"><b>AEAD envelope (now)</b></td></tr></thead>
+      <tbody>
+      <tr><th>Before an SOS can leave</th><td class="old">4-round-trip handshake, 35–140 s over satellite</td><td class="new">no wait: the SOS is in the first packet</td></tr>
+      <tr><th>Packets per send</th><td class="old">handshake + data + close, often repeated</td><td class="new">1 up, 1 down</td></tr>
+      <tr><th>Network dependency</th><td class="old">session lost when the NAT changes port</td><td class="new">none</td></tr>
+      <tr><th>Cost of security</th><td class="old">~0.75 KB of handshake and close per send (terrestrial)</td><td class="new">25 B fixed per message</td></tr>
+      <tr><th>Forged or altered messages</th><td class="old">dropped</td><td class="new">dropped: authentication tag on every message and every reply</td></tr>
+      <tr><th>Replays by third parties</th><td class="old">session anti-replay</td><td class="new">counter in every message, never reused; legitimate retransmissions get the same reply, no duplicates</td></tr>
+      </tbody></table></div>
+    <p class="spec-note">We also evaluated OSCORE (RFC 8613), the IETF standard for the same approach: the current modem can't insert the required CoAP option. The envelope uses the same primitives (AES-GCM, HKDF), so a future switch would stay confined to device and gateway. Independent Python and Java implementations produce and read the same messages; earlier firmware keeps using DTLS on port 5684. Measurements: network captures and device logs, 3–6 November 2026.</p>
+  </div>
+</section>
+<!-- PAYLOAD -->
+<section id="payload">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Payload</span>
+      <h2>Same information, 92% fewer bytes over satellite.</h2>
+      <p>Satellite traffic is billed by the byte (about €7 per MB), and on terrestrial every byte still costs energy. With three choices in firmware and platform, a 10-position send over satellite went from <b>about 3.4 KB to about 0.26 KB</b>. Coordinates arrive identical to the original values, with no rounding.</p>
+    </div>
+    <figure class="fig wide reveal"><img src="svg/payload-savings.svg" alt="Network bytes for one tracking send: over satellite with 10 positions from about 3,400 bytes with DTLS and text to about 260 bytes with AEAD envelope and CBOR, minus 92 percent; on terrestrial with 5 positions from 1,360 to 580 bytes by removing DTLS and to about 230 bytes with CBOR, minus 83 percent; data only for 10 positions from 717 bytes of text to 143 bytes of CBOR, minus 80 percent" width="1000" height="560"></figure>
+    <div class="kpis kpis4 reveal">
+      <div class="kpi"><b>−92%</b><span>bytes per satellite send (10 positions)</span></div>
+      <div class="kpi"><b>−83%</b><span>bytes per terrestrial send (5 positions)</span></div>
+      <div class="kpi"><b style="color:var(--sky)">~1 ¢/h</b><span>satellite tracking every 10 min (was ~14 ¢/h, estimated)</span></div>
+      <div class="kpi"><b style="color:var(--violet)">~650 h</b><span>of continuous satellite tracking per MB</span></div>
+    </div>
+    <div class="cards3" style="margin-top:28px">
+      <div class="card why reveal"><span class="num">01 · CBOR</span><h3>Standard binary, numeric keys</h3><p>CBOR (RFC 8949) is “binary JSON”: same concepts, a fraction of the bytes. Instead of <span class="mono">imei=…&amp;rsrp=…</span> we send one-byte keys and numbers in their shortest form.</p></div>
+      <div class="card why reveal"><span class="num">02 · DELTAS</span><h3>Only what changes</h3><p>The first position is sent in full; the following ones only as the difference from the previous one: a few bytes per point, even on the move.</p></div>
+      <div class="card why reveal"><span class="num">03 · ONE PACKET</span><h3>No session, no fragments</h3><p>A 25 B envelope instead of handshake and close. The whole send fits in a single packet under the 256 B satellite limit: all or nothing, with a single reply.</p></div>
+    </div>
+    <div class="two-col">
+      <div class="reveal"><pre class="cbor" aria-label="Example send in CBOR, diagnostic notation"><span class="c">// one send with 2 positions (example, CBOR diagnostic notation)</span>
+{ <span class="k">1</span>: 1,                                <span class="c">// network: satellite</span>
+  <span class="k">2</span>: 4412,                             <span class="c">// battery, mV</span>
+  <span class="k">3</span>: [901, "98", 2404024, 4024, 256],   <span class="c">// Skylo cell</span>
+  <span class="k">4</span>: [-122, -10, -111, 19],            <span class="c">// RSRP, RSRQ, RSSI, SNR</span>
+  <span class="k">5</span>: true,                             <span class="c">// asks for SOS status</span>
+  <span class="k">12</span>: [68569, 42176817, 12240350, 36, 0, 6, 143,   <span class="c">// 1st in full</span>
+          60, -10, 1, 0, 0, 6, 140] }           <span class="c">// 2nd: deltas</span></pre></div>
+      <div class="reveal"><ul class="ticks" style="margin-top:0">
+        <li><b>10 positions in one packet</b> · as text it would take ~720 B, beyond the satellite limit: 5–10 packets and 5–10 round trips. In CBOR 121–177 B: a single one, ~10 s.</li>
+        <li><b>Less radio, more battery</b> · one transmission per send instead of many.</li>
+        <li><b>Compact SOS</b> · an event with position takes 84–89 B of CBOR, 116–121 B on the network.</li>
+        <li><b>Extensible</b> · new fields can be added without breaking anything: whoever doesn't know them ignores them.</li>
+        <li><b>Platform unchanged</b> · the gateway decrypts, decodes and rebuilds the same request as before: core, rules, dashboards and APIs don't change.</li>
+      </ul></div>
+    </div>
+    <p class="spec-note">Bytes measured with network captures (pcap) and device logs: DTLS on 3 Nov (satellite) and 5 Nov (terrestrial), AEAD envelope + CBOR on 6 Nov. Cost at an indicative satellite rate of €7/MB; how the operator counts traffic (headers, per-packet minimum) can change the absolute values, not the ratio.</p>
   </div>
 </section>
 <!-- 5. DISPOSITIVO -->
@@ -645,7 +746,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     </div>
     <table class="spec-table reveal">
       <tr><th>Connectivity</th><td>Terrestrial NB-IoT + satellite NB-NTN (3GPP Rel-17, GEO, S-band) · SIMCom SIM7070G HP-S module</td></tr>
-      <tr><th>Protocol</th><td>CoAP over DTLS / UDP 5684 · JSON payload (CBOR in phase 2) · Confirmable messages with ACK · ACK_TIMEOUT 2 s, max 4 retransmissions</td></tr>
+      <tr><th>Protocol</th><td>CoAP over UDP · CBOR payload (RFC 8949) in an AES-128-GCM envelope · Confirmable messages with ACK · retransmission 4/8/16/32 s on terrestrial, 25 s and 50 s over satellite · DTLS / UDP 5684 for earlier firmware</td></tr>
       <tr><th>GNSS</th><td>Quectel L86 · multi-constellation · built-in patch antenna</td></tr>
       <tr><th>Sensors</th><td>Inertial sensor (accelerometer / IMU) for falls and impacts</td></tr>
       <tr><th>Interface</th><td>Colour TFT display · physical buttons (SOS / function)</td></tr>
@@ -654,7 +755,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <tr><th>Power</th><td>USB-C (power and charging) · battery <span class="tbc">[TBC]</span></td></tr>
       <tr><th>Battery life</th><td><span class="tbc">[TBC]</span></td></tr>
       <tr><th>Ingress protection</th><td><span class="tbc">[TBC]</span></td></tr>
-      <tr><th>Edge</th><td>Eclipse Californium + Scandium · anti-DDoS · rate limiting · load balancer · CoAP DTLS Gateway (PSK / X.509)</td></tr>
+      <tr><th>Edge</th><td>Eclipse Californium + Scandium · anti-DDoS · rate limiting · load balancer · CoAP Gateway: AES-128-GCM AEAD envelope and DTLS (PSK / X.509) for earlier firmware</td></tr>
       <tr><th>Core</th><td>ThingsBoard CE + PostgreSQL · rule engine · dashboards · multitenant</td></tr>
       <tr><th>Integration</th><td>NBI with REST API · HTTP REST / MQTT · LTE/NR smartphone App</td></tr>
     </table>
@@ -697,7 +798,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
         <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 16.5 12 21 12 21z"/><path d="M8 12h2l1.2-2 1.6 4 1.2-2h2"/></svg></span><span>EU-LS<small>European Life Saver</small></span></a>
         <p class="tagline">EU-LS · European Life Saver by Digital Bear: the European Life-Saving Platform, B2B2C, terrestrial and satellite.</p>
       </div>
-      <div><h4>Product</h4><ul><li><a href="#come-funziona">How it works</a></li><li><a href="#satellite">NB-NTN</a></li><li><a href="#architettura">Platform</a></li><li><a href="#coap">CoAP Gateway</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#specifiche">Specs</a></li></ul></div>
+      <div><h4>Product</h4><ul><li><a href="#come-funziona">How it works</a></li><li><a href="#satellite">NB-NTN</a></li><li><a href="#architettura">Platform</a></li><li><a href="#coap">CoAP Gateway</a></li><li><a href="#sicurezza">Security</a></li><li><a href="#payload">Payload</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#specifiche">Specs</a></li></ul></div>
       <div><h4>Use cases</h4><ul><li><a href="#use-case">Smart Bike</a></li><li><a href="#use-case">Smart Ski</a></li><li><a href="#use-case">Upcoming use cases</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="#top">Digital Bear</a></li><li><a href="#b2b2c">B2B2C model</a></li><li><a href="#contatti">Become a partner</a></li></ul></div>
       <div><h4>Contact</h4><ul><li>Alessandro Cingolani</li><li><a href="tel:+393357503359">+39 335 750 3359</a></li><li><a href="mailto:a.cingolani.db@outlook.it">a.cingolani.db@outlook.it</a></li><li><a href="https://www.linkedin.com/in/alessandro-cingolani-580a8a26/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#contatti">Request a demo</a></li></ul></div>

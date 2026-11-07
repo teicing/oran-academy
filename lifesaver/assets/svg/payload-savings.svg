@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-labelledby="t"><title id="t">UN INVIO DI TRACKING · BYTE IN RETE (SU + GIÙ)</title>
+<rect width="1000" height="560" rx="18" fill="#111A2B"/>
+<text x="28" y="38" font-family="JetBrains Mono,ui-monospace,monospace" font-size="13" font-weight="600" fill="#8EA0B8" text-anchor="start" letter-spacing="1.5">UN INVIO DI TRACKING · BYTE IN RETE (SU + GIÙ)</text>
+<text x="28" y="72" font-family="JetBrains Mono,ui-monospace,monospace" font-size="11.5" font-weight="600" fill="#B57BFF" text-anchor="start" letter-spacing="1.2">SATELLITE · 10 POSIZIONI</text>
+<text x="28" y="101" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >DTLS + testo</text>
+<text x="28" y="117" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 03/11</text>
+<rect x="250" y="84" width="640.0" height="28" rx="6" fill="#FF4D4D" fill-opacity=".22" stroke="#FF4D4D" stroke-opacity=".8"/>
+<text x="900.0" y="103" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#FF4D4D" text-anchor="start" >~3.400 B</text>
+<text x="28" y="145" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >busta AEAD + CBOR</text>
+<text x="28" y="161" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 06/11</text>
+<rect x="250" y="128" width="48.9" height="28" rx="6" fill="#B8F04A" fill-opacity=".22" stroke="#B8F04A" stroke-opacity=".8"/>
+<text x="308.94117647058823" y="147" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >~260 B</text>
+<text x="370.1411764705882" y="147" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >−92%</text>
+<line x1="28" y1="198" x2="972" y2="198" stroke="#22314A"/>
+<text x="28" y="218" font-family="JetBrains Mono,ui-monospace,monospace" font-size="11.5" font-weight="600" fill="#4CC3FF" text-anchor="start" letter-spacing="1.2">TERRESTRE · 5 POSIZIONI</text>
+<text x="28" y="247" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >DTLS + testo</text>
+<text x="28" y="263" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 05/11</text>
+<rect x="250" y="230" width="256.0" height="28" rx="6" fill="#FF4D4D" fill-opacity=".22" stroke="#FF4D4D" stroke-opacity=".8"/>
+<text x="516.0" y="249" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#FF4D4D" text-anchor="start" >1.360 B</text>
+<text x="28" y="291" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >busta AEAD + testo</text>
+<text x="28" y="307" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 06/11</text>
+<rect x="250" y="274" width="109.2" height="28" rx="6" fill="#FFC247" fill-opacity=".22" stroke="#FFC247" stroke-opacity=".8"/>
+<text x="369.1764705882353" y="293" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#FFC247" text-anchor="start" >580 B</text>
+<text x="422.1764705882353" y="293" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >−57%</text>
+<text x="28" y="335" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >busta AEAD + CBOR</text>
+<text x="28" y="351" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 06/11</text>
+<rect x="250" y="318" width="43.3" height="28" rx="6" fill="#B8F04A" fill-opacity=".22" stroke="#B8F04A" stroke-opacity=".8"/>
+<text x="303.29411764705884" y="337" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >~230 B</text>
+<text x="364.49411764705883" y="337" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >−83%</text>
+<line x1="28" y1="388" x2="972" y2="388" stroke="#22314A"/>
+<text x="28" y="408" font-family="JetBrains Mono,ui-monospace,monospace" font-size="11.5" font-weight="600" fill="#FFC247" text-anchor="start" letter-spacing="1.2">SOLO I DATI · 10 POSIZIONI</text>
+<text x="28" y="437" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >testo chiave=valore</text>
+<text x="28" y="453" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 06/11</text>
+<rect x="250" y="420" width="135.0" height="28" rx="6" fill="#FF4D4D" fill-opacity=".22" stroke="#FF4D4D" stroke-opacity=".8"/>
+<text x="394.964705882353" y="439" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#FF4D4D" text-anchor="start" >717 B</text>
+<text x="28" y="481" font-family="Inter,system-ui,sans-serif" font-size="13" font-weight="600" fill="#E6EDF7" text-anchor="start" >CBOR + differenze</text>
+<text x="28" y="497" font-family="JetBrains Mono,ui-monospace,monospace" font-size="10.5" font-weight="400" fill="#8EA0B8" text-anchor="start" >misurato 06/11</text>
+<rect x="250" y="464" width="26.9" height="28" rx="6" fill="#B8F04A" fill-opacity=".22" stroke="#B8F04A" stroke-opacity=".8"/>
+<text x="286.91764705882355" y="483" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >143 B</text>
+<text x="339.91764705882355" y="483" font-family="Space Grotesk,Inter,sans-serif" font-size="14" font-weight="700" fill="#B8F04A" text-anchor="start" >−80%</text>
+<text x="28" y="540" font-family="Inter,system-ui,sans-serif" font-size="11" font-weight="400" fill="#8EA0B8" text-anchor="start" font-style="italic">Larghezze proporzionali ai byte. Catture di rete (pcap) e log del dispositivo, ottobre-novembre 2026.</text>
+</svg>

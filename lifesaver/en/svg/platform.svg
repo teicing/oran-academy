@@ -87,10 +87,10 @@
 <!-- ===== UDP 5684 stack ===== -->
 <g class="pl-m" text-anchor="middle">
   <rect x="391" y="206" width="52" height="18" rx="4" class="pl-in"/><text x="417" y="219">CoAP</text>
-  <rect x="391" y="227" width="52" height="18" rx="4" class="pl-in"/><text x="417" y="240">DTLS</text>
+  <rect x="391" y="227" width="52" height="18" rx="4" class="pl-in"/><text x="417" y="240">AEAD</text>
   <rect x="391" y="248" width="52" height="18" rx="4" class="pl-in"/><text x="417" y="261">UDP</text>
-  <text x="417" y="288" style="fill:#B8F04A;font-weight:700">UDP 5684</text>
-  <rect x="391" y="310" width="52" height="18" rx="4" class="pl-in" style="stroke:#B8F04A;stroke-opacity:.5"/><text x="417" y="323" style="fill:#B8F04A">JSON</text>
+  <text x="417" y="288" style="fill:#B8F04A;font-weight:700">UDP</text>
+  <rect x="391" y="310" width="52" height="18" rx="4" class="pl-in" style="stroke:#B8F04A;stroke-opacity:.5"/><text x="417" y="323" style="fill:#B8F04A">CBOR</text>
 </g>
 <line x1="388" y1="300" x2="446" y2="300" stroke="#B8F04A" stroke-width="2.5" marker-end="url(#pl-arr)"/>
 
@@ -107,7 +107,7 @@
   <rect x="550" y="190" width="34" height="220" rx="8" fill="#0B1220" stroke="#4CC3FF" stroke-opacity=".7"/>
   <text transform="translate(572 300) rotate(-90)" class="pl-v" text-anchor="middle">Load Balancer</text>
   <rect x="652" y="190" width="40" height="220" rx="8" fill="#0B1220" stroke="#B8F04A" stroke-width="1.5"/>
-  <text transform="translate(677 300) rotate(-90)" class="pl-v" text-anchor="middle" style="fill:#B8F04A">CoAP DTLS Gateway</text>
+  <text transform="translate(677 300) rotate(-90)" class="pl-v" text-anchor="middle" style="fill:#B8F04A">CoAP Gateway</text>
 </g>
 <path d="M496 300 H504 M540 300 H548" stroke="#B8F04A" stroke-width="2"/>
 <!-- LB → 2 instances -->
@@ -119,9 +119,9 @@
 <!-- edge features -->
 <line x1="466" y1="428" x2="690" y2="428" stroke="#22314A"/>
 <g class="pl-s">
-  <circle cx="470" cy="446" r="2.5" fill="#B8F04A"/><text x="480" y="450">DTLS termination (PSK / X.509)</text>
-  <circle cx="470" cy="461" r="2.5" fill="#B8F04A"/><text x="480" y="465">Anti-replay / session cache</text>
-  <circle cx="470" cy="476" r="2.5" fill="#B8F04A"/><text x="480" y="480">Payload validation JSON / CBOR</text>
+  <circle cx="470" cy="446" r="2.5" fill="#B8F04A"/><text x="480" y="450">AES-128-GCM · DTLS legacy</text>
+  <circle cx="470" cy="461" r="2.5" fill="#B8F04A"/><text x="480" y="465">Anti-replay (counter)</text>
+  <circle cx="470" cy="476" r="2.5" fill="#B8F04A"/><text x="480" y="480">CBOR decode + validation</text>
   <circle cx="470" cy="491" r="2.5" fill="#B8F04A"/><text x="480" y="495">Device identity mapping</text>
   <circle cx="470" cy="506" r="2.5" fill="#B8F04A"/><text x="480" y="510">Rate limiting per device</text>
   <circle cx="470" cy="521" r="2.5" fill="#B8F04A"/><text x="480" y="525">Stateless, horizontal N+1 scaling</text>

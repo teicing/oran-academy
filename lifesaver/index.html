@@ -305,6 +305,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 .kpis4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:900px){.kpis4{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.kpis4{grid-template-columns:1fr}}
+.device-grid.v2{grid-template-columns:1fr}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:640px){.photo-pair{grid-template-columns:1fr}}
+.photo-pair .photo{max-width:none;margin:0}
+.photo .tag.ntn{background:var(--violet)}
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -454,7 +459,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <p>Una piattaforma multitenant già funzionante, costruita su componenti open source solidi e pensata per milioni di messaggi piccoli: dal pacchetto UDP all'API del partner.</p>
     </div>
     <div class="arch-figure reveal">
-      <img src="assets/svg/platform.svg" alt="Architettura della piattaforma: accesso terrestre e satellitare, rete MNO + SMO, edge Eclipse Californium e Scandium con anti-DDoS, rate limit, load balancer e CoAP gateway (busta AES-GCM, DTLS per i firmware precedenti), core ThingsBoard CE con PostgreSQL, NBI con REST API verso i tenant" width="1200" height="620">
+      <img src="assets/svg/platform.svg?v=20261107" alt="Architettura della piattaforma: accesso terrestre e satellitare, rete MNO + SMO, edge Eclipse Californium e Scandium con anti-DDoS, rate limit, load balancer e CoAP gateway (busta AES-GCM, DTLS per i firmware precedenti), core ThingsBoard CE con PostgreSQL, NBI con REST API verso i tenant" width="1200" height="620">
     </div>
     <p class="scroll-hint">← scorri il diagramma →</p>
     <div class="layers">
@@ -488,7 +493,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     </div>
     <div class="coap-grid">
             <div class="reveal">
-        <figure class="fig"><img src="assets/svg/coap-ack.svg" alt="Sequenza CoAP: messaggio Confirmable dal device, inoltro alla piattaforma, ACK 2.04 Changed; in caso di perdita, ritrasmissione con backoff esponenziale e deduplica tramite Message-ID" width="1000" height="540"></figure>
+        <figure class="fig"><img src="assets/svg/coap-ack.svg?v=20261107" alt="Sequenza CoAP: messaggio Confirmable dal device, inoltro alla piattaforma, ACK 2.04 Changed; in caso di perdita, ritrasmissione con backoff esponenziale e deduplica tramite Message-ID" width="1000" height="540"></figure>
         <ul class="ticks">
           <li><b>Messaggi Confirmable (CON)</b> · ogni evento critico attende l'ACK con l'esito applicativo (es. 2.04 Changed).</li>
           <li><b>Ritrasmissione con tempi adatti alla rete</b> · il firmware costruisce il messaggio CoAP e ne controlla i tempi: 4, 8, 16, 32 s in terrestre; 25 s e poi 50 s via satellite, dove una risposta arriva in ~10 s.</li>
@@ -507,7 +512,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Sicurezza dentro ogni messaggio, anche via satellite.</h2>
       <p>I primi prototipi cifravano il canale con <b>DTLS</b>. Sul satellite quel canale è risultato il punto debole: lento ad aprirsi, impossibile da tenere aperto, costoso. Lo abbiamo sostituito con una <b>busta cifrata e autenticata dentro ogni singolo messaggio</b>: stessa chiave per dispositivo, nessuna sessione, nessun SOS in attesa di un handshake.</p>
     </div>
-    <figure class="fig wide reveal"><img src="assets/svg/security-aead.svg" alt="Confronto: con DTLS servono 4 andate e ritorno di handshake via satellite (35-140 secondi, modem bloccato) e la sessione si perde quando il NAT cambia porta dopo 70-180 secondi, circa 3,4 KB per invio; con la busta AEAD un pacchetto su e uno giù, circa 0,26 KB e 10 secondi. Struttura della busta: versione 1 byte, KID 4 byte, contatore 4 byte, CBOR cifrato con AES-128-GCM, tag di 16 byte" width="1000" height="668"></figure>
+    <figure class="fig wide reveal"><img src="assets/svg/security-aead.svg?v=20261107" alt="Confronto: con DTLS servono 4 andate e ritorno di handshake via satellite (35-140 secondi, modem bloccato) e la sessione si perde quando il NAT cambia porta dopo 70-180 secondi, circa 3,4 KB per invio; con la busta AEAD un pacchetto su e uno giù, circa 0,26 KB e 10 secondi. Struttura della busta: versione 1 byte, KID 4 byte, contatore 4 byte, CBOR cifrato con AES-128-GCM, tag di 16 byte" width="1000" height="712"></figure>
     <div class="two-col">
       <div class="card top bad reveal" style="--c:var(--red)"><span class="lvl">PERCHÉ IL DTLS NON ANDAVA BENE</span>
         <ul class="ticks">
@@ -549,7 +554,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Stessa informazione, −92% di byte via satellite.</h2>
       <p>Il traffico satellitare si paga a byte (circa 7 € al MB) e anche in terrestre ogni byte costa energia. Con tre scelte nel firmware e nella piattaforma un invio di 10 posizioni via satellite è passato da <b>circa 3,4 KB a circa 0,26 KB</b>. Le coordinate arrivano identiche al valore originale, senza arrotondamenti.</p>
     </div>
-    <figure class="fig wide reveal"><img src="assets/svg/payload-savings.svg" alt="Byte in rete per un invio di tracking: via satellite con 10 posizioni da circa 3.400 byte con DTLS e testo a circa 260 byte con busta AEAD e CBOR, meno 92 per cento; in terrestre con 5 posizioni da 1.360 a 580 byte togliendo il DTLS e a circa 230 byte con il CBOR, meno 83 per cento; solo i dati di 10 posizioni da 717 byte di testo a 143 byte di CBOR, meno 80 per cento" width="1000" height="560"></figure>
+    <figure class="fig wide reveal"><img src="assets/svg/payload-savings.svg?v=20261107" alt="Byte in rete per un invio di tracking: via satellite con 10 posizioni da circa 3.400 byte con DTLS e testo a circa 260 byte con busta AEAD e CBOR, meno 92 per cento; in terrestre con 5 posizioni da 1.360 a 580 byte togliendo il DTLS e a circa 230 byte con il CBOR, meno 83 per cento; solo i dati di 10 posizioni da 717 byte di testo a 143 byte di CBOR, meno 80 per cento" width="1000" height="560"></figure>
     <div class="kpis kpis4 reveal">
       <div class="kpi"><b>−92%</b><span>byte per invio via satellite (10 posizioni)</span></div>
       <div class="kpi"><b>−83%</b><span>byte per invio in terrestre (5 posizioni)</span></div>
@@ -589,12 +594,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Hardware vero, già sul banco di prova.</h2>
       <p>Questo è il prototipo funzionante di EU-LS. Ogni componente ha un compito preciso.</p>
     </div>
-    <div class="device-grid">
-      <figure class="photo reveal" style="margin:0 auto">
-        <span class="tag">PROTOTIPO REALE</span>
-        <img src="assets/device-prototype.jpg" alt="Foto del prototipo EU-LS: scheda con modulo SIMCom SIM7070G HP-S (NB-IoT + NB-NTN), GNSS Quectel L86, display TFT con stato LTE NB-IoT, pulsanti e slot microSD" width="844" height="900">
-        <figcaption><b>Prototipo EU-LS, configurazione Smart Bike.</b> Immagine reale, non un rendering.</figcaption>
+    <div class="device-grid v2">
+      <div class="photo-pair">
+      <figure class="photo reveal">
+        <span class="tag">TERRESTRE · NB-IoT</span>
+        <img src="assets/device-prototype.jpg" alt="Foto del prototipo EU-LS collegato in NB-IoT terrestre: scheda con modulo SIMCom SIM7070G HP-S, GNSS Quectel L86, display TFT con stato LTE NB-IoT" width="844" height="900">
+        <figcaption><b>Collegato in NB-IoT terrestre.</b> Il display mostra LTE NB-IoT. Configurazione Smart Bike, immagine reale.</figcaption>
       </figure>
+      <figure class="photo reveal">
+        <span class="tag ntn">SATELLITE · NB-NTN</span>
+        <img src="assets/device-ntn.jpg" alt="Foto del prototipo EU-LS collegato via satellite: il display mostra LTE NB-NTN, icona del satellite con quattro tacche, RSRP -120 dBm" width="844" height="892">
+        <figcaption><b>Collegato via satellite NB-NTN (Skylo).</b> Il display mostra LTE NB-NTN e l'icona del satellite con le tacche del segnale. Immagine reale.</figcaption>
+      </figure>
+      </div>
       <div class="callouts">
         <div class="callout reveal"><span class="n">01</span><div><h3>SIMCom SIM7070G HP-S</h3><p>NB-IoT terrestre e NB-NTN satellitare nello stesso modulo.</p></div></div>
         <div class="callout reveal"><span class="n">02</span><div><h3>GNSS Quectel L86</h3><p>Antenna integrata e più costellazioni per una posizione affidabile.</p></div></div>

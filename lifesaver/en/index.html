@@ -306,6 +306,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
 .kpis4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:900px){.kpis4{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.kpis4{grid-template-columns:1fr}}
+.device-grid.v2{grid-template-columns:1fr}
+.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:640px){.photo-pair{grid-template-columns:1fr}}
+.photo-pair .photo{max-width:none;margin:0}
+.photo .tag.ntn{background:var(--violet)}
 /* reveal */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -460,7 +465,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <p>A multitenant platform that already works, built on solid open-source components and designed for millions of small messages, from the UDP packet to the partner's API.</p>
     </div>
     <div class="arch-figure reveal">
-      <img src="svg/platform.svg" alt="Platform architecture: terrestrial and satellite access, MNO + SMO network, Eclipse Californium and Scandium edge with anti-DDoS, rate limiting, load balancer and CoAP gateway (AES-GCM envelope, DTLS for earlier firmware), ThingsBoard CE core with PostgreSQL, NBI with REST API to the tenants" width="1200" height="620">
+      <img src="svg/platform.svg?v=20261107" alt="Platform architecture: terrestrial and satellite access, MNO + SMO network, Eclipse Californium and Scandium edge with anti-DDoS, rate limiting, load balancer and CoAP gateway (AES-GCM envelope, DTLS for earlier firmware), ThingsBoard CE core with PostgreSQL, NBI with REST API to the tenants" width="1200" height="620">
     </div>
     <p class="scroll-hint">← scroll the diagram →</p>
     <div class="layers">
@@ -494,7 +499,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
     </div>
     <div class="coap-grid">
             <div class="reveal">
-        <figure class="fig"><img src="svg/coap-ack.svg" alt="CoAP sequence: Confirmable message from the device, forwarded to the platform, ACK 2.04 Changed; if lost, retransmission with exponential backoff and deduplication via Message-ID" width="1000" height="540"></figure>
+        <figure class="fig"><img src="svg/coap-ack.svg?v=20261107" alt="CoAP sequence: Confirmable message from the device, forwarded to the platform, ACK 2.04 Changed; if lost, retransmission with exponential backoff and deduplication via Message-ID" width="1000" height="540"></figure>
         <ul class="ticks">
           <li><b>Confirmable messages (CON)</b> · every critical event waits for an ACK carrying the application result (e.g. 2.04 Changed).</li>
           <li><b>Retransmission timed for the network</b> · the firmware builds the CoAP message and controls its timers: 4, 8, 16, 32 s on terrestrial; 25 s then 50 s over satellite, where a reply arrives in ~10 s.</li>
@@ -513,7 +518,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Security inside every message, even over satellite.</h2>
       <p>The first prototypes encrypted the channel with <b>DTLS</b>. Over satellite, that channel turned out to be the weak spot: slow to open, impossible to keep open, expensive. We replaced it with an <b>encrypted, authenticated envelope inside every single message</b>: same per-device key, no session, no SOS waiting for a handshake.</p>
     </div>
-    <figure class="fig wide reveal"><img src="svg/security-aead.svg" alt="Comparison: DTLS needs 4 handshake round trips over satellite (35-140 seconds, modem blocked) and the session is lost when the NAT changes port after 70-180 seconds, about 3.4 KB per send; the AEAD envelope uses one packet up and one down, about 0.26 KB and 10 seconds. Envelope layout: version 1 byte, KID 4 bytes, counter 4 bytes, CBOR encrypted with AES-128-GCM, 16-byte tag" width="1000" height="668"></figure>
+    <figure class="fig wide reveal"><img src="svg/security-aead.svg?v=20261107" alt="Comparison: DTLS needs 4 handshake round trips over satellite (35-140 seconds, modem blocked) and the session is lost when the NAT changes port after 70-180 seconds, about 3.4 KB per send; the AEAD envelope uses one packet up and one down, about 0.26 KB and 10 seconds. Envelope layout: version 1 byte, KID 4 bytes, counter 4 bytes, CBOR encrypted with AES-128-GCM, 16-byte tag" width="1000" height="712"></figure>
     <div class="two-col">
       <div class="card top bad reveal" style="--c:var(--red)"><span class="lvl">WHY DTLS DIDN'T WORK</span>
         <ul class="ticks">
@@ -555,7 +560,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Same information, 92% fewer bytes over satellite.</h2>
       <p>Satellite traffic is billed by the byte (about €7 per MB), and on terrestrial every byte still costs energy. With three choices in firmware and platform, a 10-position send over satellite went from <b>about 3.4 KB to about 0.26 KB</b>. Coordinates arrive identical to the original values, with no rounding.</p>
     </div>
-    <figure class="fig wide reveal"><img src="svg/payload-savings.svg" alt="Network bytes for one tracking send: over satellite with 10 positions from about 3,400 bytes with DTLS and text to about 260 bytes with AEAD envelope and CBOR, minus 92 percent; on terrestrial with 5 positions from 1,360 to 580 bytes by removing DTLS and to about 230 bytes with CBOR, minus 83 percent; data only for 10 positions from 717 bytes of text to 143 bytes of CBOR, minus 80 percent" width="1000" height="560"></figure>
+    <figure class="fig wide reveal"><img src="svg/payload-savings.svg?v=20261107" alt="Network bytes for one tracking send: over satellite with 10 positions from about 3,400 bytes with DTLS and text to about 260 bytes with AEAD envelope and CBOR, minus 92 percent; on terrestrial with 5 positions from 1,360 to 580 bytes by removing DTLS and to about 230 bytes with CBOR, minus 83 percent; data only for 10 positions from 717 bytes of text to 143 bytes of CBOR, minus 80 percent" width="1000" height="560"></figure>
     <div class="kpis kpis4 reveal">
       <div class="kpi"><b>−92%</b><span>bytes per satellite send (10 positions)</span></div>
       <div class="kpi"><b>−83%</b><span>bytes per terrestrial send (5 positions)</span></div>
@@ -595,12 +600,19 @@ footer{border-top:1px solid var(--line);padding:56px 0 32px;color:var(--muted);f
       <h2>Real hardware, already on the test bench.</h2>
       <p>This is the working EU-LS prototype. Every component has a specific job.</p>
     </div>
-    <div class="device-grid">
-      <figure class="photo reveal" style="margin:0 auto">
-        <span class="tag">REAL PROTOTYPE</span>
-        <img src="../assets/device-prototype.jpg" alt="Photo of the EU-LS prototype: board with SIMCom SIM7070G HP-S module (NB-IoT + NB-NTN), Quectel L86 GNSS, TFT display showing LTE NB-IoT status, buttons and microSD slot" width="844" height="900">
-        <figcaption><b>EU-LS prototype, Smart Bike configuration.</b> A real photo, not a render.</figcaption>
+    <div class="device-grid v2">
+      <div class="photo-pair">
+      <figure class="photo reveal">
+        <span class="tag">TERRESTRIAL · NB-IoT</span>
+        <img src="../assets/device-prototype.jpg" alt="Photo of the EU-LS prototype connected over terrestrial NB-IoT: board with SIMCom SIM7070G HP-S module, Quectel L86 GNSS, TFT display showing LTE NB-IoT status" width="844" height="900">
+        <figcaption><b>Connected over terrestrial NB-IoT.</b> The display shows LTE NB-IoT. Smart Bike configuration, real photo.</figcaption>
       </figure>
+      <figure class="photo reveal">
+        <span class="tag ntn">SATELLITE · NB-NTN</span>
+        <img src="../assets/device-ntn.jpg" alt="Photo of the EU-LS prototype connected via satellite: the display shows LTE NB-NTN, satellite icon with four bars, RSRP -120 dBm" width="844" height="892">
+        <figcaption><b>Connected via NB-NTN satellite (Skylo).</b> The display shows LTE NB-NTN and the satellite icon with signal bars. Real photo.</figcaption>
+      </figure>
+      </div>
       <div class="callouts">
         <div class="callout reveal"><span class="n">01</span><div><h3>SIMCom SIM7070G HP-S</h3><p>Terrestrial NB-IoT and satellite NB-NTN in a single module.</p></div></div>
         <div class="callout reveal"><span class="n">02</span><div><h3>Quectel L86 GNSS</h3><p>Built-in antenna and multiple constellations for a reliable position.</p></div></div>
